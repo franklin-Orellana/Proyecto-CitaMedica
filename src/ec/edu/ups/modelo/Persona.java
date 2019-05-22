@@ -2,7 +2,7 @@ package ec.edu.ups.modelo;
 
 import java.util.Objects;
 
-public class Persona {
+public class Persona  {
 
     private int codigo;
     private String cedula;

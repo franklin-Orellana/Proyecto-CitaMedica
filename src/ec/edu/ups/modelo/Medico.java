@@ -2,7 +2,7 @@ package ec.edu.ups.modelo;
 
 import java.util.Date;
 
-public class Medico {
+public class Medico extends Persona {
 private String especialidad;
 private String laboratoio;
 private Date fecha;
@@ -15,6 +15,14 @@ private Date fecha;
         this.laboratoio = laboratoio;
         this.fecha = fecha;
     }
+
+    public Medico(String especialidad, String laboratoio, Date fecha, int codigo, String cedula, String nombre, String telefono, String direccion) {
+        super(codigo, cedula, nombre, telefono, direccion);
+        this.especialidad = especialidad;
+        this.laboratoio = laboratoio;
+        this.fecha = fecha;
+    }
+    
 
     public String getEspecialidad() {
         return especialidad;
