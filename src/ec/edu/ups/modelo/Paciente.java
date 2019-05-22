@@ -1,14 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ec.edu.ups.modelo;
 
-/**
- *
- * @author Fernanda
- */
 public class Paciente {
-    
+
+private String sintomas;
+
+    public Paciente() {
+    }
+
+    public Paciente(String sintomas) {
+        this.sintomas = sintomas;
+    }
+
+    public String getSintomas() {
+        return sintomas;
+    }
+
+    public void setSintomas(String sintomas) {
+        this.sintomas = sintomas;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" + "sintomas=" + sintomas + '}';
+    }
+
 }
