@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author tians
+ * @author José Quinde
  */
 public class CitaMedica {
     private int numeroCita;
