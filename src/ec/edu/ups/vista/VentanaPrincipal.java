@@ -4,18 +4,21 @@
  * and open the template in the editor.
  */
 package ec.edu.ups.vista;
-
+import ec.edu.ups.vista.medico.VentanaCrearPaciente;
+import ec.edu.ups.controladores.ControladorPaciente;
 /**
  *
  * @author Fernanda
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
+private VentanaCrearPaciente ventanaCrearPaciente;
+private ControladorPaciente controladorPaciente;
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        controladorPaciente = new ControladorPaciente();
     }
 
     /**
@@ -52,6 +55,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("CREAR");
+        openMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openMenuItemActionPerformed(evt);
+            }
+        });
         fileMenu.add(openMenuItem);
 
         saveMenuItem.setMnemonic('s');
@@ -161,6 +169,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cutMenuItemActionPerformed
+
+    private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
+        // TODO add your handling code here:
+        ventanaCrearPaciente = new VentanaCrearPaciente(controladorPaciente);
+        ventanaCrearPaciente.setVisible(true);
+        desktopPane.add(ventanaCrearPaciente);
+    }//GEN-LAST:event_openMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
