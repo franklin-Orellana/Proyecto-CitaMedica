@@ -40,6 +40,10 @@ public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
         txtnombre = new javax.swing.JTextField();
         txtdireccion = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
+        btnguardar = new javax.swing.JButton();
+        btncancelar = new javax.swing.JButton();
+        lblguardar = new javax.swing.JLabel();
+        lblcancelar = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -94,6 +98,22 @@ public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
+        btnguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/guardar.png"))); // NOI18N
+        btnguardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        btncancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/cancelar.png"))); // NOI18N
+        btncancelar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        lblguardar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblguardar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblguardar.setText("GUARDAR");
+        lblguardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblcancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblcancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblcancelar.setText("CANCELAR");
+        lblcancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -120,7 +140,16 @@ public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lbltelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblguardar, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                            .addComponent(btnguardar, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
+                        .addGap(74, 74, 74)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btncancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                            .addComponent(lblcancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -146,7 +175,15 @@ public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbltelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblguardar, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                    .addComponent(lblcancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -194,13 +231,17 @@ public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btncancelar;
+    private javax.swing.JButton btnguardar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblMenuCrearP;
+    private javax.swing.JLabel lblcancelar;
     private javax.swing.JLabel lblcedula;
     private javax.swing.JLabel lblcodigo;
     private javax.swing.JLabel lbldireccion;
+    private javax.swing.JLabel lblguardar;
     private javax.swing.JLabel lblnombre;
     private javax.swing.JLabel lbltelefono;
     private javax.swing.JTextField txtcedula;
