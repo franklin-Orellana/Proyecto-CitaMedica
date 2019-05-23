@@ -44,7 +44,9 @@ public class CitaMedicaDetallada {
     public void setReceta(Receta receta) {
         this.receta = receta;
     }
-
+    /*
+    devuelve el toString
+    */
     @Override
     public String toString() {
         return "CitaMedicaDetallada{" + "diagnostico=" + diagnostico + ", receta=" + receta + '}';

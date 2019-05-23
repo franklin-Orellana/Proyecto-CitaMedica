@@ -6,28 +6,38 @@
 package ec.edu.ups.modelo;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  *
  * @author José Quinde
  */
 public class CitaMedica {
+    //Declaracion variable
     private int numeroCita;
     private Date fechaCita;
     private double precio;
     private Paciente paciente;
     private Medico medico;
-
+    private Set <CitaMedicaDetallada> listaDetallada;
+    /*
+    Constructor vacio
+    */
     public CitaMedica() {
     }
 
-    public CitaMedica(int numeroCita, Date fechaCita, double precio, Paciente paciente, Medico medico) {
+    /*
+    Constructor con todos los datos
+     */
+    public CitaMedica(int numeroCita, Date fechaCita, double precio, Paciente paciente, Medico medico, Set<CitaMedicaDetallada> listaDetallada) {
         this.numeroCita = numeroCita;
         this.fechaCita = fechaCita;
         this.precio = precio;
         this.paciente = paciente;
         this.medico = medico;
+        this.listaDetallada = listaDetallada;
     }
+    
 
     public int getNumeroCita() {
         return numeroCita;
@@ -69,10 +79,22 @@ public class CitaMedica {
         this.medico = medico;
     }
 
+    public Set<CitaMedicaDetallada> getListaDetallada() {
+        return listaDetallada;
+    }
+
+    public void setListaDetallada(Set<CitaMedicaDetallada> listaDetallada) {
+        this.listaDetallada = listaDetallada;
+    }
+    
+    /*
+    devuelve el toString
+     */
     @Override
     public String toString() {
-        return "CitaMedica{" + "numeroCita=" + numeroCita + ", fechaCita=" + fechaCita + ", precio=" + precio + ", paciente=" + paciente + ", medico=" + medico + '}';
+        return "CitaMedica{" + "numeroCita=" + numeroCita + ", fechaCita=" + fechaCita + ", precio=" + precio + ", paciente=" + paciente + ", medico=" + medico + ", listaDetallada=" + listaDetallada + '}';
     }
+   
     
     
  
