@@ -4,20 +4,31 @@
  * and open the template in the editor.
  */
 package ec.edu.ups.vista;
-import ec.edu.ups.vista.medico.VentanaCrearPaciente;
+import ec.edu.ups.vista.medico.VentanaCrearMedico;
+import ec.edu.ups.vista.medico.VentanaBuscarMedico;
+import ec.edu.ups.vista.medico.VentanaEliminarMedico;
+import ec.edu.ups.vista.medico.VentanaActualizarMedico;
+import ec.edu.ups.vista.medico.VentanaListarMedico;
 import ec.edu.ups.controladores.ControladorPaciente;
+import ec.edu.ups.controladores.ControladorMedico;
 /**
  *
  * @author Fernanda
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-private VentanaCrearPaciente ventanaCrearPaciente;
+private VentanaCrearMedico ventanaCrearPaciente;
+private VentanaBuscarMedico ventanaBuscarMedico;
+private VentanaActualizarMedico ventanaActualizarMedico;
+private VentanaEliminarMedico ventanaEliminarMedico;
+private VentanaListarMedico ventanaListarMedico;
 private ControladorPaciente controladorPaciente;
+private ControladorMedico controladorMedico;
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        controladorMedico = new ControladorMedico();
         controladorPaciente = new ControladorPaciente();
     }
 
@@ -109,18 +120,38 @@ private ControladorPaciente controladorPaciente;
 
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("BUSCAR");
+        copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copyMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(copyMenuItem);
 
         pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("ACTUALIZAR");
+        pasteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasteMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(pasteMenuItem);
 
         deleteMenuItem.setMnemonic('d');
         deleteMenuItem.setText("LISTAR");
+        deleteMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteMenuItemActionPerformed(evt);
+            }
+        });
         editMenu.add(deleteMenuItem);
 
         deleteMenuItem1.setMnemonic('d');
         deleteMenuItem1.setText("ELIMINAR");
+        deleteMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteMenuItem1ActionPerformed(evt);
+            }
+        });
         editMenu.add(deleteMenuItem1);
 
         menuBar.add(editMenu);
@@ -168,14 +199,42 @@ private ControladorPaciente controladorPaciente;
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
+        ventanaCrearPaciente = new VentanaCrearMedico(controladorMedico);
+        ventanaCrearPaciente.setVisible(true);
+        desktopPane.add(ventanaCrearPaciente);
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
         // TODO add your handling code here:
-        ventanaCrearPaciente = new VentanaCrearPaciente(controladorPaciente);
-        ventanaCrearPaciente.setVisible(true);
-        desktopPane.add(ventanaCrearPaciente);
     }//GEN-LAST:event_openMenuItemActionPerformed
+
+    private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
+        // TODO add your handling code here:
+        ventanaBuscarMedico = new VentanaBuscarMedico(controladorMedico);
+        ventanaBuscarMedico.setVisible(true);
+        desktopPane.add(ventanaBuscarMedico);
+    }//GEN-LAST:event_copyMenuItemActionPerformed
+
+    private void pasteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteMenuItemActionPerformed
+        // TODO add your handling code here:
+        ventanaActualizarMedico = new VentanaActualizarMedico(controladorMedico);
+        ventanaActualizarMedico.setVisible(true);
+        desktopPane.add(ventanaActualizarMedico);
+    }//GEN-LAST:event_pasteMenuItemActionPerformed
+
+    private void deleteMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        ventanaEliminarMedico = new VentanaEliminarMedico(controladorMedico);
+        ventanaEliminarMedico.setVisible(true);
+        desktopPane.add(ventanaEliminarMedico);
+    }//GEN-LAST:event_deleteMenuItem1ActionPerformed
+
+    private void deleteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuItemActionPerformed
+        // TODO add your handling code here:
+        ventanaListarMedico = new VentanaListarMedico(controladorMedico);
+        ventanaListarMedico.setVisible(true);
+        desktopPane.add(ventanaListarMedico);
+    }//GEN-LAST:event_deleteMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
