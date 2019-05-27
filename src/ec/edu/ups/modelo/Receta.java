@@ -7,13 +7,15 @@ package ec.edu.ups.modelo;
 
 /**
  *
- * @author 59398
+ * @author Quezada Bryam
  */
 public class Receta {
+    //declaracion de atributos
    private Paciente paciente;
    private CitaMedica citaMedica;
    private Medicina medicina;
 
+   //creacion de constructores
    public Receta(){
        
    }
@@ -24,6 +26,7 @@ public class Receta {
         this.medicina = medicina;
     }
 
+    //creacion de getters y setters 
     public Paciente getPaciente() {
         return paciente;
     }
@@ -47,7 +50,7 @@ public class Receta {
     public void setMedicina(Medicina medicina) {
         this.medicina = medicina;
     }
-
+    //devuelve el toString
     @Override
     public String toString() {
         return "Receta{" + "paciente=" + paciente + ", citaMedica=" + citaMedica + ", medicina=" + medicina + '}';

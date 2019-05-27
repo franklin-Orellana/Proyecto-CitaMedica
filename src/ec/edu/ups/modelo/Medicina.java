@@ -7,15 +7,16 @@ package ec.edu.ups.modelo;
 
 /**
  *
- * @author 59398
+ * @author Quezada bryam
  */
 public class Medicina {
+    //declaracion de atributos
     private int codigo;
     private String nombre;
     private String marca;
     private String descripcion;
     private Double precio;
-
+    //Creacion de constructores
     public Medicina (){
         
     }
@@ -27,7 +28,7 @@ public class Medicina {
         this.descripcion = descripcion;
         this.precio = precio;
     }
-
+    //creacion de getters y setters 
     public int getCodigo() {
         return codigo;
     }
@@ -67,7 +68,7 @@ public class Medicina {
     public void setPrecio(Double precio) {
         this.precio = precio;
     }
-
+    //devuelve el toString
     @Override
     public String toString() {
         return "Medicina{" + "codigo=" + codigo + ", nombre=" + nombre + ", marca=" + marca + ", descripcion=" + descripcion + ", precio=" + precio + '}';

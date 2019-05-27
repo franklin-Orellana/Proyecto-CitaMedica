@@ -27,13 +27,13 @@ public class ControladorMedicina {
         return codigo;
     }
 
-    public void cread(Medicina objeto) {
+    public void create(Medicina objeto) {
         objeto.setCodigo(codigo);
         lista.add(objeto);
         codigo++;
     }
 
-    public Medicina read() {
+    public Medicina read(int codigo) {
         for (Medicina medicina : lista) {
             if(medicina.getCodigo() == codigo){
                 return medicina;
@@ -64,5 +64,6 @@ public class ControladorMedicina {
 
     }
 
+   
           
 }

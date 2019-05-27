@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ec.edu.ups.vista;
+import ec.edu.ups.controladores.ControladorMedicina;
 import ec.edu.ups.vista.medico.VentanaCrearMedico;
 import ec.edu.ups.vista.medico.VentanaBuscarMedico;
 import ec.edu.ups.vista.medico.VentanaEliminarMedico;
@@ -11,6 +12,12 @@ import ec.edu.ups.vista.medico.VentanaActualizarMedico;
 import ec.edu.ups.vista.medico.VentanaListarMedico;
 import ec.edu.ups.controladores.ControladorPaciente;
 import ec.edu.ups.controladores.ControladorMedico;
+import ec.edu.ups.controladores.ControladorReceta;
+import ec.edu.ups.vista.medicina.VentanaActualizarMedicina;
+import ec.edu.ups.vista.medicina.VentanaBuscarMedicina;
+import ec.edu.ups.vista.medicina.VentanaCrearMedicina;
+import ec.edu.ups.vista.medicina.VentanaEliminarMedicina;
+import ec.edu.ups.vista.medicina.VentanaListarMedicina;
 /**
  *
  * @author Fernanda
@@ -23,6 +30,15 @@ private VentanaEliminarMedico ventanaEliminarMedico;
 private VentanaListarMedico ventanaListarMedico;
 private ControladorPaciente controladorPaciente;
 private ControladorMedico controladorMedico;
+
+private VentanaCrearMedicina ventanaCrearMedicina;
+private VentanaBuscarMedicina ventanaBuscarMedicina;
+private VentanaActualizarMedicina ventanaActualizarMedicina;
+private VentanaEliminarMedicina ventanaEliminarMedicina;
+private VentanaListarMedicina ventanaListarMedicina;
+private ControladorMedicina controladorMedicina;
+private ControladorReceta controladorReceta;
+
     /**
      * Creates new form VentanaPrincipal
      */
@@ -30,6 +46,9 @@ private ControladorMedico controladorMedico;
         initComponents();
         controladorMedico = new ControladorMedico();
         controladorPaciente = new ControladorPaciente();
+        
+        controladorMedicina = new ControladorMedicina();
+        controladorReceta = new ControladorReceta();
     }
 
     /**
@@ -58,6 +77,9 @@ private ControladorMedico controladorMedico;
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
+        aboutMenuItem1 = new javax.swing.JMenuItem();
+        aboutMenuItem2 = new javax.swing.JMenuItem();
+        aboutMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,15 +179,52 @@ private ControladorMedico controladorMedico;
         menuBar.add(editMenu);
 
         helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
+        helpMenu.setText("MEDICINA");
 
         contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
+        contentMenuItem.setText("CREAR");
+        contentMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contentMenuItemActionPerformed(evt);
+            }
+        });
         helpMenu.add(contentMenuItem);
 
         aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
+        aboutMenuItem.setText("BUSCAR");
+        aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItemActionPerformed(evt);
+            }
+        });
         helpMenu.add(aboutMenuItem);
+
+        aboutMenuItem1.setMnemonic('a');
+        aboutMenuItem1.setText("ACTUALIZAR");
+        aboutMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItem1ActionPerformed(evt);
+            }
+        });
+        helpMenu.add(aboutMenuItem1);
+
+        aboutMenuItem2.setMnemonic('a');
+        aboutMenuItem2.setText("LISTA");
+        aboutMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItem2ActionPerformed(evt);
+            }
+        });
+        helpMenu.add(aboutMenuItem2);
+
+        aboutMenuItem3.setMnemonic('a');
+        aboutMenuItem3.setText("ELIMINAR");
+        aboutMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItem3ActionPerformed(evt);
+            }
+        });
+        helpMenu.add(aboutMenuItem3);
 
         menuBar.add(helpMenu);
 
@@ -236,6 +295,41 @@ private ControladorMedico controladorMedico;
         desktopPane.add(ventanaListarMedico);
     }//GEN-LAST:event_deleteMenuItemActionPerformed
 
+    private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
+        // TODO add your handling code here:
+        ventanaCrearMedicina = new VentanaCrearMedicina(controladorMedicina);
+        ventanaCrearMedicina.setVisible(true);
+        desktopPane.add(ventanaCrearMedicina);
+    }//GEN-LAST:event_contentMenuItemActionPerformed
+
+    private void aboutMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItem3ActionPerformed
+        // TODO add your handling code here:
+          ventanaEliminarMedicina = new VentanaEliminarMedicina(controladorMedicina);
+        ventanaEliminarMedicina.setVisible(true);
+        desktopPane.add(ventanaEliminarMedicina);
+    }//GEN-LAST:event_aboutMenuItem3ActionPerformed
+
+    private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
+        // TODO add your handling code here:
+        ventanaBuscarMedicina = new VentanaBuscarMedicina(controladorMedicina);
+        ventanaBuscarMedicina.setVisible(true);
+        desktopPane.add(ventanaBuscarMedicina);
+    }//GEN-LAST:event_aboutMenuItemActionPerformed
+
+    private void aboutMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItem1ActionPerformed
+        // TODO add your handling code here:
+         ventanaActualizarMedicina = new VentanaActualizarMedicina(controladorMedicina);
+        ventanaActualizarMedicina.setVisible(true);
+        desktopPane.add(ventanaActualizarMedicina);
+    }//GEN-LAST:event_aboutMenuItem1ActionPerformed
+
+    private void aboutMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        ventanaListarMedicina = new VentanaListarMedicina(controladorMedicina);
+        ventanaListarMedicina.setVisible(true);
+        desktopPane.add(ventanaListarMedicina);
+    }//GEN-LAST:event_aboutMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,6 +367,9 @@ private ControladorMedico controladorMedico;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
+    private javax.swing.JMenuItem aboutMenuItem1;
+    private javax.swing.JMenuItem aboutMenuItem2;
+    private javax.swing.JMenuItem aboutMenuItem3;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
