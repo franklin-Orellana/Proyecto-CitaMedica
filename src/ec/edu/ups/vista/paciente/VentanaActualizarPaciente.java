@@ -3,23 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.ups.vista.medico;
-import ec.edu.ups.controladores.ControladorMedico;
-import ec.edu.ups.modelo.Medico;
-import javax.swing.JOptionPane;
+package ec.edu.ups.vista.paciente;
+
 /**
  *
  * @author Fernanda
  */
-public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
+import ec.edu.ups.controladores.ControladorPaciente;
+import ec.edu.ups.modelo.Paciente;
+import javax.swing.JOptionPane;
+
+public class VentanaActualizarPaciente extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form VentanaEliminarMedico
+     * Creates new form VentanaActualizarPaciente
      */
-    private ControladorMedico controladorMedico;
-    public VentanaEliminarMedico(ControladorMedico controladorMedico) {
+    private ControladorPaciente controladorPaciente;
+    public VentanaActualizarPaciente(ControladorPaciente controladorPaciente) {
         initComponents();
-        this.controladorMedico = controladorMedico;
+        this.controladorPaciente = controladorPaciente;
     }
 
     /**
@@ -49,9 +51,7 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
         lblguardar = new javax.swing.JLabel();
         lblcancelar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txtespecialidad = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtlaboratorio = new javax.swing.JTextField();
+        txtsintomas = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         lblguardar1 = new javax.swing.JLabel();
 
@@ -63,7 +63,7 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
 
         lblMenuCrearP.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblMenuCrearP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMenuCrearP.setText("ACTUALIZAR MEDICO");
+        lblMenuCrearP.setText("ACTUALIZAR PACIENTE");
         lblMenuCrearP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -136,22 +136,13 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ESPECIALIDAD");
+        jLabel1.setText("SINTOMAS");
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        txtespecialidad.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtespecialidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtsintomas.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtsintomas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("LABORATORIO");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        txtlaboratorio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtlaboratorio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtlaboratorio.setToolTipText("");
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminar.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizar.png"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,7 +152,7 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
 
         lblguardar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblguardar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblguardar1.setText("ELIMINAR");
+        lblguardar1.setText("ACTUALIZAR");
         lblguardar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -178,9 +169,9 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
                                     .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(36, 36, 36)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                                    .addComponent(lblguardar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblguardar1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btncancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,11 +191,7 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtlaboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtsintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,11 +223,7 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtlaboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtsintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbldireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,14 +293,13 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
         // TODO add your handling code here:
         int codigo = Integer.parseInt(txtcodigo.getText());
-        Medico buscarMedico = controladorMedico.read(codigo);
+        Paciente buscarMedico = controladorPaciente.read(codigo);
         txtcedula.setText(buscarMedico.getCedula());
         txtnombre.setText(buscarMedico.getNombre());
-        txtespecialidad.setText(buscarMedico.getEspecialidad());
-        txtlaboratorio.setText(buscarMedico.getLaboratoio());
+        txtsintomas.setText(buscarMedico.getSintomas());
         txtdireccion.setText(buscarMedico.getDireccion());
         txttelefono.setText(buscarMedico.getTelefono());
-        JOptionPane.showMessageDialog(this, "MEDICO ENCONTRADO");
+        JOptionPane.showMessageDialog(this, "PACIENTE ENCONTRADO");
     }//GEN-LAST:event_btnguardarActionPerformed
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
@@ -327,14 +309,19 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int codigo = Integer.parseInt(txtcodigo.getText());
-        controladorMedico.delete(codigo);
-        JOptionPane.showMessageDialog(this, "MEDICO ELIMINADO");
+        Paciente actualizaPaciente = new Paciente();
+        //actualizaMedico.setCodigo(Integer.parseInt(txtcodigo.getText()));
+        actualizaPaciente.setCedula(txtcedula.getText());
+        actualizaPaciente.setNombre(txtnombre.getText());
+        actualizaPaciente.setSintomas(txtsintomas.getText());
+        actualizaPaciente.setDireccion(txtdireccion.getText());
+        actualizaPaciente.setTelefono(txttelefono.getText());
+        controladorPaciente.update(actualizaPaciente);
+        JOptionPane.showMessageDialog(this, "PACIENTE ACTUALIZADO");
         txtcodigo.setText("");
         txtcedula.setText("");
         txtnombre.setText("");
-        txtespecialidad.setText("");
-        txtlaboratorio.setText("");
+        txtsintomas.setText("");
         txtdireccion.setText("");
         txttelefono.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -345,7 +332,6 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnguardar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblMenuCrearP;
@@ -360,9 +346,8 @@ public class VentanaEliminarMedico extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdireccion;
-    private javax.swing.JTextField txtespecialidad;
-    private javax.swing.JTextField txtlaboratorio;
     private javax.swing.JTextField txtnombre;
+    private javax.swing.JTextField txtsintomas;
     private javax.swing.JTextField txttelefono;
     // End of variables declaration//GEN-END:variables
 }
