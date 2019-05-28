@@ -12,8 +12,8 @@ package ec.edu.ups.modelo;
  */
 public class CitaMedicaDetallada {
     //Declaracion variable
+    private int codigo;
     private String diagnostico;
-    private Receta receta;
 
     /*
     Constructor vacio
@@ -24,9 +24,17 @@ public class CitaMedicaDetallada {
     /*
     Constructor con todos los datos
      */
-    public CitaMedicaDetallada(String diagnostico, Receta receta) {
+    public CitaMedicaDetallada(int codigo, String diagnostico) {
+        this.codigo = codigo;
         this.diagnostico = diagnostico;
-        this.receta = receta;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getDiagnostico() {
@@ -37,19 +45,9 @@ public class CitaMedicaDetallada {
         this.diagnostico = diagnostico;
     }
 
-    public Receta getReceta() {
-        return receta;
-    }
-
-    public void setReceta(Receta receta) {
-        this.receta = receta;
-    }
-    /*
-    devuelve el toString
-    */
     @Override
     public String toString() {
-        return "CitaMedicaDetallada{" + "diagnostico=" + diagnostico + ", receta=" + receta + '}';
+        return "CitaMedicaDetallada{" + "codigo=" + codigo + ", diagnostico=" + diagnostico + '}';
     }
     
     
