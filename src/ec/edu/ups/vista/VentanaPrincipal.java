@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ec.edu.ups.vista;
+
 import ec.edu.ups.controladores.ControladorMedicina;
 import ec.edu.ups.vista.medico.VentanaCrearMedico;
 import ec.edu.ups.vista.medico.VentanaBuscarMedico;
@@ -18,26 +19,28 @@ import ec.edu.ups.vista.medicina.VentanaBuscarMedicina;
 import ec.edu.ups.vista.medicina.VentanaCrearMedicina;
 import ec.edu.ups.vista.medicina.VentanaEliminarMedicina;
 import ec.edu.ups.vista.medicina.VentanaListarMedicina;
+
 /**
  *
  * @author Fernanda
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-private VentanaCrearMedico ventanaCrearPaciente;
-private VentanaBuscarMedico ventanaBuscarMedico;
-private VentanaActualizarMedico ventanaActualizarMedico;
-private VentanaEliminarMedico ventanaEliminarMedico;
-private VentanaListarMedico ventanaListarMedico;
-private ControladorPaciente controladorPaciente;
-private ControladorMedico controladorMedico;
 
-private VentanaCrearMedicina ventanaCrearMedicina;
-private VentanaBuscarMedicina ventanaBuscarMedicina;
-private VentanaActualizarMedicina ventanaActualizarMedicina;
-private VentanaEliminarMedicina ventanaEliminarMedicina;
-private VentanaListarMedicina ventanaListarMedicina;
-private ControladorMedicina controladorMedicina;
-private ControladorReceta controladorReceta;
+    private VentanaCrearMedico ventanaCrearPaciente;
+    private VentanaBuscarMedico ventanaBuscarMedico;
+    private VentanaActualizarMedico ventanaActualizarMedico;
+    private VentanaEliminarMedico ventanaEliminarMedico;
+    private VentanaListarMedico ventanaListarMedico;
+    private ControladorPaciente controladorPaciente;
+    private ControladorMedico controladorMedico;
+
+    private VentanaCrearMedicina ventanaCrearMedicina;
+    private VentanaBuscarMedicina ventanaBuscarMedicina;
+    private VentanaActualizarMedicina ventanaActualizarMedicina;
+    private VentanaEliminarMedicina ventanaEliminarMedicina;
+    private VentanaListarMedicina ventanaListarMedicina;
+    private ControladorMedicina controladorMedicina;
+    private ControladorReceta controladorReceta;
 
     /**
      * Creates new form VentanaPrincipal
@@ -46,7 +49,7 @@ private ControladorReceta controladorReceta;
         initComponents();
         controladorMedico = new ControladorMedico();
         controladorPaciente = new ControladorPaciente();
-        
+
         controladorMedicina = new ControladorMedicina();
         controladorReceta = new ControladorReceta();
     }
@@ -83,9 +86,14 @@ private ControladorReceta controladorReceta;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        menuBar.setBorder(null);
+        menuBar.setForeground(new java.awt.Color(153, 102, 255));
+
         fileMenu.setMnemonic('f');
         fileMenu.setText("PACIENTE");
 
+        openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
         openMenuItem.setMnemonic('o');
         openMenuItem.setText("CREAR");
         openMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +103,8 @@ private ControladorReceta controladorReceta;
         });
         fileMenu.add(openMenuItem);
 
+        saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        saveMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
         saveMenuItem.setMnemonic('s');
         saveMenuItem.setText("BUSCAR");
         saveMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -104,10 +114,14 @@ private ControladorReceta controladorReceta;
         });
         fileMenu.add(saveMenuItem);
 
+        saveAsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("ACTUALIZAR");
         fileMenu.add(saveAsMenuItem);
 
+        exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("LISTAR");
         exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +131,8 @@ private ControladorReceta controladorReceta;
         });
         fileMenu.add(exitMenuItem);
 
+        exitMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        exitMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
         exitMenuItem1.setMnemonic('x');
         exitMenuItem1.setText("ELIMINAR");
         exitMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +147,8 @@ private ControladorReceta controladorReceta;
         editMenu.setMnemonic('e');
         editMenu.setText("MEDICO");
 
+        cutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
         cutMenuItem.setMnemonic('t');
         cutMenuItem.setText("CREAR");
         cutMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +158,8 @@ private ControladorReceta controladorReceta;
         });
         editMenu.add(cutMenuItem);
 
+        copyMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
         copyMenuItem.setMnemonic('y');
         copyMenuItem.setText("BUSCAR");
         copyMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +169,8 @@ private ControladorReceta controladorReceta;
         });
         editMenu.add(copyMenuItem);
 
+        pasteMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        pasteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
         pasteMenuItem.setMnemonic('p');
         pasteMenuItem.setText("ACTUALIZAR");
         pasteMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +180,8 @@ private ControladorReceta controladorReceta;
         });
         editMenu.add(pasteMenuItem);
 
+        deleteMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        deleteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
         deleteMenuItem.setMnemonic('d');
         deleteMenuItem.setText("LISTAR");
         deleteMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +191,8 @@ private ControladorReceta controladorReceta;
         });
         editMenu.add(deleteMenuItem);
 
+        deleteMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        deleteMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
         deleteMenuItem1.setMnemonic('d');
         deleteMenuItem1.setText("ELIMINAR");
         deleteMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -181,6 +207,8 @@ private ControladorReceta controladorReceta;
         helpMenu.setMnemonic('h');
         helpMenu.setText("MEDICINA");
 
+        contentMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        contentMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
         contentMenuItem.setMnemonic('c');
         contentMenuItem.setText("CREAR");
         contentMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -190,6 +218,8 @@ private ControladorReceta controladorReceta;
         });
         helpMenu.add(contentMenuItem);
 
+        aboutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        aboutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
         aboutMenuItem.setMnemonic('a');
         aboutMenuItem.setText("BUSCAR");
         aboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -199,6 +229,8 @@ private ControladorReceta controladorReceta;
         });
         helpMenu.add(aboutMenuItem);
 
+        aboutMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        aboutMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
         aboutMenuItem1.setMnemonic('a');
         aboutMenuItem1.setText("ACTUALIZAR");
         aboutMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -208,6 +240,8 @@ private ControladorReceta controladorReceta;
         });
         helpMenu.add(aboutMenuItem1);
 
+        aboutMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        aboutMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
         aboutMenuItem2.setMnemonic('a');
         aboutMenuItem2.setText("LISTA");
         aboutMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -217,6 +251,8 @@ private ControladorReceta controladorReceta;
         });
         helpMenu.add(aboutMenuItem2);
 
+        aboutMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        aboutMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
         aboutMenuItem3.setMnemonic('a');
         aboutMenuItem3.setText("ELIMINAR");
         aboutMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -238,14 +274,13 @@ private ControladorReceta controladorReceta;
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void saveMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveMenuItemActionPerformed
@@ -258,13 +293,16 @@ private ControladorReceta controladorReceta;
 
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
+
         ventanaCrearPaciente = new VentanaCrearMedico(controladorMedico);
         ventanaCrearPaciente.setVisible(true);
         desktopPane.add(ventanaCrearPaciente);
+
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
     private void openMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMenuItemActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_openMenuItemActionPerformed
 
     private void copyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItemActionPerformed
@@ -272,27 +310,34 @@ private ControladorReceta controladorReceta;
         ventanaBuscarMedico = new VentanaBuscarMedico(controladorMedico);
         ventanaBuscarMedico.setVisible(true);
         desktopPane.add(ventanaBuscarMedico);
+
     }//GEN-LAST:event_copyMenuItemActionPerformed
 
     private void pasteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteMenuItemActionPerformed
         // TODO add your handling code here:
+
         ventanaActualizarMedico = new VentanaActualizarMedico(controladorMedico);
         ventanaActualizarMedico.setVisible(true);
         desktopPane.add(ventanaActualizarMedico);
+
     }//GEN-LAST:event_pasteMenuItemActionPerformed
 
     private void deleteMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuItem1ActionPerformed
         // TODO add your handling code here:
+
         ventanaEliminarMedico = new VentanaEliminarMedico(controladorMedico);
         ventanaEliminarMedico.setVisible(true);
         desktopPane.add(ventanaEliminarMedico);
+
     }//GEN-LAST:event_deleteMenuItem1ActionPerformed
 
     private void deleteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuItemActionPerformed
         // TODO add your handling code here:
+
         ventanaListarMedico = new VentanaListarMedico(controladorMedico);
         ventanaListarMedico.setVisible(true);
         desktopPane.add(ventanaListarMedico);
+
     }//GEN-LAST:event_deleteMenuItemActionPerformed
 
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
@@ -300,34 +345,42 @@ private ControladorReceta controladorReceta;
         ventanaCrearMedicina = new VentanaCrearMedicina(controladorMedicina);
         ventanaCrearMedicina.setVisible(true);
         desktopPane.add(ventanaCrearMedicina);
+
     }//GEN-LAST:event_contentMenuItemActionPerformed
 
     private void aboutMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItem3ActionPerformed
         // TODO add your handling code here:
-          ventanaEliminarMedicina = new VentanaEliminarMedicina(controladorMedicina);
+        ventanaEliminarMedicina = new VentanaEliminarMedicina(controladorMedicina);
         ventanaEliminarMedicina.setVisible(true);
         desktopPane.add(ventanaEliminarMedicina);
+
     }//GEN-LAST:event_aboutMenuItem3ActionPerformed
 
     private void aboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItemActionPerformed
         // TODO add your handling code here:
+
         ventanaBuscarMedicina = new VentanaBuscarMedicina(controladorMedicina);
         ventanaBuscarMedicina.setVisible(true);
         desktopPane.add(ventanaBuscarMedicina);
+
     }//GEN-LAST:event_aboutMenuItemActionPerformed
 
     private void aboutMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItem1ActionPerformed
         // TODO add your handling code here:
-         ventanaActualizarMedicina = new VentanaActualizarMedicina(controladorMedicina);
+
+        ventanaActualizarMedicina = new VentanaActualizarMedicina(controladorMedicina);
         ventanaActualizarMedicina.setVisible(true);
         desktopPane.add(ventanaActualizarMedicina);
+
     }//GEN-LAST:event_aboutMenuItem1ActionPerformed
 
     private void aboutMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItem2ActionPerformed
         // TODO add your handling code here:
+
         ventanaListarMedicina = new VentanaListarMedicina(controladorMedicina);
         ventanaListarMedicina.setVisible(true);
         desktopPane.add(ventanaListarMedicina);
+
     }//GEN-LAST:event_aboutMenuItem2ActionPerformed
 
     /**
