@@ -5,6 +5,8 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controladores.ControladorCitaMedica;
+import ec.edu.ups.controladores.ControladorCitaMedicaDetallada;
 import ec.edu.ups.controladores.ControladorMedicina;
 import ec.edu.ups.vista.medico.VentanaCrearMedico;
 import ec.edu.ups.vista.medico.VentanaBuscarMedico;
@@ -14,6 +16,8 @@ import ec.edu.ups.vista.medico.VentanaListarMedico;
 import ec.edu.ups.controladores.ControladorPaciente;
 import ec.edu.ups.controladores.ControladorMedico;
 import ec.edu.ups.controladores.ControladorReceta;
+import ec.edu.ups.vista.citaMedica.VentanaBuscarCitaMedica;
+import ec.edu.ups.vista.citaMedica.VentanaCrearCitaMedica;
 import ec.edu.ups.vista.medicina.VentanaActualizarMedicina;
 import ec.edu.ups.vista.medicina.VentanaBuscarMedicina;
 import ec.edu.ups.vista.medicina.VentanaCrearMedicina;
@@ -33,7 +37,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaListarMedico ventanaListarMedico;
     private ControladorPaciente controladorPaciente;
     private ControladorMedico controladorMedico;
-
+    private ControladorCitaMedica controladorCitaMedica;
+private ControladorCitaMedicaDetallada controladorCitaMedicaDetallada;
+private VentanaCrearCitaMedica ventanaCrearCitaMedica;
+    private VentanaBuscarCitaMedica ventanaBuscarCitaMedica;
     private VentanaCrearMedicina ventanaCrearMedicina;
     private VentanaBuscarMedicina ventanaBuscarMedicina;
     private VentanaActualizarMedicina ventanaActualizarMedicina;
@@ -83,6 +90,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         aboutMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem2 = new javax.swing.JMenuItem();
         aboutMenuItem3 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -264,17 +276,53 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuBar.add(helpMenu);
 
+        jMenu1.setText("CITA MEDICA");
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
+        jMenuItem1.setText("CREAR");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
+        jMenuItem2.setText("BUSCAR");
+        jMenuItem2.setToolTipText("");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
+        jMenuItem3.setText("ELIMINAR");
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
+        jMenuItem4.setText("LISTAR");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        menuBar.add(jMenu1);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1299, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
         );
 
         pack();
@@ -383,6 +431,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_aboutMenuItem2ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+          if(ventanaCrearCitaMedica == null || !ventanaCrearCitaMedica.isVisible()){
+        ventanaCrearCitaMedica = new VentanaCrearCitaMedica(controladorCitaMedica, controladorCitaMedicaDetallada, controladorPaciente, controladorMedico);
+        ventanaCrearCitaMedica.setVisible(true);
+        desktopPane.add(ventanaCrearCitaMedica);
+        }
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+           if(ventanaBuscarCitaMedica == null || !ventanaBuscarCitaMedica.isVisible()){
+        ventanaBuscarCitaMedica=new VentanaBuscarCitaMedica(controladorCitaMedica, controladorCitaMedicaDetallada, controladorPaciente, controladorMedico);
+        ventanaBuscarCitaMedica.setVisible(true);
+        desktopPane.add(ventanaBuscarCitaMedica);
+       }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -434,6 +503,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem1;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
