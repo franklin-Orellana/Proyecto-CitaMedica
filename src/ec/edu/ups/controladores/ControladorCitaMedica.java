@@ -46,7 +46,7 @@ public class ControladorCitaMedica {
     * @param codigo
     * @return 
     */
-    public CitaMedica read() {
+    public CitaMedica read(int codigo) {
         for (CitaMedica citaMedica : lista) {
             if(citaMedica.getNumeroCita()== codigo){
                 return citaMedica;
