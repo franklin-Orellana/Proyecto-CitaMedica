@@ -31,7 +31,8 @@ import ec.edu.ups.vista.paciente.VentanaCrearPaciente;
 import ec.edu.ups.vista.paciente.VentanaEliminarPaciente;
 import ec.edu.ups.vista.paciente.VentanaListarPaciente;
 import ec.edu.ups.vista.receta.VentanaCrearReceta;
-
+import java.util.ResourceBundle;
+import java.util.Locale;
 /**
  *
  * @author Fernanda
@@ -64,18 +65,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private ControladorMedicina controladorMedicina;
     private ControladorReceta controladorReceta;
     private VentanaCrearReceta ventanaCrearReceta;
+    private Locale localizacion;
+    private ResourceBundle mensajes;
 
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        setLocationRelativeTo(null);
         controladorMedico = new ControladorMedico();
         controladorPaciente = new ControladorPaciente();
         controladorCitaMedica=new ControladorCitaMedica();
         controladorCitaMedicaDetallada=new ControladorCitaMedicaDetallada();
         controladorMedicina = new ControladorMedicina();
         controladorReceta = new ControladorReceta();
+        localizacion = new Locale("es","EC");
+        Locale.setDefault(localizacion);
+        //cambiarIdioma();
+    }
+    
+    public void cambiarIdioma(){
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        pacienteMenu.setText(mensajes.getString("menu.paciente"));
+        medicoMenu.setText(mensajes.getString("menu.medico"));
+        medicinaMenu.setText(mensajes.getString("medicina"));
+        citamedicaMenu.setText(mensajes.getString("ecnabezado.citamedica"));
+        recetaMenu.setText(mensajes.getString("receta"));
+        
+        
     }
 
     /**
@@ -97,30 +115,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
+        pacienteMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         exitMenuItem1 = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
+        medicoMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem1 = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
+        medicinaMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem1 = new javax.swing.JMenuItem();
         aboutMenuItem2 = new javax.swing.JMenuItem();
         aboutMenuItem3 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        citamedicaMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
+        recetaMenu = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         aboutMenuItem4 = new javax.swing.JMenuItem();
@@ -148,8 +166,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar.setBorder(null);
         menuBar.setForeground(new java.awt.Color(153, 102, 255));
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("PACIENTE");
+        pacienteMenu.setMnemonic('f');
+        pacienteMenu.setText("PACIENTE");
 
         openMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         openMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
@@ -160,7 +178,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 openMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(openMenuItem);
+        pacienteMenu.add(openMenuItem);
 
         saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         saveMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
@@ -171,7 +189,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 saveMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(saveMenuItem);
+        pacienteMenu.add(saveMenuItem);
 
         saveAsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         saveAsMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
@@ -182,7 +200,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 saveAsMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(saveAsMenuItem);
+        pacienteMenu.add(saveAsMenuItem);
 
         exitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         exitMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
@@ -193,7 +211,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 exitMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(exitMenuItem);
+        pacienteMenu.add(exitMenuItem);
 
         exitMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         exitMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
@@ -204,12 +222,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 exitMenuItem1ActionPerformed(evt);
             }
         });
-        fileMenu.add(exitMenuItem1);
+        pacienteMenu.add(exitMenuItem1);
 
-        menuBar.add(fileMenu);
+        menuBar.add(pacienteMenu);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("MEDICO");
+        medicoMenu.setMnemonic('e');
+        medicoMenu.setText("MEDICO");
 
         cutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         cutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
@@ -220,7 +238,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 cutMenuItemActionPerformed(evt);
             }
         });
-        editMenu.add(cutMenuItem);
+        medicoMenu.add(cutMenuItem);
 
         copyMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         copyMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
@@ -231,7 +249,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 copyMenuItemActionPerformed(evt);
             }
         });
-        editMenu.add(copyMenuItem);
+        medicoMenu.add(copyMenuItem);
 
         pasteMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         pasteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
@@ -242,7 +260,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 pasteMenuItemActionPerformed(evt);
             }
         });
-        editMenu.add(pasteMenuItem);
+        medicoMenu.add(pasteMenuItem);
 
         deleteMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         deleteMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
@@ -253,7 +271,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 deleteMenuItemActionPerformed(evt);
             }
         });
-        editMenu.add(deleteMenuItem);
+        medicoMenu.add(deleteMenuItem);
 
         deleteMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         deleteMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
@@ -264,12 +282,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 deleteMenuItem1ActionPerformed(evt);
             }
         });
-        editMenu.add(deleteMenuItem1);
+        medicoMenu.add(deleteMenuItem1);
 
-        menuBar.add(editMenu);
+        menuBar.add(medicoMenu);
 
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("MEDICINA");
+        medicinaMenu.setMnemonic('h');
+        medicinaMenu.setText("MEDICINA");
 
         contentMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         contentMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
@@ -280,7 +298,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 contentMenuItemActionPerformed(evt);
             }
         });
-        helpMenu.add(contentMenuItem);
+        medicinaMenu.add(contentMenuItem);
 
         aboutMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         aboutMenuItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
@@ -291,7 +309,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 aboutMenuItemActionPerformed(evt);
             }
         });
-        helpMenu.add(aboutMenuItem);
+        medicinaMenu.add(aboutMenuItem);
 
         aboutMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         aboutMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
@@ -302,7 +320,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 aboutMenuItem1ActionPerformed(evt);
             }
         });
-        helpMenu.add(aboutMenuItem1);
+        medicinaMenu.add(aboutMenuItem1);
 
         aboutMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         aboutMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
@@ -313,7 +331,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 aboutMenuItem2ActionPerformed(evt);
             }
         });
-        helpMenu.add(aboutMenuItem2);
+        medicinaMenu.add(aboutMenuItem2);
 
         aboutMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         aboutMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
@@ -324,11 +342,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 aboutMenuItem3ActionPerformed(evt);
             }
         });
-        helpMenu.add(aboutMenuItem3);
+        medicinaMenu.add(aboutMenuItem3);
 
-        menuBar.add(helpMenu);
+        menuBar.add(medicinaMenu);
 
-        jMenu1.setText("CITA MEDICA");
+        citamedicaMenu.setText("CITA MEDICA");
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
         jMenuItem1.setText("CREAR");
@@ -337,7 +355,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        citamedicaMenu.add(jMenuItem1);
 
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
         jMenuItem2.setText("BUSCAR");
@@ -347,7 +365,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        citamedicaMenu.add(jMenuItem2);
 
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
         jMenuItem3.setText("ELIMINAR");
@@ -356,7 +374,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        citamedicaMenu.add(jMenuItem3);
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
         jMenuItem4.setText("LISTAR");
@@ -365,11 +383,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        citamedicaMenu.add(jMenuItem4);
 
-        menuBar.add(jMenu1);
+        menuBar.add(citamedicaMenu);
 
-        jMenu8.setText("RECETA");
+        recetaMenu.setText("RECETA");
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
         jMenuItem5.setText("CREAR");
@@ -378,7 +396,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 jMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem5);
+        recetaMenu.add(jMenuItem5);
 
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
         jMenuItem6.setText("BUSCAR");
@@ -388,7 +406,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem6);
+        recetaMenu.add(jMenuItem6);
 
         aboutMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         aboutMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
@@ -399,7 +417,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 aboutMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu8.add(aboutMenuItem4);
+        recetaMenu.add(aboutMenuItem4);
 
         jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
         jMenuItem8.setText("LISTAR");
@@ -408,7 +426,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 jMenuItem8ActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem8);
+        recetaMenu.add(jMenuItem8);
 
         jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
         jMenuItem7.setText("ELIMINAR");
@@ -417,9 +435,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem7);
+        recetaMenu.add(jMenuItem7);
 
-        menuBar.add(jMenu8);
+        menuBar.add(recetaMenu);
 
         setJMenuBar(menuBar);
 
@@ -659,25 +677,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutMenuItem2;
     private javax.swing.JMenuItem aboutMenuItem3;
     private javax.swing.JMenuItem aboutMenuItem4;
+    private javax.swing.JMenu citamedicaMenu;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JMenuItem deleteMenuItem1;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenuItem exitMenuItem1;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
@@ -688,9 +702,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenu medicinaMenu;
+    private javax.swing.JMenu medicoMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.JMenu pacienteMenu;
     private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JMenu recetaMenu;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
