@@ -293,7 +293,7 @@ public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
         crearPaciente.setDireccion(txtdireccion.getText());
         crearPaciente.setTelefono(txttelefono.getText());
         controladorPaciente.crear(crearPaciente);
-        JOptionPane.showMessageDialog(this, "EL MEDICO SE A CREADO");
+        JOptionPane.showMessageDialog(this, "EL PACIENTE SE A CREADO");
         txtcodigo.setText(String.valueOf(this.controladorPaciente.getCodigo()));
         txtcedula.setText("");
         txtnombre.setText("");

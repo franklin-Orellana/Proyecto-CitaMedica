@@ -52,17 +52,15 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
     private int codDet;
     private int imin;
     private int imax;
-    private int aux;
     public VentanaCrearCitaMedica(ControladorCitaMedica controladorCitaMedica,ControladorCitaMedicaDetallada controladorCitaMedicaDetallada,ControladorPaciente controladorPaciente, ControladorMedico controladorMedico) {
         initComponents();       
         this.controladorCitaMedica=controladorCitaMedica;
         this.controladorCitaMedicaDetallada= controladorCitaMedicaDetallada;
         this.controladorPaciente = controladorPaciente;
         this.controladorMedico= controladorMedico;
+        txtcodigo.setText(String.valueOf(this.controladorCitaMedica.getCodigo()));
         citaMedicaDetalladas = new HashSet<>();        
         modelo = new DefaultTableModel();
-        aux=0;
-        txtcodigo.setText(String.valueOf(this.controladorCitaMedica.getCodigo()));
         txtFecha.setText(fechaActual());
         listaPacientes= controladorPaciente.getLista();
         
