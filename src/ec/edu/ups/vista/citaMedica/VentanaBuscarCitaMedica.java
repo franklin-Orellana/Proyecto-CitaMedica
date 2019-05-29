@@ -426,13 +426,11 @@ public class VentanaBuscarCitaMedica extends javax.swing.JInternalFrame {
         citaMedicaDetalladas=citaMedica.getListaDetallada() ;
         modelo = new DefaultTableModel();
         Object[] columnas = {"Codigo ", "Diagnostico"};
-        modelo.setColumnIdentifiers(columnas);
-         for( Iterator it = citaMedicaDetalladas.iterator(); it.hasNext();) { 
-	    CitaMedicaDetallada citaMedicaDetallada = (CitaMedicaDetallada)it.next();
-	     Object[] fila = {citaMedicaDetallada.getCodigo(), citaMedicaDetallada.getDiagnostico()};
+        modelo.setColumnIdentifiers(columnas);   
+         for(CitaMedicaDetallada citaMedicaDetallada:citaMedicaDetalladas){
+            Object[] fila = {citaMedicaDetallada.getCodigo(), citaMedicaDetallada.getDiagnostico()};
             modelo.addRow(fila);
-
-	}
+        }
         tblDetalle.setModel(modelo);      
         txtPaciente.setText(citaMedica.getPaciente().getNombre());
         txtcedula.setText(citaMedica.getPaciente().getCedula());

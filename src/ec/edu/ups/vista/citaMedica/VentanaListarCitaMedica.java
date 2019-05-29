@@ -13,8 +13,10 @@ import ec.edu.ups.controladores.ControladorPaciente;
 import ec.edu.ups.modelo.CitaMedica;
 import ec.edu.ups.modelo.CitaMedicaDetallada;
 import java.util.Set;
+import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -42,18 +44,21 @@ public class VentanaListarCitaMedica extends javax.swing.JInternalFrame {
         Object[] columnas ={"Numero Cita","Paciente","Cedula","Direccion","Telefono","Doctor","Especialidad","Laboratorio","Detalle Cita Medica","Fecha","Precio"};
         modelo.setColumnIdentifiers(columnas);
         tabla.setModel(modelo);
-        listaDet=new JComboBox<>();
+
         llenarTabla();        
     }
     public void llenarTabla(){
     Set<CitaMedica> Lista = controladorCitaMedica.getLista();
      Set<CitaMedicaDetallada> citaMedicaDetalladas;
-    for(CitaMedica citaMedica : Lista){
+    for(CitaMedica citaMedica : Lista){      
+        listaDet=new JComboBox<>();
         citaMedicaDetalladas=citaMedica.getListaDetallada();
-        for(CitaMedicaDetallada citaMedicaDetallada:citaMedicaDetalladas){
+        for(CitaMedicaDetallada citaMedicaDetallada:citaMedicaDetalladas){            
             String diag=citaMedicaDetallada.getDiagnostico();
             listaDet.addItem(diag);
         }
+        TableColumn columna=this.tabla.getColumnModel().getColumn(8);
+        columna.setCellEditor(new DefaultCellEditor (listaDet));
         Object[] datos = {citaMedica.getNumeroCita(),
             citaMedica.getPaciente().getNombre(),
             citaMedica.getPaciente().getCedula(),
@@ -62,10 +67,11 @@ public class VentanaListarCitaMedica extends javax.swing.JInternalFrame {
             citaMedica.getMedico().getNombre(),
             citaMedica.getMedico().getEspecialidad(),
             citaMedica.getMedico().getLaboratoio(),
-            listaDet,
+            columna,
             citaMedica.getFechaCita(),
             citaMedica.getPrecio()};
         modelo.addRow(datos);
+        
     }
 }
     
