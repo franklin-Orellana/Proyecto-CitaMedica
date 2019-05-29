@@ -11,18 +11,18 @@ import java.util.Set;
 
 /**
  *
- * @author 59398
+ * @author Quezada Bryam
  */
 public class ControladorReceta {
-    
+    //declaracion de variables
     private Set<Receta> lista;
     private int codigo;
-
+    //constructor inicia variables
     public ControladorReceta (){
         lista = new HashSet<>();
         codigo = 1;
     }
-
+    //metodo que obtiene el codigo
     public int getCodigo() {
         return codigo;
     }
@@ -33,7 +33,7 @@ public class ControladorReceta {
         codigo++;
     }
 
-    public Receta read() {
+    public Receta read(int codigo) {
         for (Receta receta : lista) {
             if(receta.getCodigo() == codigo){
                 return receta;

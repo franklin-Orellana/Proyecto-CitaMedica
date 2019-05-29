@@ -11,6 +11,7 @@ package ec.edu.ups.modelo;
  */
 public class Receta {
     //declaracion de atributos
+   private int codigo;
    private Paciente paciente;
    private CitaMedica citaMedica;
    private Medicina medicina;
@@ -19,12 +20,23 @@ public class Receta {
    public Receta(){
        
    }
-   
-    public Receta(Paciente paciente, CitaMedica citaMedica, Medicina medicina) {
+
+    public Receta(int codigo, Paciente paciente, CitaMedica citaMedica, Medicina medicina) {
+        this.codigo = codigo;
         this.paciente = paciente;
         this.citaMedica = citaMedica;
         this.medicina = medicina;
     }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+   
+   
 
     //creacion de getters y setters 
     public Paciente getPaciente() {
@@ -51,18 +63,10 @@ public class Receta {
         this.medicina = medicina;
     }
     //devuelve el toString
+
     @Override
     public String toString() {
-        return "Receta{" + "paciente=" + paciente + ", citaMedica=" + citaMedica + ", medicina=" + medicina + '}';
+        return "Receta{" + "codigo=" + codigo + ", paciente=" + paciente + ", citaMedica=" + citaMedica + ", medicina=" + medicina + '}';
     }
-
-    public void setCodigo(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public int getCodigo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-   
    
 }

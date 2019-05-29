@@ -30,6 +30,7 @@ import ec.edu.ups.vista.paciente.VentanaBuscaPaciente;
 import ec.edu.ups.vista.paciente.VentanaCrearPaciente;
 import ec.edu.ups.vista.paciente.VentanaEliminarPaciente;
 import ec.edu.ups.vista.paciente.VentanaListarPaciente;
+import ec.edu.ups.vista.receta.VentanaCrearReceta;
 
 /**
  *
@@ -62,6 +63,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private VentanaListarMedicina ventanaListarMedicina;
     private ControladorMedicina controladorMedicina;
     private ControladorReceta controladorReceta;
+    private VentanaCrearReceta ventanaCrearReceta;
 
     /**
      * Creates new form VentanaPrincipal
@@ -85,6 +87,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -110,6 +120,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        aboutMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+
+        jMenu2.setText("File");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("jMenu4");
+
+        jMenu5.setText("File");
+        jMenuBar2.add(jMenu5);
+
+        jMenu6.setText("Edit");
+        jMenuBar2.add(jMenu6);
+
+        jMenu7.setText("jMenu7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -337,6 +369,58 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuBar.add(jMenu1);
 
+        jMenu8.setText("RECETA");
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
+        jMenuItem5.setText("CREAR");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem5);
+
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
+        jMenuItem6.setText("BUSCAR");
+        jMenuItem6.setToolTipText("");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem6);
+
+        aboutMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        aboutMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
+        aboutMenuItem4.setMnemonic('a');
+        aboutMenuItem4.setText("ACTUALIZAR");
+        aboutMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aboutMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(aboutMenuItem4);
+
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
+        jMenuItem8.setText("LISTAR");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem8);
+
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
+        jMenuItem7.setText("ELIMINAR");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem7);
+
+        menuBar.add(jMenu8);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -509,6 +593,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+       if(ventanaCrearReceta == null || !ventanaCrearReceta.isVisible()){
+        ventanaCrearReceta = new VentanaCrearReceta(controladorReceta);
+        ventanaCrearReceta.setVisible(true);
+        desktopPane.add(ventanaCrearReceta);
+        }
+        
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void aboutMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_aboutMenuItem4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -549,6 +658,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutMenuItem1;
     private javax.swing.JMenuItem aboutMenuItem2;
     private javax.swing.JMenuItem aboutMenuItem3;
+    private javax.swing.JMenuItem aboutMenuItem4;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
     private javax.swing.JMenuItem cutMenuItem;
@@ -561,10 +671,23 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
