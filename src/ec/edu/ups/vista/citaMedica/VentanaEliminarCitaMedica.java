@@ -45,16 +45,16 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setTitle("Eliminar Cita Medica");
 
-        lblCitaMedica.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblCitaMedica.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblCitaMedica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCitaMedica.setText("CITA MEDICA");
+        lblCitaMedica.setText("CITA MÉDICA");
         lblCitaMedica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblcodigo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblcodigo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcodigo1.setText("NUMERO CITA");
+        lblcodigo1.setText("NÚMERO CITA");
         lblcodigo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtcodigo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -83,9 +83,9 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
                     .addComponent(lblguardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,18 +111,18 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
                         .addGap(41, 41, 41)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(lblCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(86, 86, 86)
+                        .addComponent(lblCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap()
                 .addComponent(lblCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();

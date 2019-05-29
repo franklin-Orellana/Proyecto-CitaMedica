@@ -65,19 +65,19 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
 
         lblMenuCrearP.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblMenuCrearP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMenuCrearP.setText("CREAR MEDICO");
+        lblMenuCrearP.setText("CREAR MÉDICO");
         lblMenuCrearP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblcodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblcodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcodigo.setText("CODIGO");
+        lblcodigo.setText("CÓDIGO");
         lblcodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblcedula.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblcedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcedula.setText("CEDULA");
+        lblcedula.setText("CÉDULA");
         lblcedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblnombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -92,7 +92,7 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
 
         lbltelefono.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbltelefono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbltelefono.setText("TELEFONO");
+        lbltelefono.setText("TELÉFONO");
         lbltelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtcodigo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N

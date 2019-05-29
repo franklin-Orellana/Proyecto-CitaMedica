@@ -56,14 +56,14 @@ public class VentanaEliminarMedicina extends javax.swing.JInternalFrame {
 
         lblMenuCrearP.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblMenuCrearP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMenuCrearP.setText("ELIMINAR MEDICO");
+        lblMenuCrearP.setText("ELIMINAR MEDICINA");
         lblMenuCrearP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblcodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblcodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcodigo.setText("CODIGO");
+        lblcodigo.setText("CÓDIGO");
         lblcodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblnombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -121,7 +121,7 @@ public class VentanaEliminarMedicina extends javax.swing.JInternalFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("DESCRIPCION");
+        jLabel2.setText("DESCRIPCIÓN");
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtDescripcion.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N

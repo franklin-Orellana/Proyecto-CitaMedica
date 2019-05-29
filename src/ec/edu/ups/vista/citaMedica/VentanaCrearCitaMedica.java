@@ -217,12 +217,12 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
 
         lblcedula.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblcedula.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcedula.setText("CEDULA");
+        lblcedula.setText("CÉDULA");
         lblcedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblsintomas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblsintomas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblsintomas.setText("SINTOMAS");
+        lblsintomas.setText("SÍNTOMAS");
         lblsintomas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtsintomas.setEditable(false);
@@ -253,12 +253,12 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
 
         lbltelefono.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbltelefono.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbltelefono.setText("TELEFONO");
+        lbltelefono.setText("TELÉFONO");
         lbltelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblcodigo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblcodigo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcodigo1.setText("NUMERO CITA");
+        lblcodigo1.setText("NÚMERO CITA");
         lblcodigo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -339,9 +339,9 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lblCitaMedica.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblCitaMedica.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblCitaMedica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCitaMedica.setText("CITA MEDICA");
+        lblCitaMedica.setText("CITA MÉDICA");
         lblCitaMedica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         tblDetalle.setModel(new javax.swing.table.DefaultTableModel(
@@ -349,7 +349,7 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
                 {null, null}
             },
             new String [] {
-                "Codigo", "Diagnostico"
+                "CÓDIGO", "DIAGNOSTICO"
             }
         ));
         tblDetalle.setEnabled(false);
@@ -379,7 +379,7 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
 
         lbldoctor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbldoctor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbldoctor.setText("DOCTOR");
+        lbldoctor.setText("MÉDICO");
         lbldoctor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblLaboratorio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -418,10 +418,11 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbldoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lbldoctor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(cbxmedicos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)))
@@ -514,19 +515,12 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 11, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(299, 299, 299)

@@ -61,7 +61,7 @@ public class VentanaListarMedicina extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Nombre", "Marca", "Descripcion", "Precio"
+                "CÓDIGO", "NOMBRE", "MARCA", "DESCRIPCIÓN", "PRECIO"
             }
         ));
         jScrollPane1.setViewportView(tabla);

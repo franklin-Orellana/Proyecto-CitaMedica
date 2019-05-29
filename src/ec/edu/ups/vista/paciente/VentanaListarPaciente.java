@@ -67,7 +67,7 @@ public class VentanaListarPaciente extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "CODIGO", "CEDULA", "NOMBRE", "SINTOMAS", "DIRECCION", "TELEFONO"
+                "CÓDIGO", "CÉDULA", "NOMBRE", "SÍNTOMAS", "DIRECCIÓN", "TELÉFONO"
             }
         ));
         jScrollPane1.setViewportView(tabla);
