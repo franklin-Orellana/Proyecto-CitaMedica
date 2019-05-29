@@ -595,7 +595,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
        if(ventanaCrearReceta == null || !ventanaCrearReceta.isVisible()){
-        ventanaCrearReceta = new VentanaCrearReceta(controladorReceta);
+        ventanaCrearReceta = new VentanaCrearReceta(controladorReceta, controladorCitaMedica, controladorPaciente);
         ventanaCrearReceta.setVisible(true);
         desktopPane.add(ventanaCrearReceta);
         }
