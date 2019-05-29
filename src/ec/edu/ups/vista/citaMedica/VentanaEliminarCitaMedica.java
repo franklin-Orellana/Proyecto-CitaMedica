@@ -112,7 +112,7 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Ingresa el codigo y elimina el objeto Cita Medica
         int codigo = Integer.parseInt(txtcodigo.getText());
         controladorCitaMedica.delete(codigo);
         JOptionPane.showMessageDialog(this, "LA CITA MEDICA CON CODIGO "+codigo+" SE HA ELIMINADO");

@@ -20,7 +20,7 @@ import javax.swing.table.TableColumn;
 
 /**
  *
- * @author Usuario
+ * @author José Quinde
  */
 public class VentanaListarCitaMedica extends javax.swing.JInternalFrame {
 
@@ -47,12 +47,16 @@ public class VentanaListarCitaMedica extends javax.swing.JInternalFrame {
 
         llenarTabla();        
     }
+    /*
+    Metodo que llena con los datos del objeto a la tabla
+    */
     public void llenarTabla(){
     Set<CitaMedica> Lista = controladorCitaMedica.getLista();
      Set<CitaMedicaDetallada> citaMedicaDetalladas;
     for(CitaMedica citaMedica : Lista){      
         listaDet=new JComboBox<>();
         citaMedicaDetalladas=citaMedica.getListaDetallada();
+        //Ingresa al comboBox los detalles de la cita medica
         for(CitaMedicaDetallada citaMedicaDetallada:citaMedicaDetalladas){            
             String diag=citaMedicaDetallada.getDiagnostico();
             listaDet.addItem(diag);

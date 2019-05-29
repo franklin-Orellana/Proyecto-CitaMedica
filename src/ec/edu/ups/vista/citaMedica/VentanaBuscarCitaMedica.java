@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Usuario
+ * @author José Quinde
  */
 public class VentanaBuscarCitaMedica extends javax.swing.JInternalFrame {
 
@@ -77,7 +77,7 @@ public class VentanaBuscarCitaMedica extends javax.swing.JInternalFrame {
         lblcodigo1 = new javax.swing.JLabel();
         txtlaboratorio = new javax.swing.JTextField();
         txtPaciente = new javax.swing.JTextField();
-        btnguardar3 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         lblguardar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDetalle = new javax.swing.JTable();
@@ -195,11 +195,11 @@ public class VentanaBuscarCitaMedica extends javax.swing.JInternalFrame {
         txtPaciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPaciente.setToolTipText("");
 
-        btnguardar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/buscar.png"))); // NOI18N
-        btnguardar3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnguardar3.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/buscar.png"))); // NOI18N
+        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnguardar3ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -247,7 +247,7 @@ public class VentanaBuscarCitaMedica extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnguardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                         .addComponent(lblcedula, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -282,7 +282,7 @@ public class VentanaBuscarCitaMedica extends javax.swing.JInternalFrame {
                             .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnguardar3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addComponent(lblguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -419,8 +419,8 @@ public class VentanaBuscarCitaMedica extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_btncancelarActionPerformed
 
-    private void btnguardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar3ActionPerformed
-
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+          //Busca la cita medica a traves del codigo
         int codigo = Integer.parseInt(txtcodigo.getText());
         citaMedica=controladorCitaMedica.read(codigo);
         citaMedicaDetalladas=citaMedica.getListaDetallada() ;
@@ -446,12 +446,12 @@ public class VentanaBuscarCitaMedica extends javax.swing.JInternalFrame {
         txtPrecio.setText(String.valueOf(citaMedica.getPrecio()));
        JOptionPane.showMessageDialog(this, "CITA MEDICA ENCONTRADA");
 
-    }//GEN-LAST:event_btnguardar3ActionPerformed
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btncancelar;
-    private javax.swing.JButton btnguardar3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblCitaMedica;
