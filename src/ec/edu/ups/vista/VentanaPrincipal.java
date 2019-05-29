@@ -70,7 +70,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
         controladorMedico = new ControladorMedico();
         controladorPaciente = new ControladorPaciente();
-
+        controladorCitaMedica=new ControladorCitaMedica();
+        controladorCitaMedicaDetallada=new ControladorCitaMedicaDetallada();
         controladorMedicina = new ControladorMedicina();
         controladorReceta = new ControladorReceta();
     }
