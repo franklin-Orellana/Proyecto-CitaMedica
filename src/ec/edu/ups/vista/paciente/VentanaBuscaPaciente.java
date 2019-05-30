@@ -11,6 +11,8 @@ package ec.edu.ups.vista.paciente;
  */
 import ec.edu.ups.controladores.ControladorPaciente;
 import ec.edu.ups.modelo.Paciente;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
 
@@ -18,9 +20,24 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
      * Creates new form VentanaBuscaPaciente
      */
     private ControladorPaciente controladorPaciente;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
     public VentanaBuscaPaciente(ControladorPaciente controladorPaciente) {
         initComponents();
         this.controladorPaciente = controladorPaciente;
+    }
+    
+    public static void cambiarIdioma(Locale localizacion){
+        mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+        lblMenuCrearP.setText(mensajes.getString("encabezado.buscar.paciente"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lblcedula.setText(mensajes.getString("cedula"));
+        lblnombre.setText(mensajes.getString("nombre"));
+        lblsintomas.setText(mensajes.getString("sintomas"));
+        lbldireccion.setText(mensajes.getString("direccion"));
+        lbltelefono.setText(mensajes.getString("telefono"));
+        lblbuscar.setText(mensajes.getString("buscar"));
+        lblcancelar.setText(mensajes.getString("cancelar"));
     }
 
     /**
@@ -47,9 +64,9 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
         txttelefono = new javax.swing.JTextField();
         btnguardar = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
-        lblguardar = new javax.swing.JLabel();
+        lblbuscar = new javax.swing.JLabel();
         lblcancelar = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblsintomas = new javax.swing.JLabel();
         txtsintomas = new javax.swing.JTextField();
 
         setClosable(true);
@@ -125,20 +142,20 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
             }
         });
 
-        lblguardar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblguardar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblguardar.setText("BUSCAR");
-        lblguardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblbuscar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblbuscar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblbuscar.setText("BUSCAR");
+        lblbuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblcancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblcancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblcancelar.setText("CANCELAR");
         lblcancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SÍNTOMAS");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblsintomas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblsintomas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblsintomas.setText("SÍNTOMAS");
+        lblsintomas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtsintomas.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtsintomas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -170,7 +187,7 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(48, 48, 48)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(74, 74, 74)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -178,7 +195,7 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
                                     .addComponent(lblcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblsintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtsintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -212,7 +229,7 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
                     .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblsintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtsintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +245,7 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
                     .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblguardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblbuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -296,17 +313,17 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblMenuCrearP;
-    private javax.swing.JLabel lblcancelar;
-    private javax.swing.JLabel lblcedula;
-    private javax.swing.JLabel lblcodigo;
-    private javax.swing.JLabel lbldireccion;
-    private javax.swing.JLabel lblguardar;
-    private javax.swing.JLabel lblnombre;
-    private javax.swing.JLabel lbltelefono;
+    public static javax.swing.JLabel lblMenuCrearP;
+    public static javax.swing.JLabel lblbuscar;
+    public static javax.swing.JLabel lblcancelar;
+    public static javax.swing.JLabel lblcedula;
+    public static javax.swing.JLabel lblcodigo;
+    public static javax.swing.JLabel lbldireccion;
+    public static javax.swing.JLabel lblnombre;
+    public static javax.swing.JLabel lblsintomas;
+    public static javax.swing.JLabel lbltelefono;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdireccion;

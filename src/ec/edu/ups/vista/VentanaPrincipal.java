@@ -81,53 +81,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorMedicina = new ControladorMedicina();
         controladorReceta = new ControladorReceta();
         System.out.println("Localizacion por defecto: " + Locale.getDefault().getLanguage());
-        //localizacion = new Locale("es","EC");
-        //Locale.setDefault(localizacion);
-        //System.out.println("localizacion forzada: " + Locale.getDefault().getLanguage());
-        
-        //cambiarIdioma();
+       
     }
 
     public void cambiarIdioma() {
-        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
-
-        Menupaciente.setText(mensajes.getString("menu.paciente"));
-        Menumedico.setText(mensajes.getString("menu.medico"));
-        Menumedicina.setText(mensajes.getString("medicina"));
-        Menucitamedica.setText(mensajes.getString("ecnabezado.citamedica"));
-        Menureceta.setText(mensajes.getString("receta"));
-
-        crearPaciente.setText(mensajes.getString("menu.crear"));
-        crearMedico.setText(mensajes.getString("menu.crear"));
-        crearMedicina.setText(mensajes.getString("menu.crear"));
-        crearCitaMedica.setText(mensajes.getString("menu.crear"));
-        crearReceta.setText(mensajes.getString("menu.crear"));
-
-        buscarPaciente.setText(mensajes.getString("menu.buscar"));
-        buscarMedico.setText(mensajes.getString("menu.buscar"));
-        buscarMedicina.setText(mensajes.getString("menu.buscar"));
-        buscarCitaMedica.setText(mensajes.getString("menu.buscar"));
-        buscarReceta.setText(mensajes.getString("menu.buscar"));
-
-        actualizarPaciente.setText(mensajes.getString("menu.actualizar"));
-        actualizarMedico.setText(mensajes.getString("menu.actualizar"));
-        actualizarMedicina.setText(mensajes.getString("menu.actualizar"));
-        actualizarReceta.setText(mensajes.getString("menu.actualizar"));
-
-        listarPaciente.setText(mensajes.getString("menu.listar"));
-        listarMedico.setText(mensajes.getString("menu.listar"));
-        listarMedicina.setText(mensajes.getString("menu.listar"));
-        listarCitaMedica.setText(mensajes.getString("menu.listar"));
-        listarReceta.setText(mensajes.getString("menu.listar"));
-
-        eliminarPaciente.setText(mensajes.getString("menu.eliminar"));
-        eliminarMedico.setText(mensajes.getString("menu.eliminar"));
-        eliminarMedicina.setText(mensajes.getString("menu.eliminar"));
-        eliminarCitaMedica.setText(mensajes.getString("menu.eliminar"));
-        eliminarReceta.setText(mensajes.getString("menu.eliminar"));
-
-        espanol.setText(mensajes.getString("menu.idioma.español"));
-        ingles.setText(mensajes.getString("menu.idioma.ingles"));
+        mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+         
+        menuPaciente.setText(mensajes.getString("paciente"));
+         menuMedico.setText(mensajes.getString("medico"));
+         menuMedicina.setText(mensajes.getString("medicina"));
+         menuCitamedica.setText(mensajes.getString("citamedica"));
+         menuReceta.setText(mensajes.getString("receta"));
+         menuIdioma.setText(mensajes.getString("idioma"));
+        
     }
 
     /**
@@ -149,36 +115,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        Menupaciente = new javax.swing.JMenu();
+        menuPaciente = new javax.swing.JMenu();
         crearPaciente = new javax.swing.JMenuItem();
         buscarPaciente = new javax.swing.JMenuItem();
         actualizarPaciente = new javax.swing.JMenuItem();
         listarPaciente = new javax.swing.JMenuItem();
         eliminarPaciente = new javax.swing.JMenuItem();
-        Menumedico = new javax.swing.JMenu();
+        menuMedico = new javax.swing.JMenu();
         crearMedico = new javax.swing.JMenuItem();
         buscarMedico = new javax.swing.JMenuItem();
         actualizarMedico = new javax.swing.JMenuItem();
         listarMedico = new javax.swing.JMenuItem();
         eliminarMedico = new javax.swing.JMenuItem();
-        Menumedicina = new javax.swing.JMenu();
+        menuMedicina = new javax.swing.JMenu();
         crearMedicina = new javax.swing.JMenuItem();
         buscarMedicina = new javax.swing.JMenuItem();
         actualizarMedicina = new javax.swing.JMenuItem();
         listarMedicina = new javax.swing.JMenuItem();
         eliminarMedicina = new javax.swing.JMenuItem();
-        Menucitamedica = new javax.swing.JMenu();
+        menuCitamedica = new javax.swing.JMenu();
         crearCitaMedica = new javax.swing.JMenuItem();
         buscarCitaMedica = new javax.swing.JMenuItem();
         listarCitaMedica = new javax.swing.JMenuItem();
         eliminarCitaMedica = new javax.swing.JMenuItem();
-        Menureceta = new javax.swing.JMenu();
+        menuReceta = new javax.swing.JMenu();
         crearReceta = new javax.swing.JMenuItem();
         buscarReceta = new javax.swing.JMenuItem();
         actualizarReceta = new javax.swing.JMenuItem();
         listarReceta = new javax.swing.JMenuItem();
         eliminarReceta = new javax.swing.JMenuItem();
-        Menuidioma = new javax.swing.JMenu();
+        menuIdioma = new javax.swing.JMenu();
         espanol = new javax.swing.JMenuItem();
         ingles = new javax.swing.JMenuItem();
 
@@ -203,8 +169,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuBar.setBorder(null);
         menuBar.setForeground(new java.awt.Color(153, 102, 255));
 
-        Menupaciente.setMnemonic('f');
-        Menupaciente.setText("PACIENTE");
+        menuPaciente.setMnemonic('f');
+        menuPaciente.setText("PACIENTE");
 
         crearPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         crearPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
@@ -215,7 +181,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 crearPacienteActionPerformed(evt);
             }
         });
-        Menupaciente.add(crearPaciente);
+        menuPaciente.add(crearPaciente);
 
         buscarPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         buscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
@@ -226,7 +192,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 buscarPacienteActionPerformed(evt);
             }
         });
-        Menupaciente.add(buscarPaciente);
+        menuPaciente.add(buscarPaciente);
 
         actualizarPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         actualizarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
@@ -237,7 +203,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 actualizarPacienteActionPerformed(evt);
             }
         });
-        Menupaciente.add(actualizarPaciente);
+        menuPaciente.add(actualizarPaciente);
 
         listarPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         listarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
@@ -248,7 +214,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 listarPacienteActionPerformed(evt);
             }
         });
-        Menupaciente.add(listarPaciente);
+        menuPaciente.add(listarPaciente);
 
         eliminarPaciente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         eliminarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
@@ -259,12 +225,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 eliminarPacienteActionPerformed(evt);
             }
         });
-        Menupaciente.add(eliminarPaciente);
+        menuPaciente.add(eliminarPaciente);
 
-        menuBar.add(Menupaciente);
+        menuBar.add(menuPaciente);
 
-        Menumedico.setMnemonic('e');
-        Menumedico.setText("MEDICO");
+        menuMedico.setMnemonic('e');
+        menuMedico.setText("MEDICO");
 
         crearMedico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         crearMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
@@ -275,7 +241,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 crearMedicoActionPerformed(evt);
             }
         });
-        Menumedico.add(crearMedico);
+        menuMedico.add(crearMedico);
 
         buscarMedico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         buscarMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
@@ -286,7 +252,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 buscarMedicoActionPerformed(evt);
             }
         });
-        Menumedico.add(buscarMedico);
+        menuMedico.add(buscarMedico);
 
         actualizarMedico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         actualizarMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
@@ -297,7 +263,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 actualizarMedicoActionPerformed(evt);
             }
         });
-        Menumedico.add(actualizarMedico);
+        menuMedico.add(actualizarMedico);
 
         listarMedico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         listarMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
@@ -308,7 +274,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 listarMedicoActionPerformed(evt);
             }
         });
-        Menumedico.add(listarMedico);
+        menuMedico.add(listarMedico);
 
         eliminarMedico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         eliminarMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
@@ -319,12 +285,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 eliminarMedicoActionPerformed(evt);
             }
         });
-        Menumedico.add(eliminarMedico);
+        menuMedico.add(eliminarMedico);
 
-        menuBar.add(Menumedico);
+        menuBar.add(menuMedico);
 
-        Menumedicina.setMnemonic('h');
-        Menumedicina.setText("MEDICINA");
+        menuMedicina.setMnemonic('h');
+        menuMedicina.setText("MEDICINA");
 
         crearMedicina.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         crearMedicina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
@@ -335,7 +301,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 crearMedicinaActionPerformed(evt);
             }
         });
-        Menumedicina.add(crearMedicina);
+        menuMedicina.add(crearMedicina);
 
         buscarMedicina.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         buscarMedicina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
@@ -346,7 +312,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 buscarMedicinaActionPerformed(evt);
             }
         });
-        Menumedicina.add(buscarMedicina);
+        menuMedicina.add(buscarMedicina);
 
         actualizarMedicina.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         actualizarMedicina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
@@ -357,7 +323,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 actualizarMedicinaActionPerformed(evt);
             }
         });
-        Menumedicina.add(actualizarMedicina);
+        menuMedicina.add(actualizarMedicina);
 
         listarMedicina.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         listarMedicina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
@@ -368,7 +334,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 listarMedicinaActionPerformed(evt);
             }
         });
-        Menumedicina.add(listarMedicina);
+        menuMedicina.add(listarMedicina);
 
         eliminarMedicina.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         eliminarMedicina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
@@ -379,11 +345,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 eliminarMedicinaActionPerformed(evt);
             }
         });
-        Menumedicina.add(eliminarMedicina);
+        menuMedicina.add(eliminarMedicina);
 
-        menuBar.add(Menumedicina);
+        menuBar.add(menuMedicina);
 
-        Menucitamedica.setText("CITA MEDICA");
+        menuCitamedica.setText("CITA MEDICA");
 
         crearCitaMedica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
         crearCitaMedica.setText("CREAR");
@@ -392,7 +358,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 crearCitaMedicaActionPerformed(evt);
             }
         });
-        Menucitamedica.add(crearCitaMedica);
+        menuCitamedica.add(crearCitaMedica);
 
         buscarCitaMedica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
         buscarCitaMedica.setText("BUSCAR");
@@ -402,7 +368,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 buscarCitaMedicaActionPerformed(evt);
             }
         });
-        Menucitamedica.add(buscarCitaMedica);
+        menuCitamedica.add(buscarCitaMedica);
 
         listarCitaMedica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
         listarCitaMedica.setText("LISTAR");
@@ -411,7 +377,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 listarCitaMedicaActionPerformed(evt);
             }
         });
-        Menucitamedica.add(listarCitaMedica);
+        menuCitamedica.add(listarCitaMedica);
 
         eliminarCitaMedica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
         eliminarCitaMedica.setText("ELIMINAR");
@@ -420,11 +386,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 eliminarCitaMedicaActionPerformed(evt);
             }
         });
-        Menucitamedica.add(eliminarCitaMedica);
+        menuCitamedica.add(eliminarCitaMedica);
 
-        menuBar.add(Menucitamedica);
+        menuBar.add(menuCitamedica);
 
-        Menureceta.setText("RECETA");
+        menuReceta.setText("RECETA");
 
         crearReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         crearReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
@@ -434,7 +400,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 crearRecetaActionPerformed(evt);
             }
         });
-        Menureceta.add(crearReceta);
+        menuReceta.add(crearReceta);
 
         buscarReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
         buscarReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
@@ -445,7 +411,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 buscarRecetaActionPerformed(evt);
             }
         });
-        Menureceta.add(buscarReceta);
+        menuReceta.add(buscarReceta);
 
         actualizarReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         actualizarReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
@@ -456,7 +422,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 actualizarRecetaActionPerformed(evt);
             }
         });
-        Menureceta.add(actualizarReceta);
+        menuReceta.add(actualizarReceta);
 
         listarReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         listarReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
@@ -466,7 +432,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 listarRecetaActionPerformed(evt);
             }
         });
-        Menureceta.add(listarReceta);
+        menuReceta.add(listarReceta);
 
         eliminarReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         eliminarReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
@@ -476,11 +442,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 eliminarRecetaActionPerformed(evt);
             }
         });
-        Menureceta.add(eliminarReceta);
+        menuReceta.add(eliminarReceta);
 
-        menuBar.add(Menureceta);
+        menuBar.add(menuReceta);
 
-        Menuidioma.setText("IDIOMA");
+        menuIdioma.setText("IDIOMA");
 
         espanol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         espanol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuIdioma.png"))); // NOI18N
@@ -490,7 +456,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 espanolActionPerformed(evt);
             }
         });
-        Menuidioma.add(espanol);
+        menuIdioma.add(espanol);
 
         ingles.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
         ingles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuIdioma.png"))); // NOI18N
@@ -500,9 +466,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 inglesActionPerformed(evt);
             }
         });
-        Menuidioma.add(ingles);
+        menuIdioma.add(ingles);
 
-        menuBar.add(Menuidioma);
+        menuBar.add(menuIdioma);
 
         setJMenuBar(menuBar);
 
@@ -718,7 +684,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void idiomaVentanas() {
         //ventanaPaciente
         if (ventanaCrearPaciente != null && ventanaCrearPaciente.isVisible()) {
-            //ventanaCrearPaciente
+           
         }
     }
 
@@ -758,12 +724,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Menucitamedica;
-    private javax.swing.JMenu Menuidioma;
-    private javax.swing.JMenu Menumedicina;
-    private javax.swing.JMenu Menumedico;
-    private javax.swing.JMenu Menupaciente;
-    private javax.swing.JMenu Menureceta;
     private javax.swing.JMenuItem actualizarMedicina;
     private javax.swing.JMenuItem actualizarMedico;
     private javax.swing.JMenuItem actualizarPaciente;
@@ -800,6 +760,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem listarPaciente;
     private javax.swing.JMenuItem listarReceta;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuCitamedica;
+    private javax.swing.JMenu menuIdioma;
+    private javax.swing.JMenu menuMedicina;
+    private javax.swing.JMenu menuMedico;
+    private javax.swing.JMenu menuPaciente;
+    private javax.swing.JMenu menuReceta;
     // End of variables declaration//GEN-END:variables
 
 }

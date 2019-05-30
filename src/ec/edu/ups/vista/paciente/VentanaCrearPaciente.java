@@ -11,6 +11,8 @@ package ec.edu.ups.vista.paciente;
  */
 import ec.edu.ups.controladores.ControladorPaciente;
 import ec.edu.ups.modelo.Paciente;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
@@ -19,12 +21,25 @@ public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
      * Creates new form VentanaCrearCliente
      */
     private ControladorPaciente controladorPaciente;
-
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
     public VentanaCrearPaciente(ControladorPaciente controladorPaciente) {
         initComponents();
         this.controladorPaciente = controladorPaciente;
         txtcodigo.setText(String.valueOf(this.controladorPaciente.getCodigo()));
 
+    }
+    public static void cambiarIdioma(Locale localizacion){
+        mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+        lblMenuCrearP.setText(mensajes.getString("encabezado.crear.paciente"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lblcedula.setText(mensajes.getString("cedula"));
+        lblnombre.setText(mensajes.getString("nombre"));
+        lblsintomas.setText(mensajes.getString("sintomas"));
+        lbldireccion.setText(mensajes.getString("direccion"));
+        lbltelefono.setText(mensajes.getString("telefono"));
+        lblguardar.setText(mensajes.getString("guardar"));
+        lblcancelar.setText(mensajes.getString("cancelar"));
     }
 
     /**
@@ -317,15 +332,15 @@ public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnguardar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblMenuCrearP;
-    private javax.swing.JLabel lblcancelar;
-    private javax.swing.JLabel lblcedula;
-    private javax.swing.JLabel lblcodigo;
-    private javax.swing.JLabel lbldireccion;
-    private javax.swing.JLabel lblguardar;
-    private javax.swing.JLabel lblnombre;
-    private javax.swing.JLabel lblsintomas;
-    private javax.swing.JLabel lbltelefono;
+    public static javax.swing.JLabel lblMenuCrearP;
+    public static javax.swing.JLabel lblcancelar;
+    public static javax.swing.JLabel lblcedula;
+    public static javax.swing.JLabel lblcodigo;
+    public static javax.swing.JLabel lbldireccion;
+    public static javax.swing.JLabel lblguardar;
+    public static javax.swing.JLabel lblnombre;
+    public static javax.swing.JLabel lblsintomas;
+    public static javax.swing.JLabel lbltelefono;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdireccion;

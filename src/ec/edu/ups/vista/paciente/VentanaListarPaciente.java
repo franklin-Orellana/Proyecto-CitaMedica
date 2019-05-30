@@ -11,6 +11,9 @@ package ec.edu.ups.vista.paciente;
  */
 import ec.edu.ups.controladores.ControladorPaciente;
 import ec.edu.ups.modelo.Paciente;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 public class VentanaListarPaciente extends javax.swing.JInternalFrame {
@@ -19,6 +22,8 @@ public class VentanaListarPaciente extends javax.swing.JInternalFrame {
      * Creates new form VentanaListarPaciente
      */
     private ControladorPaciente controladorPaciente;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
     public static DefaultTableModel modelo;
     public VentanaListarPaciente(ControladorPaciente controladorPaciente) {
         initComponents();
@@ -30,6 +35,13 @@ public class VentanaListarPaciente extends javax.swing.JInternalFrame {
         tabla.setModel(modelo);
         llenarTabla();
     }
+    
+    public static void cambiarIdioma(Locale localizacion){
+        mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+        Object[] columnas = {mensajes.getString("codigo"),mensajes.getString("cedula"), mensajes.getString("nombre"),mensajes.getString("sintomas"), mensajes.getString("direccion"),mensajes.getString("telefono")};
+        modelo.setColumnIdentifiers(columnas);
+    }
+    
     public void llenarTabla() {
         Set<Paciente> Lista = controladorPaciente.getLista();
         for (Paciente paciente : Lista) {

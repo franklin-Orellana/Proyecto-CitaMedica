@@ -12,15 +12,32 @@ package ec.edu.ups.vista.paciente;
 import ec.edu.ups.controladores.ControladorPaciente;
 import ec.edu.ups.modelo.Paciente;
 import javax.swing.JOptionPane;
+import java.util.Locale;
+import java.util.ResourceBundle;
 public class VentanaEliminarPaciente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VentanaEliminarPaciente
      */
     private ControladorPaciente controladorPaciente;
+     private Locale localizacion;
+    private static ResourceBundle mensajes;
         public VentanaEliminarPaciente(ControladorPaciente controladorPaciente) {
         initComponents();
         this.controladorPaciente = controladorPaciente;
+    }
+        public static void cambiarIdioma(Locale localizacion){
+        mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+        lblMenuCrearP.setText(mensajes.getString("encabezado.eliminar.paciente"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lblcedula.setText(mensajes.getString("cedula"));
+        lblnombre.setText(mensajes.getString("nombre"));
+        lblsintomas.setText(mensajes.getString("sintomas"));
+        lbldireccion.setText(mensajes.getString("direccion"));
+        lbltelefono.setText(mensajes.getString("telefono"));
+        lblguardar.setText(mensajes.getString("buscar"));
+        lblcancelar.setText(mensajes.getString("cancelar"));
+        lbleliminar.setText(mensajes.getString("eliminar"));
     }
 
     /**
@@ -52,7 +69,7 @@ public class VentanaEliminarPaciente extends javax.swing.JInternalFrame {
         lblsintomas = new javax.swing.JLabel();
         txtsintomas = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        lblguardar1 = new javax.swing.JLabel();
+        lbleliminar = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -149,10 +166,10 @@ public class VentanaEliminarPaciente extends javax.swing.JInternalFrame {
             }
         });
 
-        lblguardar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblguardar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblguardar1.setText("ELIMINAR");
-        lblguardar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbleliminar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbleliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbleliminar.setText("ELIMINAR");
+        lbleliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -170,7 +187,7 @@ public class VentanaEliminarPaciente extends javax.swing.JInternalFrame {
                                 .addGap(36, 36, 36)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                                    .addComponent(lblguardar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lbleliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btncancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,7 +261,7 @@ public class VentanaEliminarPaciente extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblguardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbleliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -329,16 +346,16 @@ public class VentanaEliminarPaciente extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblMenuCrearP;
-    private javax.swing.JLabel lblcancelar;
-    private javax.swing.JLabel lblcedula;
-    private javax.swing.JLabel lblcodigo;
-    private javax.swing.JLabel lbldireccion;
-    private javax.swing.JLabel lblguardar;
-    private javax.swing.JLabel lblguardar1;
-    private javax.swing.JLabel lblnombre;
-    private javax.swing.JLabel lblsintomas;
-    private javax.swing.JLabel lbltelefono;
+    public static javax.swing.JLabel lblMenuCrearP;
+    public static javax.swing.JLabel lblcancelar;
+    public static javax.swing.JLabel lblcedula;
+    public static javax.swing.JLabel lblcodigo;
+    public static javax.swing.JLabel lbldireccion;
+    public static javax.swing.JLabel lbleliminar;
+    public static javax.swing.JLabel lblguardar;
+    public static javax.swing.JLabel lblnombre;
+    public static javax.swing.JLabel lblsintomas;
+    public static javax.swing.JLabel lbltelefono;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdireccion;
