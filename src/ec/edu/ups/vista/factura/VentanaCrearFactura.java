@@ -6,7 +6,9 @@
 package ec.edu.ups.vista.factura;
 
 import java.awt.event.KeyEvent;
-
+import ec.edu.ups.controladores.ControladorCitaMedica;
+import ec.edu.ups.controladores.ControladorFacturaDetallada;
+import ec.edu.ups.controladores.ControladorFactura;
 /**
  *
  * @author tians
@@ -16,8 +18,14 @@ public class VentanaCrearFactura extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaCrearFactura
      */
-    public VentanaCrearFactura() {
+    private ControladorCitaMedica controladorCitaMedica;
+    private ControladorFactura controladorFactura;
+    private ControladorFacturaDetallada controladorFacturaDetallada;
+    public VentanaCrearFactura(ControladorCitaMedica controladorCitaMedica, ControladorFactura controladorFactura, ControladorFacturaDetallada controladorFacturaDetallada) {
         initComponents();
+        this.controladorCitaMedica = controladorCitaMedica;
+        this.controladorFactura = controladorFactura;
+        this.controladorFacturaDetallada = controladorFacturaDetallada;
     }
 
     /**
