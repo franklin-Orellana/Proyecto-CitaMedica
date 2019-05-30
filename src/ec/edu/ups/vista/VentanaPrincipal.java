@@ -31,6 +31,8 @@ import ec.edu.ups.vista.paciente.VentanaCrearPaciente;
 import ec.edu.ups.vista.paciente.VentanaEliminarPaciente;
 import ec.edu.ups.vista.paciente.VentanaListarPaciente;
 import ec.edu.ups.vista.receta.VentanaCrearReceta;
+import ec.edu.ups.vista.factura.VentanaCrearFactura;
+import ec.edu.ups.controladores.ControladorFactura;
 import java.util.ResourceBundle;
 import java.util.Locale;
 
@@ -66,6 +68,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private ControladorMedicina controladorMedicina;
     private ControladorReceta controladorReceta;
     private VentanaCrearReceta ventanaCrearReceta;
+    private VentanaCrearFactura ventanaCrearFactura;
+    private ControladorFactura controladorFactura;
     private Locale localizacion;
     private ResourceBundle mensajes;
 
@@ -80,6 +84,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorCitaMedicaDetallada = new ControladorCitaMedicaDetallada();
         controladorMedicina = new ControladorMedicina();
         controladorReceta = new ControladorReceta();
+        controladorFactura = new ControladorFactura();
+        
         localizacion = new Locale("es", "EC");
         Locale.setDefault(localizacion);
         cambiarIdioma();
@@ -804,6 +810,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void crearMedicina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearMedicina1ActionPerformed
         // TODO add your handling code here:
+         if (ventanaCrearFactura == null || !ventanaCrearFactura.isVisible()) {
+            ventanaCrearFactura = new VentanaCrearFactura();
+            ventanaCrearFactura.setVisible(true);
+            desktopPane.add(ventanaCrearFactura);
+            //VentanaCrearReceta.
+        }
     }//GEN-LAST:event_crearMedicina1ActionPerformed
 
     private void buscarMedicina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarMedicina1ActionPerformed
