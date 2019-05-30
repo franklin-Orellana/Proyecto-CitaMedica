@@ -9,19 +9,37 @@ import ec.edu.ups.controladores.ControladorMedicina;
 import ec.edu.ups.modelo.Medicina;
 import static ec.edu.ups.vista.medicina.VentanaCrearMedicina.txtPrecio;
 import javax.swing.JOptionPane;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
  * @author 59398
  */
 public class VentanaBuscarMedicina extends javax.swing.JInternalFrame {
+
     private ControladorMedicina controladorMedicina;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
+
     /**
      * Creates new form VentanaBuscarMedicina
      */
     public VentanaBuscarMedicina(ControladorMedicina controladorMedicina) {
         initComponents();
         this.controladorMedicina = controladorMedicina;
+    }
+
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        lblMenuCrearP.setText(mensajes.getString("encabezado.buscar.medicina"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lblnombre.setText(mensajes.getString("nombre"));
+        lblmarca.setText(mensajes.getString("marca"));
+        lbldescripcion.setText(mensajes.getString("descripcion"));
+        lblprecio.setText(mensajes.getString("precio"));
+        lblguardar.setText(mensajes.getString("buscar"));
+        lblcancelar.setText(mensajes.getString("cancelar"));
     }
 
     /**
@@ -35,18 +53,18 @@ public class VentanaBuscarMedicina extends javax.swing.JInternalFrame {
 
         lblMenuCrearP = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        lblcodigo3 = new javax.swing.JLabel();
-        lblnombre3 = new javax.swing.JLabel();
-        lblPrecio2 = new javax.swing.JLabel();
+        lblcodigo = new javax.swing.JLabel();
+        lblnombre = new javax.swing.JLabel();
+        lblprecio = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtPrecio2 = new javax.swing.JTextField();
         btnguardar3 = new javax.swing.JButton();
         btncancelar = new javax.swing.JButton();
         lblguardar = new javax.swing.JLabel();
         lblcancelar = new javax.swing.JLabel();
-        lblMarca = new javax.swing.JLabel();
+        lblmarca = new javax.swing.JLabel();
         txtMarca = new javax.swing.JTextField();
-        lblDescripcion = new javax.swing.JLabel();
+        lbldescripcion = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
         txtCodigo = new javax.swing.JTextField();
 
@@ -62,20 +80,20 @@ public class VentanaBuscarMedicina extends javax.swing.JInternalFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel5.setToolTipText("");
 
-        lblcodigo3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblcodigo3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcodigo3.setText("CÓDIGO");
-        lblcodigo3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblcodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblcodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblcodigo.setText("CÓDIGO");
+        lblcodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblnombre3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblnombre3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblnombre3.setText("NOMBRE");
-        lblnombre3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblnombre.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblnombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblnombre.setText("NOMBRE");
+        lblnombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblPrecio2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblPrecio2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecio2.setText("PRECIO");
-        lblPrecio2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblprecio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblprecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblprecio.setText("PRECIO");
+        lblprecio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtNombre.setEditable(false);
         txtNombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -111,19 +129,19 @@ public class VentanaBuscarMedicina extends javax.swing.JInternalFrame {
         lblcancelar.setText("CANCELAR");
         lblcancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblMarca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblMarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMarca.setText("MARCA");
-        lblMarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblmarca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblmarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblmarca.setText("MARCA");
+        lblmarca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtMarca.setEditable(false);
         txtMarca.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtMarca.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        lblDescripcion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblDescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDescripcion.setText("DESCRIPCIÓN");
-        lblDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbldescripcion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbldescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbldescripcion.setText("DESCRIPCIÓN");
+        lbldescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtDescripcion.setEditable(false);
         txtDescripcion.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
@@ -142,11 +160,11 @@ public class VentanaBuscarMedicina extends javax.swing.JInternalFrame {
                                 .addContainerGap()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(lblnombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblmarca, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -163,16 +181,16 @@ public class VentanaBuscarMedicina extends javax.swing.JInternalFrame {
                         .addContainerGap()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(lblcodigo3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtCodigo))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addComponent(lblPrecio2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtPrecio2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbldescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
@@ -182,23 +200,23 @@ public class VentanaBuscarMedicina extends javax.swing.JInternalFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblcodigo3, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(lblcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                     .addComponent(txtCodigo))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblnombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblmarca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbldescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPrecio2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblprecio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPrecio2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +257,7 @@ public class VentanaBuscarMedicina extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnguardar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardar3ActionPerformed
-        
+
         int codigo = Integer.parseInt(txtCodigo.getText());
         Medicina buscarMedicina = controladorMedicina.read(codigo);
         txtNombre.setText(buscarMedicina.getNombre());
@@ -259,14 +277,14 @@ public class VentanaBuscarMedicina extends javax.swing.JInternalFrame {
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btnguardar3;
     public static javax.swing.JPanel jPanel5;
-    public static javax.swing.JLabel lblDescripcion;
-    public static javax.swing.JLabel lblMarca;
-    private javax.swing.JLabel lblMenuCrearP;
-    public static javax.swing.JLabel lblPrecio2;
-    private javax.swing.JLabel lblcancelar;
-    public static javax.swing.JLabel lblcodigo3;
-    private javax.swing.JLabel lblguardar;
-    public static javax.swing.JLabel lblnombre3;
+    public static javax.swing.JLabel lblMenuCrearP;
+    public static javax.swing.JLabel lblcancelar;
+    public static javax.swing.JLabel lblcodigo;
+    public static javax.swing.JLabel lbldescripcion;
+    public static javax.swing.JLabel lblguardar;
+    public static javax.swing.JLabel lblmarca;
+    public static javax.swing.JLabel lblnombre;
+    public static javax.swing.JLabel lblprecio;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDescripcion;
     public static javax.swing.JTextField txtMarca;

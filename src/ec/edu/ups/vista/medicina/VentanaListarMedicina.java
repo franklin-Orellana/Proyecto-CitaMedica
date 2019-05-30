@@ -11,6 +11,8 @@ package ec.edu.ups.vista.medicina;
  */
 import ec.edu.ups.controladores.ControladorMedicina;
 import ec.edu.ups.modelo.Medicina;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 public class VentanaListarMedicina extends javax.swing.JInternalFrame {
@@ -20,6 +22,8 @@ public class VentanaListarMedicina extends javax.swing.JInternalFrame {
      */
     private ControladorMedicina controladorMedicina;
     public static DefaultTableModel modelo;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
     public VentanaListarMedicina(ControladorMedicina controladorMedicina) {
         initComponents();
         this.controladorMedicina = controladorMedicina;
@@ -28,6 +32,11 @@ public class VentanaListarMedicina extends javax.swing.JInternalFrame {
         modelo.setColumnIdentifiers(columnas);
         tabla.setModel(modelo);
         llenarTabla();        
+    }
+    public static void cambiarIdioma(Locale localizacion){
+        mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
+        Object[] columnas = {mensajes.getString("codigo"),mensajes.getString("nombre"), mensajes.getString("marca"),mensajes.getString("descripcion"),mensajes.getString("precio")};
+        modelo.setColumnIdentifiers(columnas);
     }
     public void llenarTabla(){
     Set<Medicina> Lista = controladorMedicina.getLista();
@@ -71,8 +80,8 @@ public class VentanaListarMedicina extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
