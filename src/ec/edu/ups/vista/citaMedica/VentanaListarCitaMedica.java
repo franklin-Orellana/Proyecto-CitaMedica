@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ec.edu.ups.vista.citaMedica;
 
 import ec.edu.ups.controladores.ControladorCitaMedica;
@@ -12,6 +11,8 @@ import ec.edu.ups.controladores.ControladorMedico;
 import ec.edu.ups.controladores.ControladorPaciente;
 import ec.edu.ups.modelo.CitaMedica;
 import ec.edu.ups.modelo.CitaMedicaDetallada;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Set;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
@@ -32,53 +33,61 @@ public class VentanaListarCitaMedica extends javax.swing.JInternalFrame {
     private ControladorPaciente controladorPaciente;
     private ControladorMedico controladorMedico;
     public static DefaultTableModel modelo;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
     JComboBox<Object> listaDet;
-    
-    public VentanaListarCitaMedica(ControladorCitaMedica controladorCitaMedica,ControladorCitaMedicaDetallada controladorCitaMedicaDetallada,ControladorMedico controladorMedico, ControladorPaciente controladorPaciente) {
+
+    public VentanaListarCitaMedica(ControladorCitaMedica controladorCitaMedica, ControladorCitaMedicaDetallada controladorCitaMedicaDetallada, ControladorMedico controladorMedico, ControladorPaciente controladorPaciente) {
         initComponents();
-        this.controladorCitaMedica=controladorCitaMedica;
-        this.controladorCitaMedicaDetallada= controladorCitaMedicaDetallada;
+        this.controladorCitaMedica = controladorCitaMedica;
+        this.controladorCitaMedicaDetallada = controladorCitaMedicaDetallada;
         this.controladorPaciente = controladorPaciente;
-        this.controladorMedico= controladorMedico;
+        this.controladorMedico = controladorMedico;
         modelo = new DefaultTableModel();
-        Object[] columnas ={"Numero Cita","Paciente","Cedula","Direccion","Telefono","Doctor","Especialidad","Laboratorio","Detalle Cita Medica","Fecha","Precio"};
+        Object[] columnas = {"Numero Cita", "Paciente", "Cedula", "Direccion", "Telefono", "Médico", "Especialidad", "Laboratorio", "Detalle Cita Medica", "Fecha", "Precio"};
         modelo.setColumnIdentifiers(columnas);
         tabla.setModel(modelo);
 
-        llenarTabla();        
+        llenarTabla();
     }
+
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        Object[] columnas = {mensajes.getString("numerocita"), mensajes.getString("paciente"), mensajes.getString("cedula"), mensajes.getString("telefono"), mensajes.getString("medico"), mensajes.getString("especialidad"), mensajes.getString("laboratorio"), mensajes.getString("citamedica"), mensajes.getString("fecha"), mensajes.getString("precio")};
+        modelo.setColumnIdentifiers(columnas);
+    }
+
     /*
     Metodo que llena con los datos del objeto a la tabla
-    */
-    public void llenarTabla(){
-    Set<CitaMedica> Lista = controladorCitaMedica.getLista();
-     Set<CitaMedicaDetallada> citaMedicaDetalladas;
-    for(CitaMedica citaMedica : Lista){      
-        listaDet=new JComboBox<>();
-        citaMedicaDetalladas=citaMedica.getListaDetallada();
-        //Ingresa al comboBox los detalles de la cita medica
-        for(CitaMedicaDetallada citaMedicaDetallada:citaMedicaDetalladas){            
-            String diag=citaMedicaDetallada.getDiagnostico();
-            listaDet.addItem(diag);
+     */
+    public void llenarTabla() {
+        Set<CitaMedica> Lista = controladorCitaMedica.getLista();
+        Set<CitaMedicaDetallada> citaMedicaDetalladas;
+        for (CitaMedica citaMedica : Lista) {
+            listaDet = new JComboBox<>();
+            citaMedicaDetalladas = citaMedica.getListaDetallada();
+            //Ingresa al comboBox los detalles de la cita medica
+            for (CitaMedicaDetallada citaMedicaDetallada : citaMedicaDetalladas) {
+                String diag = citaMedicaDetallada.getDiagnostico();
+                listaDet.addItem(diag);
+            }
+            TableColumn columna = this.tabla.getColumnModel().getColumn(8);
+            columna.setCellEditor(new DefaultCellEditor(listaDet));
+            Object[] datos = {citaMedica.getNumeroCita(),
+                citaMedica.getPaciente().getNombre(),
+                citaMedica.getPaciente().getCedula(),
+                citaMedica.getPaciente().getDireccion(),
+                citaMedica.getPaciente().getTelefono(),
+                citaMedica.getMedico().getNombre(),
+                citaMedica.getMedico().getEspecialidad(),
+                citaMedica.getMedico().getLaboratoio(),
+                columna,
+                citaMedica.getFechaCita(),
+                citaMedica.getPrecio()};
+            modelo.addRow(datos);
+
         }
-        TableColumn columna=this.tabla.getColumnModel().getColumn(8);
-        columna.setCellEditor(new DefaultCellEditor (listaDet));
-        Object[] datos = {citaMedica.getNumeroCita(),
-            citaMedica.getPaciente().getNombre(),
-            citaMedica.getPaciente().getCedula(),
-            citaMedica.getPaciente().getDireccion(),
-            citaMedica.getPaciente().getTelefono(),
-            citaMedica.getMedico().getNombre(),
-            citaMedica.getMedico().getEspecialidad(),
-            citaMedica.getMedico().getLaboratoio(),
-            columna,
-            citaMedica.getFechaCita(),
-            citaMedica.getPrecio()};
-        modelo.addRow(datos);
-        
     }
-}
-    
 
     /**
      * This method is called from within the constructor to initialize the form.

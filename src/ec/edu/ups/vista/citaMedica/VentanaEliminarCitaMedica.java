@@ -7,6 +7,8 @@
 package ec.edu.ups.vista.citaMedica;
 
 import ec.edu.ups.controladores.ControladorCitaMedica;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,9 +21,18 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
      * Creates new form VentanaEliminarCitaMedica
      */
     private ControladorCitaMedica controladorCitaMedica;
+     private Locale localizacion;
+    private static ResourceBundle mensajes;
     public VentanaEliminarCitaMedica(ControladorCitaMedica controladorCitaMedica) {
         initComponents();
         this.controladorCitaMedica=controladorCitaMedica;
+    }
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        lblCitaMedica.setText(mensajes.getString("citamedica"));
+        lblnumerocita.setText(mensajes.getString("numerocita"));
+        lbleliminar.setText(mensajes.getString("eliminar"));
+        
     }
 
     /**
@@ -35,10 +46,10 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
 
         lblCitaMedica = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        lblcodigo1 = new javax.swing.JLabel();
+        lblnumerocita = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        lblguardar1 = new javax.swing.JLabel();
+        lbleliminar = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -52,10 +63,10 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        lblcodigo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblcodigo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcodigo1.setText("NÚMERO CITA");
-        lblcodigo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblnumerocita.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblnumerocita.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblnumerocita.setText("NÚMERO CITA");
+        lblnumerocita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtcodigo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtcodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -68,10 +79,10 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
             }
         });
 
-        lblguardar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblguardar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblguardar1.setText("ELIMINAR");
-        lblguardar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbleliminar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbleliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbleliminar.setText("ELIMINAR");
+        lbleliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,9 +91,9 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblguardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbleliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblnumerocita, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -92,12 +103,12 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblnumerocita, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblguardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbleliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -142,8 +153,8 @@ public class VentanaEliminarCitaMedica extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     public static javax.swing.JLabel lblCitaMedica;
-    public static javax.swing.JLabel lblcodigo1;
-    private javax.swing.JLabel lblguardar1;
+    public static javax.swing.JLabel lbleliminar;
+    public static javax.swing.JLabel lblnumerocita;
     private javax.swing.JTextField txtcodigo;
     // End of variables declaration//GEN-END:variables
 }
