@@ -90,12 +90,41 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
 
-        //menuPaciente.setText(mensajes.getString("paciente"));
-        //menuMedico.setText(mensajes.getString("medico"));
-        //menuMedicina.setText(mensajes.getString("medicina"));
-        //menuCitamedica.setText(mensajes.getString("citamedica"));
-        //menuReceta.setText(mensajes.getString("receta"));
-        //menuIdioma.setText(mensajes.getString("idioma"));
+        menuPaciente.setText(mensajes.getString("menu.paciente"));
+        menuMedico.setText(mensajes.getString("menu.paciente"));
+        menuMedicina.setText(mensajes.getString("menu.medicina"));
+        menuCitamedica.setText(mensajes.getString("citamedica"));
+        menuReceta.setText(mensajes.getString("receta"));
+        menuIdioma.setText(mensajes.getString("menu.idioma"));
+        
+        crearPaciente.setText(mensajes.getString("menu.crear"));
+        crearMedico.setText(mensajes.getString("menu.crear"));
+        crearMedicina.setText(mensajes.getString("menu.crear"));
+        crearCitaMedica.setText(mensajes.getString("menu.crear"));
+        crearReceta.setText(mensajes.getString("menu.crear"));
+        
+        buscarPaciente.setText(mensajes.getString("menu.buscar"));
+        buscarMedico.setText(mensajes.getString("menu.buscar"));
+        buscarMedicina.setText(mensajes.getString("menu.buscar"));
+        buscarCitaMedica.setText(mensajes.getString("menu.buscar"));
+        buscarReceta.setText(mensajes.getString("menu.buscar"));
+        
+        actualizarPaciente.setText(mensajes.getString("menu.actualizar"));
+        actualizarMedico.setText(mensajes.getString("menu.actualizar"));
+        actualizarMedicina.setText(mensajes.getString("menu.actualizar"));
+        actualizarReceta.setText(mensajes.getString("menu.actualizar"));
+        
+        listarPaciente.setText(mensajes.getString("menu.listar"));
+        listarMedico.setText(mensajes.getString("menu.listar"));
+        listarMedicina.setText(mensajes.getString("menu.listar"));
+        listarCitaMedica.setText(mensajes.getString("menu.listar"));
+        listarReceta.setText(mensajes.getString("menu.listar"));
+        
+        eliminarPaciente.setText(mensajes.getString("menu.eliminar"));
+        eliminarMedico.setText(mensajes.getString("menu.eliminar"));
+        eliminarMedicina.setText(mensajes.getString("menu.eliminar"));
+        eliminarCitaMedica.setText(mensajes.getString("menu.eliminar"));
+        eliminarReceta.setText(mensajes.getString("menu.eliminar"));
     }
 
     /**
