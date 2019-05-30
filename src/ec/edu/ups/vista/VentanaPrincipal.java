@@ -81,19 +81,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorMedicina = new ControladorMedicina();
         controladorReceta = new ControladorReceta();
         System.out.println("Localizacion por defecto: " + Locale.getDefault().getLanguage());
-       
+
     }
 
     public void cambiarIdioma() {
-        mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
-         
-        menuPaciente.setText(mensajes.getString("paciente"));
-         menuMedico.setText(mensajes.getString("medico"));
-         menuMedicina.setText(mensajes.getString("medicina"));
-         menuCitamedica.setText(mensajes.getString("citamedica"));
-         menuReceta.setText(mensajes.getString("receta"));
-         menuIdioma.setText(mensajes.getString("idioma"));
-        
+
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+
+        //menuPaciente.setText(mensajes.getString("paciente"));
+        //menuMedico.setText(mensajes.getString("medico"));
+        //menuMedicina.setText(mensajes.getString("medicina"));
+        //menuCitamedica.setText(mensajes.getString("citamedica"));
+        //menuReceta.setText(mensajes.getString("receta"));
+        //menuIdioma.setText(mensajes.getString("idioma"));
     }
 
     /**
@@ -525,6 +525,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaCrearPaciente = new VentanaCrearPaciente(controladorPaciente);
             ventanaCrearPaciente.setVisible(true);
             desktopPane.add(ventanaCrearPaciente);
+            VentanaCrearPaciente.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_crearPacienteActionPerformed
 
@@ -533,6 +534,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaBuscarMedico = new VentanaBuscarMedico(controladorMedico);
             ventanaBuscarMedico.setVisible(true);
             desktopPane.add(ventanaBuscarMedico);
+            VentanaBuscarMedico.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_buscarMedicoActionPerformed
 
@@ -541,6 +543,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaActualizarMedico = new VentanaActualizarMedico(controladorMedico);
             ventanaActualizarMedico.setVisible(true);
             desktopPane.add(ventanaActualizarMedico);
+            VentanaActualizarMedico.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_actualizarMedicoActionPerformed
 
@@ -549,6 +552,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaEliminarMedico = new VentanaEliminarMedico(controladorMedico);
             ventanaEliminarMedico.setVisible(true);
             desktopPane.add(ventanaEliminarMedico);
+            VentanaEliminarMedico.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_eliminarMedicoActionPerformed
 
@@ -557,6 +561,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaListarMedico = new VentanaListarMedico(controladorMedico);
             ventanaListarMedico.setVisible(true);
             desktopPane.add(ventanaListarMedico);
+            VentanaListarMedico.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_listarMedicoActionPerformed
 
@@ -565,6 +570,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaCrearMedicina = new VentanaCrearMedicina(controladorMedicina);
             ventanaCrearMedicina.setVisible(true);
             desktopPane.add(ventanaCrearMedicina);
+            VentanaCrearMedicina.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_crearMedicinaActionPerformed
 
@@ -573,6 +579,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaEliminarMedicina = new VentanaEliminarMedicina(controladorMedicina);
             ventanaEliminarMedicina.setVisible(true);
             desktopPane.add(ventanaEliminarMedicina);
+            VentanaEliminarMedicina.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_eliminarMedicinaActionPerformed
 
@@ -581,6 +588,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaBuscarMedicina = new VentanaBuscarMedicina(controladorMedicina);
             ventanaBuscarMedicina.setVisible(true);
             desktopPane.add(ventanaBuscarMedicina);
+            VentanaBuscarMedicina.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_buscarMedicinaActionPerformed
 
@@ -589,6 +597,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaActualizarMedicina = new VentanaActualizarMedicina(controladorMedicina);
             ventanaActualizarMedicina.setVisible(true);
             desktopPane.add(ventanaActualizarMedicina);
+            VentanaActualizarMedicina.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_actualizarMedicinaActionPerformed
 
@@ -597,6 +606,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaListarMedicina = new VentanaListarMedicina(controladorMedicina);
             ventanaListarMedicina.setVisible(true);
             desktopPane.add(ventanaListarMedicina);
+            VentanaListarMedicina.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_listarMedicinaActionPerformed
 
@@ -606,6 +616,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaCrearCitaMedica = new VentanaCrearCitaMedica(controladorCitaMedica, controladorCitaMedicaDetallada, controladorPaciente, controladorMedico);
             ventanaCrearCitaMedica.setVisible(true);
             desktopPane.add(ventanaCrearCitaMedica);
+            VentanaCrearCitaMedica.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_crearCitaMedicaActionPerformed
 
@@ -615,6 +626,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaListarCitaMedica = new VentanaListarCitaMedica(controladorCitaMedica, controladorCitaMedicaDetallada, controladorMedico, controladorPaciente);
             ventanaListarCitaMedica.setVisible(true);
             desktopPane.add(ventanaListarCitaMedica);
+            VentanaListarCitaMedica.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_listarCitaMedicaActionPerformed
 
@@ -623,6 +635,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaBuscarCitaMedica = new VentanaBuscarCitaMedica(controladorCitaMedica, controladorCitaMedicaDetallada, controladorPaciente, controladorMedico);
             ventanaBuscarCitaMedica.setVisible(true);
             desktopPane.add(ventanaBuscarCitaMedica);
+            VentanaBuscarCitaMedica.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_buscarCitaMedicaActionPerformed
 
@@ -631,6 +644,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaEliminarCitaMedica = new VentanaEliminarCitaMedica(controladorCitaMedica);
             ventanaEliminarCitaMedica.setVisible(true);
             desktopPane.add(ventanaEliminarCitaMedica);
+            VentanaEliminarCitaMedica.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_eliminarCitaMedicaActionPerformed
 
@@ -639,6 +653,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaActualizarPaciente = new VentanaActualizarPaciente(controladorPaciente);
             ventanaActualizarPaciente.setVisible(true);
             desktopPane.add(ventanaActualizarPaciente);
+            VentanaActualizarPaciente.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_actualizarPacienteActionPerformed
 
@@ -647,6 +662,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaCrearReceta = new VentanaCrearReceta(controladorReceta, controladorCitaMedica, controladorPaciente);
             ventanaCrearReceta.setVisible(true);
             desktopPane.add(ventanaCrearReceta);
+            //VentanaCrearReceta.
         }
 
     }//GEN-LAST:event_crearRecetaActionPerformed
@@ -672,6 +688,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         localizacion = new Locale("es", "EC");
         Locale.setDefault(localizacion);
         cambiarIdioma();
+        idiomaVentanas();
     }//GEN-LAST:event_espanolActionPerformed
 
     private void inglesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inglesActionPerformed
@@ -679,12 +696,70 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         localizacion = new Locale("en", "US");
         Locale.setDefault(localizacion);
         cambiarIdioma();
+        idiomaVentanas();
     }//GEN-LAST:event_inglesActionPerformed
 
     private void idiomaVentanas() {
         //ventanaPaciente
         if (ventanaCrearPaciente != null && ventanaCrearPaciente.isVisible()) {
-           
+            ventanaCrearPaciente.cambiarIdioma(localizacion);
+        }
+        if (ventanaActualizarPaciente != null && ventanaActualizarPaciente.isVisible()) {
+            ventanaActualizarPaciente.cambiarIdioma(localizacion);
+        }
+        if (ventanaBuscarPaciente != null && ventanaBuscarPaciente.isVisible()) {
+            ventanaBuscarPaciente.cambiarIdioma(localizacion);
+        }
+        if (ventanaEliminarPaciente != null && ventanaEliminarPaciente.isVisible()) {
+            ventanaEliminarPaciente.cambiarIdioma(localizacion);
+        }
+        if (ventanaListarPaciente != null && ventanaListarPaciente.isVisible()) {
+            ventanaListarPaciente.cambiarIdioma(localizacion);
+        }
+        //ventanasMedico
+        if (ventanaCrearMedico != null && ventanaCrearMedico.isVisible()) {
+            ventanaCrearMedico.cambiarIdioma(localizacion);
+        }
+        if (ventanaActualizarMedico != null && ventanaActualizarMedico.isVisible()) {
+            ventanaActualizarMedico.cambiarIdioma(localizacion);
+        }
+        if (ventanaBuscarMedico != null && ventanaBuscarMedico.isVisible()) {
+            ventanaBuscarMedico.cambiarIdioma(localizacion);
+        }
+        if (ventanaEliminarMedico != null && ventanaEliminarMedico.isVisible()) {
+            ventanaEliminarMedico.cambiarIdioma(localizacion);
+        }
+        if (ventanaListarMedico != null && ventanaListarMedico.isVisible()) {
+            ventanaListarMedico.cambiarIdioma(localizacion);
+        }
+        //ventanaMedicina
+        if (ventanaCrearMedicina != null && ventanaCrearMedicina.isVisible()) {
+            ventanaCrearMedicina.cambiarIdioma(localizacion);
+        }
+        if (ventanaActualizarMedicina != null && ventanaActualizarMedicina.isVisible()) {
+            ventanaActualizarMedicina.cambiarIdioma(localizacion);
+        }
+        if (ventanaBuscarMedicina != null && ventanaBuscarMedicina.isVisible()) {
+            ventanaBuscarMedicina.cambiarIdioma(localizacion);
+        }
+        if (ventanaEliminarMedicina != null && ventanaEliminarMedicina.isVisible()) {
+            ventanaEliminarMedicina.cambiarIdioma(localizacion);
+        }
+        if (ventanaListarMedicina != null && ventanaListarMedicina.isVisible()) {
+            ventanaListarMedicina.cambiarIdioma(localizacion);
+        }
+        //citaMedica
+        if (ventanaCrearCitaMedica != null && ventanaCrearCitaMedica.isVisible()) {
+            ventanaCrearCitaMedica.cambiarIdioma(localizacion);
+        }
+        if (ventanaBuscarCitaMedica != null && ventanaBuscarCitaMedica.isVisible()) {
+            ventanaBuscarCitaMedica.cambiarIdioma(localizacion);
+        }
+        if (ventanaEliminarCitaMedica != null && ventanaEliminarCitaMedica.isVisible()) {
+            ventanaEliminarCitaMedica.cambiarIdioma(localizacion);
+        }
+        if (ventanaListarCitaMedica != null && ventanaListarCitaMedica.isVisible()) {
+            ventanaListarCitaMedica.cambiarIdioma(localizacion);
         }
     }
 
