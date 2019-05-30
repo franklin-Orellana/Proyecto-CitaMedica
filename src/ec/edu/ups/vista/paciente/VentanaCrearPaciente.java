@@ -348,4 +348,8 @@ public class VentanaCrearPaciente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtsintomas;
     private javax.swing.JTextField txttelefono;
     // End of variables declaration//GEN-END:variables
+
+    public void cambiarIdioma(ResourceBundle mensajes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

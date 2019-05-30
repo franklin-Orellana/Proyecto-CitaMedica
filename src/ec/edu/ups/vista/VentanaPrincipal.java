@@ -80,7 +80,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorCitaMedicaDetallada = new ControladorCitaMedicaDetallada();
         controladorMedicina = new ControladorMedicina();
         controladorReceta = new ControladorReceta();
-        System.out.println("Localizacion por defecto: " + Locale.getDefault().getLanguage());
+        localizacion = new Locale("es", "EC");
+        Locale.setDefault(localizacion);
+        cambiarIdioma();
 
     }
 
