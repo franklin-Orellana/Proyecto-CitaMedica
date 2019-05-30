@@ -31,7 +31,7 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
     }
     public static void cambiarIdioma(Locale localizacion) {
         mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
-        lblMenuCrearP.setText(mensajes.getString("encabezado.crear.medico"));
+        lblMenuCrearM.setText(mensajes.getString("encabezado.crear.medico"));
         lblcodigo.setText(mensajes.getString("codigo"));
         lblcedula.setText(mensajes.getString("cedula"));
         lblnombre.setText(mensajes.getString("nombre"));
@@ -54,7 +54,7 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblMenuCrearP = new javax.swing.JLabel();
+        lblMenuCrearM = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblcodigo = new javax.swing.JLabel();
         lblcedula = new javax.swing.JLabel();
@@ -81,10 +81,10 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        lblMenuCrearP.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        lblMenuCrearP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMenuCrearP.setText("CREAR MÉDICO");
-        lblMenuCrearP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblMenuCrearM.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lblMenuCrearM.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMenuCrearM.setText("CREAR MÉDICO");
+        lblMenuCrearM.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -278,7 +278,7 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblMenuCrearM, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -288,7 +288,7 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblMenuCrearM, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -346,7 +346,7 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnguardar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    public static javax.swing.JLabel lblMenuCrearP;
+    public static javax.swing.JLabel lblMenuCrearM;
     public static javax.swing.JLabel lblcancelar;
     public static javax.swing.JLabel lblcedula;
     public static javax.swing.JLabel lblcodigo;

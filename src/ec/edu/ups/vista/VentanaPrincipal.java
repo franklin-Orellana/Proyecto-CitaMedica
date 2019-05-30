@@ -89,42 +89,45 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void cambiarIdioma() {
 
         mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
-
+        //cambia el idioma de los menus Paciente,Medico,Medicina,CitaMedica,Receta y el Idioma
         menuPaciente.setText(mensajes.getString("menu.paciente"));
-        menuMedico.setText(mensajes.getString("menu.paciente"));
+        menuMedico.setText(mensajes.getString("menu.medico"));
         menuMedicina.setText(mensajes.getString("menu.medicina"));
         menuCitamedica.setText(mensajes.getString("citamedica"));
         menuReceta.setText(mensajes.getString("receta"));
         menuIdioma.setText(mensajes.getString("menu.idioma"));
-        
+        //cambia el idioma del crear Paciente,Medico,Medicina,CitaMedica,Receta
         crearPaciente.setText(mensajes.getString("menu.crear"));
         crearMedico.setText(mensajes.getString("menu.crear"));
         crearMedicina.setText(mensajes.getString("menu.crear"));
         crearCitaMedica.setText(mensajes.getString("menu.crear"));
         crearReceta.setText(mensajes.getString("menu.crear"));
-        
+        //cambia el idioma del buscar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         buscarPaciente.setText(mensajes.getString("menu.buscar"));
         buscarMedico.setText(mensajes.getString("menu.buscar"));
         buscarMedicina.setText(mensajes.getString("menu.buscar"));
         buscarCitaMedica.setText(mensajes.getString("menu.buscar"));
         buscarReceta.setText(mensajes.getString("menu.buscar"));
-        
+        //cambia el idioma del actualizar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         actualizarPaciente.setText(mensajes.getString("menu.actualizar"));
         actualizarMedico.setText(mensajes.getString("menu.actualizar"));
         actualizarMedicina.setText(mensajes.getString("menu.actualizar"));
         actualizarReceta.setText(mensajes.getString("menu.actualizar"));
-        
+        //cambia el idioma del listar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         listarPaciente.setText(mensajes.getString("menu.listar"));
         listarMedico.setText(mensajes.getString("menu.listar"));
         listarMedicina.setText(mensajes.getString("menu.listar"));
         listarCitaMedica.setText(mensajes.getString("menu.listar"));
         listarReceta.setText(mensajes.getString("menu.listar"));
-        
+        //cambia el idioma del eliminar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         eliminarPaciente.setText(mensajes.getString("menu.eliminar"));
         eliminarMedico.setText(mensajes.getString("menu.eliminar"));
         eliminarMedicina.setText(mensajes.getString("menu.eliminar"));
         eliminarCitaMedica.setText(mensajes.getString("menu.eliminar"));
         eliminarReceta.setText(mensajes.getString("menu.eliminar"));
+        //
+        espanol.setText(mensajes.getString("menu.idioma.español"));
+        ingles.setText(mensajes.getString("menu.idioma.ingles"));
     }
 
     /**
@@ -522,6 +525,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaListarPaciente = new VentanaListarPaciente(controladorPaciente);
             ventanaListarPaciente.setVisible(true);
             desktopPane.add(ventanaListarPaciente);
+            VentanaListarPaciente.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_listarPacienteActionPerformed
 
@@ -530,6 +534,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaBuscarPaciente = new VentanaBuscaPaciente(controladorPaciente);
             ventanaBuscarPaciente.setVisible(true);
             desktopPane.add(ventanaBuscarPaciente);
+            VentanaBuscaPaciente.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_buscarPacienteActionPerformed
 
@@ -538,6 +543,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaEliminarPaciente = new VentanaEliminarPaciente(controladorPaciente);
             ventanaEliminarPaciente.setVisible(true);
             desktopPane.add(ventanaEliminarPaciente);
+            VentanaEliminarPaciente.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_eliminarPacienteActionPerformed
 

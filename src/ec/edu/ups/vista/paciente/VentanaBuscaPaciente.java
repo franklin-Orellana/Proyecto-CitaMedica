@@ -29,7 +29,7 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
     
     public static void cambiarIdioma(Locale localizacion){
         mensajes=ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes",Locale.getDefault());
-        lblMenuCrearP.setText(mensajes.getString("encabezado.buscar.paciente"));
+        lblMenuBuscarP.setText(mensajes.getString("encabezado.busca.paciente"));
         lblcodigo.setText(mensajes.getString("codigo"));
         lblcedula.setText(mensajes.getString("cedula"));
         lblnombre.setText(mensajes.getString("nombre"));
@@ -50,7 +50,7 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        lblMenuCrearP = new javax.swing.JLabel();
+        lblMenuBuscarP = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblcodigo = new javax.swing.JLabel();
         lblcedula = new javax.swing.JLabel();
@@ -75,10 +75,10 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        lblMenuCrearP.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        lblMenuCrearP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMenuCrearP.setText("BUSCAR PACIENTE");
-        lblMenuCrearP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblMenuBuscarP.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lblMenuBuscarP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMenuBuscarP.setText("BUSCAR PACIENTE");
+        lblMenuBuscarP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -256,7 +256,7 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblMenuBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(41, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,7 +266,7 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblMenuBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -315,7 +315,7 @@ public class VentanaBuscaPaciente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnguardar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    public static javax.swing.JLabel lblMenuCrearP;
+    public static javax.swing.JLabel lblMenuBuscarP;
     public static javax.swing.JLabel lblbuscar;
     public static javax.swing.JLabel lblcancelar;
     public static javax.swing.JLabel lblcedula;

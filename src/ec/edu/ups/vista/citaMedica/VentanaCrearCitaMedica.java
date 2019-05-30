@@ -110,6 +110,8 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
         lblprecio.setText(mensajes.getString("precio"));
         lblguardar.setText(mensajes.getString("guardar"));
         lblcancelar.setText(mensajes.getString("cancelar"));
+        Object[] columnas = {mensajes.getString("codigo"), mensajes.getString("diagnostico")};
+        modelo.setColumnIdentifiers(columnas);
     }
 
     /*
