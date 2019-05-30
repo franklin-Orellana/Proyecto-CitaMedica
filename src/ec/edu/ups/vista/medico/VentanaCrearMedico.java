@@ -5,6 +5,8 @@
  */
 package ec.edu.ups.vista.medico;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
 import ec.edu.ups.controladores.ControladorMedico;
 import ec.edu.ups.modelo.Medico;
 import javax.swing.JOptionPane;
@@ -16,6 +18,8 @@ import javax.swing.JOptionPane;
 public class VentanaCrearMedico extends javax.swing.JInternalFrame {
 
     private ControladorMedico controladorMedico;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
 
     /**
      * Creates new form VentanaCrearPaciente
@@ -24,6 +28,20 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
         initComponents();
         this.controladorMedico = controladorMedico;
         txtcodigo.setText(String.valueOf(this.controladorMedico.getCodigo()));
+    }
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        lblMenuCrearP.setText(mensajes.getString("encabezado.crear.medico"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lblcedula.setText(mensajes.getString("cedula"));
+        lblnombre.setText(mensajes.getString("nombre"));
+        lblespecialidad.setText(mensajes.getString("especialidad"));
+        lbllaboratorio.setText(mensajes.getString("laboratorio"));
+        lbldireccion.setText(mensajes.getString("direccion"));
+        lbltelefono.setText(mensajes.getString("telefono"));
+        lblguardar.setText(mensajes.getString("guardar"));
+        lblcancelar.setText(mensajes.getString("cancelar"));
+        
     }
 
     /**
@@ -52,9 +70,9 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
         btncancelar = new javax.swing.JButton();
         lblguardar = new javax.swing.JLabel();
         lblcancelar = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblespecialidad = new javax.swing.JLabel();
         txtespecialidad = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        lbllaboratorio = new javax.swing.JLabel();
         txtlaboratorio = new javax.swing.JTextField();
 
         setClosable(true);
@@ -137,18 +155,18 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
         lblcancelar.setText("CANCELAR");
         lblcancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ESPECIALIDAD");
-        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblespecialidad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblespecialidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblespecialidad.setText("ESPECIALIDAD");
+        lblespecialidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtespecialidad.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtespecialidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("LABORATORIO");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbllaboratorio.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbllaboratorio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbllaboratorio.setText("LABORATORIO");
+        lbllaboratorio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtlaboratorio.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtlaboratorio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -188,12 +206,12 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
                                     .addComponent(lblcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbllaboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtlaboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -227,11 +245,11 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
                     .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbllaboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtlaboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,18 +344,18 @@ public class VentanaCrearMedico extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncancelar;
     private javax.swing.JButton btnguardar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblMenuCrearP;
-    private javax.swing.JLabel lblcancelar;
-    private javax.swing.JLabel lblcedula;
-    private javax.swing.JLabel lblcodigo;
-    private javax.swing.JLabel lbldireccion;
-    private javax.swing.JLabel lblguardar;
-    private javax.swing.JLabel lblnombre;
-    private javax.swing.JLabel lbltelefono;
+    public static javax.swing.JLabel lblMenuCrearP;
+    public static javax.swing.JLabel lblcancelar;
+    public static javax.swing.JLabel lblcedula;
+    public static javax.swing.JLabel lblcodigo;
+    public static javax.swing.JLabel lbldireccion;
+    public static javax.swing.JLabel lblespecialidad;
+    public static javax.swing.JLabel lblguardar;
+    public static javax.swing.JLabel lbllaboratorio;
+    public static javax.swing.JLabel lblnombre;
+    public static javax.swing.JLabel lbltelefono;
     private javax.swing.JTextField txtcedula;
     private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdireccion;
