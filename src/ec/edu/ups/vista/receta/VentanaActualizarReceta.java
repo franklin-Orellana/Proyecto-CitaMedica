@@ -22,6 +22,8 @@ import java.text.SimpleDateFormat;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -45,6 +47,8 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
     public static NuevoModelo modelo;
     String nombrePaciente;
     int codigo;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
     /**
      * Creates new form VentanaActualizarReceta
      */
@@ -56,6 +60,29 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         this.controladorCitaMedica=controladorCitaMedica;
         this.controladorCitaMedicaDetallada=controladorCitaMedicaDetallada;
          modelo = new NuevoModelo();
+    }
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        lblMenuCrearR.setText(mensajes.getString("actualizar.receta"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lblPaciente.setText(mensajes.getString("paciente"));
+        lblCedula.setText(mensajes.getString("cedula"));
+        lblDireccion.setText(mensajes.getString("direccion"));
+        lblNumCitaMedica.setText(mensajes.getString("num.cita.medica"));
+        lblmedico.setText(mensajes.getString("medico"));
+        lblFecha.setText(mensajes.getString("fecha"));
+        lblTelefono.setText(mensajes.getString("telefono"));
+        lblSintomas.setText(mensajes.getString("sintomas"));
+        lblespecialidad.setText(mensajes.getString("especialidad"));
+        lblMedicina.setText(mensajes.getString("medicina"));
+        lblDescripcion.setText(mensajes.getString("descripcion"));
+        lblIndicaciones.setText(mensajes.getString("indicaciones"));
+        lblMarca.setText(mensajes.getString("marca"));
+        lblPrecio.setText(mensajes.getString("precio"));
+        lblactualizar.setText(mensajes.getString("actualizar"));
+        lblcancelar.setText(mensajes.getString("cancelar"));
+        Object[] columnas = {mensajes.getString("codigo"), mensajes.getString("diagnostico")};
+        modelo.setColumnIdentifiers(columnas);
     }
     /**
      * Setea en los textField el objeto buscado
@@ -191,7 +218,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblMenuCrearP = new javax.swing.JLabel();
+        lblMenuCrearR = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         lblPaciente = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
@@ -201,12 +228,12 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         lblDireccion = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
-        lblPrecio1 = new javax.swing.JLabel();
+        lblSintomas = new javax.swing.JLabel();
         txtSintomas = new javax.swing.JTextField();
         lblFecha = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
-        lblcodigo1 = new javax.swing.JLabel();
-        lblCitaMedica = new javax.swing.JLabel();
+        lblcodigo = new javax.swing.JLabel();
+        lblNumCitaMedica = new javax.swing.JLabel();
         lblmedico = new javax.swing.JLabel();
         lblespecialidad = new javax.swing.JLabel();
         txtEspecialidad = new javax.swing.JTextField();
@@ -233,10 +260,10 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         lblactualizar = new javax.swing.JLabel();
         cbxMedicina = new javax.swing.JComboBox();
 
-        lblMenuCrearP.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        lblMenuCrearP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblMenuCrearP.setText("ACTUALIZAR RECETA");
-        lblMenuCrearP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblMenuCrearR.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lblMenuCrearR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblMenuCrearR.setText("ACTUALIZAR RECETA");
+        lblMenuCrearR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel3.setToolTipText("");
@@ -271,10 +298,10 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         txtTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTelefono.setToolTipText("");
 
-        lblPrecio1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblPrecio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecio1.setText("SINTOMAS");
-        lblPrecio1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblSintomas.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblSintomas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSintomas.setText("SINTOMAS");
+        lblSintomas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -283,15 +310,15 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
 
         txtFecha.setEditable(false);
 
-        lblcodigo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblcodigo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcodigo1.setText("CODIGO");
-        lblcodigo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblcodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblcodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblcodigo.setText("CODIGO");
+        lblcodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblCitaMedica.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblCitaMedica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCitaMedica.setText("NUMERO CITA  MEDICA");
-        lblCitaMedica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblNumCitaMedica.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblNumCitaMedica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNumCitaMedica.setText("NUMERO CITA  MEDICA");
+        lblNumCitaMedica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblmedico.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblmedico.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -358,7 +385,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
                                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cbxPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
@@ -385,12 +412,12 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
                                         .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(34, 34, 34))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(lblPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblSintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtSintomas)))))
                         .addGap(119, 119, 119))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(lblCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNumCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbxCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -401,7 +428,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(lblbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -418,7 +445,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
                             .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(11, 11, 11)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNumCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -441,7 +468,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
                                     .addComponent(cbxPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblSintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(110, 110, 110)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblespecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -616,7 +643,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(294, 294, 294)
-                                .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblMenuCrearR, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -630,7 +657,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblMenuCrearR, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -733,22 +760,22 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
     public static javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     public static javax.swing.JLabel lblCedula;
-    public static javax.swing.JLabel lblCitaMedica;
     public static javax.swing.JLabel lblDescripcion;
     public static javax.swing.JLabel lblDireccion;
     public static javax.swing.JLabel lblFecha;
     public static javax.swing.JLabel lblIndicaciones;
     public static javax.swing.JLabel lblMarca;
     public static javax.swing.JLabel lblMedicina;
-    private javax.swing.JLabel lblMenuCrearP;
+    public static javax.swing.JLabel lblMenuCrearR;
+    public static javax.swing.JLabel lblNumCitaMedica;
     public static javax.swing.JLabel lblPaciente;
     public static javax.swing.JLabel lblPrecio;
-    public static javax.swing.JLabel lblPrecio1;
+    public static javax.swing.JLabel lblSintomas;
     public static javax.swing.JLabel lblTelefono;
     public static javax.swing.JLabel lblactualizar;
     public static javax.swing.JLabel lblbuscar;
-    private javax.swing.JLabel lblcancelar;
-    public static javax.swing.JLabel lblcodigo1;
+    public static javax.swing.JLabel lblcancelar;
+    public static javax.swing.JLabel lblcodigo;
     public static javax.swing.JLabel lblespecialidad;
     public static javax.swing.JLabel lblmedico;
     private javax.swing.JTable tblDetalle2;

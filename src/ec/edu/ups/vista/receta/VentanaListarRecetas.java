@@ -14,6 +14,8 @@ import ec.edu.ups.controladores.ControladorReceta;
 import ec.edu.ups.modelo.Receta;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -31,6 +33,8 @@ public class VentanaListarRecetas extends javax.swing.JInternalFrame {
     private ControladorMedico controladorMedico;
     private ControladorMedicina controladorMedicina;
     private ControladorReceta controladorReceta;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
     public VentanaListarRecetas(ControladorReceta controladorReceta, ControladorPaciente controladorPaciente, ControladorMedicina controladorMedicina,ControladorCitaMedica controladorCitaMedica, ControladorCitaMedicaDetallada controladorCitaMedicaDetallada) {
         initComponents();
         this.controladorReceta = controladorReceta;
@@ -45,6 +49,11 @@ public class VentanaListarRecetas extends javax.swing.JInternalFrame {
         tabla.setModel(modelo);
 
         llenarTabla();
+    }
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        Object[] columnas = {mensajes.getString("codigo"), mensajes.getString("paciente"), mensajes.getString("cedula"), mensajes.getString("direccion"), mensajes.getString("telefono"), mensajes.getString("medico"), mensajes.getString("especialidad"), mensajes.getString("numerocita"), mensajes.getString("medicina"), mensajes.getString("marca"), mensajes.getString("precio"), mensajes.getString("indicaciones"), mensajes.getString("fecha")};
+        modelo.setColumnIdentifiers(columnas);
     }
      public void llenarTabla() {
         Set<Receta> Lista = controladorReceta.getLista();

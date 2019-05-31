@@ -8,6 +8,8 @@ package ec.edu.ups.vista.receta;
 
 
 import ec.edu.ups.controladores.ControladorReceta;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,12 +18,21 @@ import javax.swing.JOptionPane;
  */
 public class VentanaEliminarReceta extends javax.swing.JInternalFrame {
     private ControladorReceta controladorReceta;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
     /**
      * Creates new form VentanaEliminarReceta
      */
     public VentanaEliminarReceta(ControladorReceta controladorReceta) {
         initComponents();
         this.controladorReceta = controladorReceta;
+    }
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        lblreceta.setText(mensajes.getString("receta"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lbleliminar.setText(mensajes.getString("eliminar"));
+        
     }
 
     /**
@@ -33,24 +44,24 @@ public class VentanaEliminarReceta extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblCitaMedica = new javax.swing.JLabel();
+        lblreceta = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        lblcodigo1 = new javax.swing.JLabel();
+        lblcodigo = new javax.swing.JLabel();
         txtcodigo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        lblguardar1 = new javax.swing.JLabel();
+        lbleliminar = new javax.swing.JLabel();
 
-        lblCitaMedica.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        lblCitaMedica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCitaMedica.setText("RECETA");
-        lblCitaMedica.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblreceta.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lblreceta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblreceta.setText("RECETA");
+        lblreceta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        lblcodigo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblcodigo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcodigo1.setText("CODIGO");
-        lblcodigo1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblcodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblcodigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblcodigo.setText("CODIGO");
+        lblcodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtcodigo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtcodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -63,10 +74,10 @@ public class VentanaEliminarReceta extends javax.swing.JInternalFrame {
             }
         });
 
-        lblguardar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblguardar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblguardar1.setText("ELIMINAR");
-        lblguardar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lbleliminar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbleliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbleliminar.setText("ELIMINAR");
+        lbleliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,9 +86,9 @@ public class VentanaEliminarReceta extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblguardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbleliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
@@ -87,12 +98,12 @@ public class VentanaEliminarReceta extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblguardar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbleliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -107,14 +118,14 @@ public class VentanaEliminarReceta extends javax.swing.JInternalFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(64, 64, 64)
-                        .addComponent(lblCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblreceta, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(lblCitaMedica, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblreceta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
@@ -136,9 +147,9 @@ public class VentanaEliminarReceta extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
-    public static javax.swing.JLabel lblCitaMedica;
-    public static javax.swing.JLabel lblcodigo1;
-    private javax.swing.JLabel lblguardar1;
+    public static javax.swing.JLabel lblcodigo;
+    public static javax.swing.JLabel lbleliminar;
+    public static javax.swing.JLabel lblreceta;
     private javax.swing.JTextField txtcodigo;
     // End of variables declaration//GEN-END:variables
 }

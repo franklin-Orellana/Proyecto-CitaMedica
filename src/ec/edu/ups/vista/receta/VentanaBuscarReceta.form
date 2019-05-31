@@ -29,7 +29,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
-              <Component id="lblMenuCrearP" min="-2" pref="246" max="-2" attributes="0"/>
+              <Component id="lblBuscarReceta" min="-2" pref="246" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -38,7 +38,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-              <Component id="lblMenuCrearP" min="-2" pref="46" max="-2" attributes="0"/>
+              <Component id="lblBuscarReceta" min="-2" pref="46" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -51,19 +51,22 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblMenuCrearP">
+    <Component class="javax.swing.JLabel" name="lblBuscarReceta">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="20" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="CREAR RECETA"/>
+        <Property name="text" type="java.lang.String" value="BUSCAR RECETA"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder/>
           </Border>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+      </AuxValues>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel3">
       <Properties>
@@ -105,7 +108,7 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblcodigo1" min="-2" pref="91" max="-2" attributes="0"/>
+                                  <Component id="lblcodigo" min="-2" pref="91" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="txtCodigo" min="-2" pref="57" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
@@ -137,7 +140,7 @@
                                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblPrecio1" min="-2" pref="136" max="-2" attributes="0"/>
+                                          <Component id="lblSintomas" min="-2" pref="136" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="txtSintomas" max="32767" attributes="0"/>
                                       </Group>
@@ -147,7 +150,7 @@
                           <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="lblCitaMedica" min="-2" pref="216" max="-2" attributes="0"/>
+                          <Component id="lblNumCitaMedica" min="-2" pref="216" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="txtCitaMedica" min="-2" pref="208" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
@@ -162,7 +165,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblcodigo1" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="lblcodigo" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="txtCodigo" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="lblbuscar" alignment="1" min="-2" pref="36" max="-2" attributes="0"/>
@@ -186,7 +189,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblCitaMedica" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="lblNumCitaMedica" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                               <Component id="txtCitaMedica" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -205,7 +208,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="lblTelefono" min="-2" pref="36" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblPrecio1" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="lblSintomas" min="-2" pref="36" max="-2" attributes="0"/>
                                   <EmptySpace min="110" pref="110" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -330,7 +333,7 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblPrecio1">
+        <Component class="javax.swing.JLabel" name="lblSintomas">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="0"/>
@@ -375,7 +378,7 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblcodigo1">
+        <Component class="javax.swing.JLabel" name="lblcodigo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="0"/>
@@ -392,7 +395,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCitaMedica">
+        <Component class="javax.swing.JLabel" name="lblNumCitaMedica">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="18" style="0"/>
@@ -775,6 +778,9 @@
               </Border>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtDescripcion">
           <Properties>
