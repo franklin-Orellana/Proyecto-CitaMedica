@@ -533,6 +533,7 @@ public class VentanaBuscarReceta extends javax.swing.JInternalFrame {
         txtSintomas.setText(receta.getPaciente().getSintomas());
         txtMedico.setText(receta.getCitaMedica().getMedico().getNombre());
         txtEspecialidad.setText(receta.getCitaMedica().getMedico().getEspecialidad());
+        txtCitaMedica.setText(String.valueOf(receta.getCitaMedica().getNumeroCita()));
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String fecha = sdf.format(receta.getCitaMedica().getFechaCita());
         txtFecha.setText(fecha);

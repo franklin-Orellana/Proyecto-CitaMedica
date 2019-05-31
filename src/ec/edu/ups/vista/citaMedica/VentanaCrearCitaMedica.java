@@ -38,6 +38,7 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaCrearCitaMedica
      */
+    //declaracion variables
     private ControladorCitaMedica controladorCitaMedica;
     private ControladorCitaMedicaDetallada controladorCitaMedicaDetallada;
     private ControladorPaciente controladorPaciente;

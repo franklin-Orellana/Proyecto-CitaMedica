@@ -59,7 +59,7 @@ public class VentanaListarCitaMedica extends javax.swing.JInternalFrame {
         modelo.setColumnIdentifiers(columnas);
     }
 
-    /*
+    /**
     Metodo que llena con los datos del objeto a la tabla
      */
     public void llenarTabla() {
