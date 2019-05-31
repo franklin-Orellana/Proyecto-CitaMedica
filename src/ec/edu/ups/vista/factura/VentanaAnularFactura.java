@@ -59,6 +59,10 @@ private ControladorCitaMedica controladorCitaMedica;
         jButton1 = new javax.swing.JButton();
         lbleliminar = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         lblMenuEliminarF.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblMenuEliminarF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMenuEliminarF.setText("ELIMINAR FACTURA");

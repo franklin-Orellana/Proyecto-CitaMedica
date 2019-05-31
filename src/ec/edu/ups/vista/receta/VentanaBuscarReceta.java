@@ -140,6 +140,10 @@ public class VentanaBuscarReceta extends javax.swing.JInternalFrame {
         lblcancelar = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         lblBuscarReceta.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblBuscarReceta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblBuscarReceta.setText("BUSCAR RECETA");

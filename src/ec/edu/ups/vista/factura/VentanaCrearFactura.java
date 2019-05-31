@@ -86,6 +86,8 @@ public class VentanaCrearFactura extends javax.swing.JInternalFrame {
         txtCodigo.setEnabled(false);
 
         setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         lblMenuCrearF.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblMenuCrearF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

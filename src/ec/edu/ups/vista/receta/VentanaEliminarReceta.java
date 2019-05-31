@@ -51,6 +51,10 @@ public class VentanaEliminarReceta extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         lbleliminar = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         lblreceta.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblreceta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblreceta.setText("RECETA");

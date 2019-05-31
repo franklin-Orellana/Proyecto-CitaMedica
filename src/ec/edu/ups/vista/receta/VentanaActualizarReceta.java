@@ -260,6 +260,10 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         lblactualizar = new javax.swing.JLabel();
         cbxMedicina = new javax.swing.JComboBox();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         lblMenuCrearR.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblMenuCrearR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMenuCrearR.setText("ACTUALIZAR RECETA");

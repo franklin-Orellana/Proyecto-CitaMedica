@@ -63,6 +63,10 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
         btncancelar = new javax.swing.JButton();
         lblcancelar = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         txtCodigoF.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtCodigoF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCodigoF.setEnabled(false);

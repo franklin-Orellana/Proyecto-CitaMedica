@@ -33,6 +33,10 @@ public class VentanaListarFactura extends javax.swing.JInternalFrame {
         btncancelar = new javax.swing.JButton();
         lblcancelar = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         lblMenuListarF.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblMenuListarF.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMenuListarF.setText("LISTAR FACTURA");
