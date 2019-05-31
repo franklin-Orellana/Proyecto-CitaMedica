@@ -6,6 +6,12 @@
 package ec.edu.ups.vista.factura;
 
 import java.awt.event.KeyEvent;
+import ec.edu.ups.controladores.ControladorFactura;
+import ec.edu.ups.controladores.ControladorFacturaDetallada;
+import ec.edu.ups.controladores.ControladorCitaMedica;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,8 +22,28 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaBuscarFactura
      */
-    public VentanaBuscarFactura() {
+    private ControladorCitaMedica controladorCitaMedica;
+    private ControladorFactura controladorFactura;
+    private ControladorFacturaDetallada controladorFacturaDetallada;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
+    public static DefaultTableModel modelo;
+
+    public VentanaBuscarFactura(ControladorCitaMedica controladorCitaMedica, ControladorFactura controladorFactura, ControladorFacturaDetallada controladorFacturaDetallada) {
         initComponents();
+        this.controladorCitaMedica = controladorCitaMedica;
+        this.controladorFactura = controladorFactura;
+        this.controladorFacturaDetallada = controladorFacturaDetallada;
+        modelo = new DefaultTableModel();
+    }
+
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        lblMenuBuscarF.setText(mensajes.getString("buscar.factura"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lblcancelar.setText(mensajes.getString("cancelar"));
+        Object[] columnas = {mensajes.getString("cantidad"), mensajes.getString("codigo"), mensajes.getString("paciente"), mensajes.getString("medico"), mensajes.getString("fecha"), mensajes.getString("total")};
+        modelo.setColumnIdentifiers(columnas);
     }
 
     /**
@@ -76,7 +102,7 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
 
         lblcancelar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblcancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblcancelar.setText("SALIR");
+        lblcancelar.setText("CANCELAR");
         lblcancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,7 +166,7 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncancelar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblMenuBuscarF;
+    public static javax.swing.JLabel lblMenuBuscarF;
     public static javax.swing.JLabel lblcancelar;
     public static javax.swing.JLabel lblcodigo;
     private javax.swing.JTable tblCitas;

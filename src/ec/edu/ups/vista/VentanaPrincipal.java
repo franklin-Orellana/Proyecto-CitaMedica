@@ -33,6 +33,9 @@ import ec.edu.ups.vista.paciente.VentanaEliminarPaciente;
 import ec.edu.ups.vista.paciente.VentanaListarPaciente;
 import ec.edu.ups.vista.receta.VentanaCrearReceta;
 import ec.edu.ups.vista.factura.VentanaCrearFactura;
+import ec.edu.ups.vista.factura.VentanaBuscarFactura;
+import ec.edu.ups.vista.factura.VentanaAnularFactura;
+import ec.edu.ups.vista.factura.VentanaListarFactura;
 import ec.edu.ups.controladores.ControladorFactura;
 import java.util.ResourceBundle;
 import java.util.Locale;
@@ -70,6 +73,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private ControladorReceta controladorReceta;
     private VentanaCrearReceta ventanaCrearReceta;
     private VentanaCrearFactura ventanaCrearFactura;
+    private VentanaBuscarFactura ventanaBuscarFactura;
+    private VentanaAnularFactura ventanaAnularFactura;
+    private VentanaListarFactura ventanaListarFactura;
     private ControladorFactura controladorFactura;
     private ControladorFacturaDetallada controladorFacturaDetallada;
     private Locale localizacion;
@@ -104,18 +110,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuCitamedica.setText(mensajes.getString("citamedica"));
         menuReceta.setText(mensajes.getString("receta"));
         menuIdioma.setText(mensajes.getString("menu.idioma"));
+        menuFactura.setText(mensajes.getString("menu.factura"));
         //cambia el idioma del crear Paciente,Medico,Medicina,CitaMedica,Receta
         crearPaciente.setText(mensajes.getString("menu.crear"));
         crearMedico.setText(mensajes.getString("menu.crear"));
         crearMedicina.setText(mensajes.getString("menu.crear"));
         crearCitaMedica.setText(mensajes.getString("menu.crear"));
         crearReceta.setText(mensajes.getString("menu.crear"));
+        crearFactura.setText(mensajes.getString("menu.crear"));
         //cambia el idioma del buscar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         buscarPaciente.setText(mensajes.getString("menu.buscar"));
         buscarMedico.setText(mensajes.getString("menu.buscar"));
         buscarMedicina.setText(mensajes.getString("menu.buscar"));
         buscarCitaMedica.setText(mensajes.getString("menu.buscar"));
         buscarReceta.setText(mensajes.getString("menu.buscar"));
+        buscarFactura.setText(mensajes.getString("menu.buscar"));
         //cambia el idioma del actualizar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         actualizarPaciente.setText(mensajes.getString("menu.actualizar"));
         actualizarMedico.setText(mensajes.getString("menu.actualizar"));
@@ -126,13 +135,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         listarMedico.setText(mensajes.getString("menu.listar"));
         listarMedicina.setText(mensajes.getString("menu.listar"));
         listarCitaMedica.setText(mensajes.getString("menu.listar"));
+        listarFactura.setText(mensajes.getString("menu.listar"));
         //cambia el idioma del eliminar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         eliminarPaciente.setText(mensajes.getString("menu.eliminar"));
         eliminarMedico.setText(mensajes.getString("menu.eliminar"));
         eliminarMedicina.setText(mensajes.getString("menu.eliminar"));
         eliminarCitaMedica.setText(mensajes.getString("menu.eliminar"));
         eliminarReceta.setText(mensajes.getString("menu.eliminar"));
-        //
+        eliminarReceta.setText(mensajes.getString("anular.factura"));
+        //cambiar idioma menu factura
+        
         espanol.setText(mensajes.getString("menu.idioma.español"));
         ingles.setText(mensajes.getString("menu.idioma.ingles"));
     }
@@ -184,12 +196,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         buscarReceta = new javax.swing.JMenuItem();
         actualizarReceta = new javax.swing.JMenuItem();
         eliminarReceta = new javax.swing.JMenuItem();
-        menuMedicina1 = new javax.swing.JMenu();
-        crearMedicina1 = new javax.swing.JMenuItem();
-        buscarMedicina1 = new javax.swing.JMenuItem();
-        actualizarMedicina1 = new javax.swing.JMenuItem();
-        listarMedicina1 = new javax.swing.JMenuItem();
-        eliminarMedicina1 = new javax.swing.JMenuItem();
+        menuFactura = new javax.swing.JMenu();
+        crearFactura = new javax.swing.JMenuItem();
+        buscarFactura = new javax.swing.JMenuItem();
+        listarFactura = new javax.swing.JMenuItem();
+        eliminarFactura = new javax.swing.JMenuItem();
         menuIdioma = new javax.swing.JMenu();
         espanol = new javax.swing.JMenuItem();
         ingles = new javax.swing.JMenuItem();
@@ -482,65 +493,54 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         menuBar.add(menuReceta);
 
-        menuMedicina1.setMnemonic('h');
-        menuMedicina1.setText("FACTURA");
+        menuFactura.setMnemonic('h');
+        menuFactura.setText("FACTURA");
 
-        crearMedicina1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        crearMedicina1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
-        crearMedicina1.setMnemonic('c');
-        crearMedicina1.setText("CREAR");
-        crearMedicina1.addActionListener(new java.awt.event.ActionListener() {
+        crearFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        crearFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuCrear.png"))); // NOI18N
+        crearFactura.setMnemonic('c');
+        crearFactura.setText("CREAR");
+        crearFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crearMedicina1ActionPerformed(evt);
+                crearFacturaActionPerformed(evt);
             }
         });
-        menuMedicina1.add(crearMedicina1);
+        menuFactura.add(crearFactura);
 
-        buscarMedicina1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
-        buscarMedicina1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
-        buscarMedicina1.setMnemonic('a');
-        buscarMedicina1.setText("BUSCAR");
-        buscarMedicina1.addActionListener(new java.awt.event.ActionListener() {
+        buscarFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        buscarFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuBuscar.png"))); // NOI18N
+        buscarFactura.setMnemonic('a');
+        buscarFactura.setText("BUSCAR");
+        buscarFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscarMedicina1ActionPerformed(evt);
+                buscarFacturaActionPerformed(evt);
             }
         });
-        menuMedicina1.add(buscarMedicina1);
+        menuFactura.add(buscarFactura);
 
-        actualizarMedicina1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
-        actualizarMedicina1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
-        actualizarMedicina1.setMnemonic('a');
-        actualizarMedicina1.setText("ACTUALIZAR");
-        actualizarMedicina1.addActionListener(new java.awt.event.ActionListener() {
+        listarFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        listarFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
+        listarFactura.setMnemonic('a');
+        listarFactura.setText("LISTAR");
+        listarFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                actualizarMedicina1ActionPerformed(evt);
+                listarFacturaActionPerformed(evt);
             }
         });
-        menuMedicina1.add(actualizarMedicina1);
+        menuFactura.add(listarFactura);
 
-        listarMedicina1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        listarMedicina1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
-        listarMedicina1.setMnemonic('a');
-        listarMedicina1.setText("LISTAR");
-        listarMedicina1.addActionListener(new java.awt.event.ActionListener() {
+        eliminarFactura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        eliminarFactura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
+        eliminarFactura.setMnemonic('a');
+        eliminarFactura.setText("ANULAR");
+        eliminarFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarMedicina1ActionPerformed(evt);
+                eliminarFacturaActionPerformed(evt);
             }
         });
-        menuMedicina1.add(listarMedicina1);
+        menuFactura.add(eliminarFactura);
 
-        eliminarMedicina1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        eliminarMedicina1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
-        eliminarMedicina1.setMnemonic('a');
-        eliminarMedicina1.setText("ELIMINAR");
-        eliminarMedicina1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarMedicina1ActionPerformed(evt);
-            }
-        });
-        menuMedicina1.add(eliminarMedicina1);
-
-        menuBar.add(menuMedicina1);
+        menuBar.add(menuFactura);
 
         menuIdioma.setText("IDIOMA");
 
@@ -794,31 +794,39 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         idiomaVentanas();
     }//GEN-LAST:event_inglesActionPerformed
 
-    private void crearMedicina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearMedicina1ActionPerformed
+    private void crearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearFacturaActionPerformed
         // TODO add your handling code here:
          if (ventanaCrearFactura == null || !ventanaCrearFactura.isVisible()) {
             ventanaCrearFactura = new VentanaCrearFactura(controladorCitaMedica, controladorFactura, controladorFacturaDetallada);
             ventanaCrearFactura.setVisible(true);
             desktopPane.add(ventanaCrearFactura);
-            //VentanaCrearReceta.
+            ventanaCrearFactura.cambiarIdioma(localizacion);
         }
-    }//GEN-LAST:event_crearMedicina1ActionPerformed
+    }//GEN-LAST:event_crearFacturaActionPerformed
 
-    private void buscarMedicina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarMedicina1ActionPerformed
+    private void buscarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarFacturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buscarMedicina1ActionPerformed
+        if (ventanaBuscarFactura == null || !ventanaBuscarFactura.isVisible()) {
+            ventanaBuscarFactura = new VentanaBuscarFactura(controladorCitaMedica, controladorFactura, controladorFacturaDetallada);
+            ventanaBuscarFactura.setVisible(true);
+            desktopPane.add(ventanaBuscarFactura);
+            ventanaBuscarFactura.cambiarIdioma(localizacion);
+        }        
+    }//GEN-LAST:event_buscarFacturaActionPerformed
 
-    private void actualizarMedicina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarMedicina1ActionPerformed
+    private void listarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarFacturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_actualizarMedicina1ActionPerformed
+    }//GEN-LAST:event_listarFacturaActionPerformed
 
-    private void listarMedicina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarMedicina1ActionPerformed
+    private void eliminarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarFacturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_listarMedicina1ActionPerformed
-
-    private void eliminarMedicina1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarMedicina1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eliminarMedicina1ActionPerformed
+        if (ventanaAnularFactura == null || !ventanaAnularFactura.isVisible()) {
+            ventanaAnularFactura = new VentanaAnularFactura(controladorCitaMedica, controladorFactura, controladorFacturaDetallada);
+            ventanaAnularFactura.setVisible(true);
+            desktopPane.add(ventanaAnularFactura);
+            ventanaAnularFactura.cambiarIdioma(localizacion);
+        }      
+    }//GEN-LAST:event_eliminarFacturaActionPerformed
 
     private void idiomaVentanas() {
         //ventanaPaciente
@@ -882,6 +890,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         if (ventanaListarCitaMedica != null && ventanaListarCitaMedica.isVisible()) {
             ventanaListarCitaMedica.cambiarIdioma(localizacion);
         }
+        //ventana factura
+        if (ventanaCrearFactura != null && ventanaCrearFactura.isVisible()) {
+            ventanaCrearFactura.cambiarIdioma(localizacion);
+        }
+        if (ventanaBuscarFactura != null && ventanaBuscarFactura.isVisible()) {
+            ventanaBuscarFactura.cambiarIdioma(localizacion);
+        }
+        if (ventanaAnularFactura != null && ventanaAnularFactura.isVisible()) {
+            ventanaAnularFactura.cambiarIdioma(localizacion);
+        }
     }
 
     /**
@@ -921,26 +939,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem actualizarMedicina;
-    private javax.swing.JMenuItem actualizarMedicina1;
     private javax.swing.JMenuItem actualizarMedico;
     private javax.swing.JMenuItem actualizarPaciente;
     private javax.swing.JMenuItem actualizarReceta;
     private javax.swing.JMenuItem buscarCitaMedica;
+    private javax.swing.JMenuItem buscarFactura;
     private javax.swing.JMenuItem buscarMedicina;
-    private javax.swing.JMenuItem buscarMedicina1;
     private javax.swing.JMenuItem buscarMedico;
     private javax.swing.JMenuItem buscarPaciente;
     private javax.swing.JMenuItem buscarReceta;
     private javax.swing.JMenuItem crearCitaMedica;
+    private javax.swing.JMenuItem crearFactura;
     private javax.swing.JMenuItem crearMedicina;
-    private javax.swing.JMenuItem crearMedicina1;
     private javax.swing.JMenuItem crearMedico;
     private javax.swing.JMenuItem crearPaciente;
     private javax.swing.JMenuItem crearReceta;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem eliminarCitaMedica;
+    private javax.swing.JMenuItem eliminarFactura;
     private javax.swing.JMenuItem eliminarMedicina;
-    private javax.swing.JMenuItem eliminarMedicina1;
     private javax.swing.JMenuItem eliminarMedico;
     private javax.swing.JMenuItem eliminarPaciente;
     private javax.swing.JMenuItem eliminarReceta;
@@ -955,15 +972,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem listarCitaMedica;
+    private javax.swing.JMenuItem listarFactura;
     private javax.swing.JMenuItem listarMedicina;
-    private javax.swing.JMenuItem listarMedicina1;
     private javax.swing.JMenuItem listarMedico;
     private javax.swing.JMenuItem listarPaciente;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCitamedica;
+    private javax.swing.JMenu menuFactura;
     private javax.swing.JMenu menuIdioma;
     private javax.swing.JMenu menuMedicina;
-    private javax.swing.JMenu menuMedicina1;
     private javax.swing.JMenu menuMedico;
     private javax.swing.JMenu menuPaciente;
     private javax.swing.JMenu menuReceta;

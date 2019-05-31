@@ -39,15 +39,17 @@ public class VentanaCrearFactura extends javax.swing.JInternalFrame {
 
     public static void cambiarIdioma(Locale localizacion) {
         mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
-        lblMenuCrearF.setText(mensajes.getString("encabezado.actualizar.paciente"));
+        lblMenuCrearF.setText(mensajes.getString("crear.factura"));
         lblcodigo.setText(mensajes.getString("codigo"));
         lblfecha.setText(mensajes.getString("cedula"));
         lblsubtotal.setText(mensajes.getString("subtotal"));
         lbliva.setText(mensajes.getString("iva"));
         lbltotal.setText(mensajes.getString("total"));
-        Object[] columnas = {mensajes.getString("cantidad"),mensajes.getString("codigo"), mensajes.getString("menu.paciente"), mensajes.getString("menu.medico")};
+        Object[] columnas = {mensajes.getString("cantidad"),mensajes.getString("codigo"), mensajes.getString("paciente"), mensajes.getString("medico"), mensajes.getString("fecha"), mensajes.getString("precio"), mensajes.getString("subtotal"), mensajes.getString("total")};
         modelo.setColumnIdentifiers(columnas);
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -4,18 +4,42 @@
  * and open the template in the editor.
  */
 package ec.edu.ups.vista.factura;
-
+import java.awt.event.KeyEvent;
+import ec.edu.ups.controladores.ControladorFactura;
+import ec.edu.ups.controladores.ControladorFacturaDetallada;
+import ec.edu.ups.controladores.ControladorCitaMedica;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author tians
  */
 public class VentanaAnularFactura extends javax.swing.JInternalFrame {
-
+private ControladorCitaMedica controladorCitaMedica;
+    private ControladorFactura controladorFactura;
+    private ControladorFacturaDetallada controladorFacturaDetallada;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
+    public static DefaultTableModel modelo;
     /**
      * Creates new form VentanaAnularFactura
      */
-    public VentanaAnularFactura() {
+    public VentanaAnularFactura(ControladorCitaMedica controladorCitaMedica, ControladorFactura controladorFactura, ControladorFacturaDetallada controladorFacturaDetallada) {
         initComponents();
+        initComponents();
+        this.controladorCitaMedica = controladorCitaMedica;
+        this.controladorFactura = controladorFactura;
+        this.controladorFacturaDetallada = controladorFacturaDetallada;
+        modelo = new DefaultTableModel();
+    }
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        lblMenuEliminarF.setText(mensajes.getString("anular.factura"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lbleliminar.setText(mensajes.getString("eliminar"));
+        Object[] columnas = {mensajes.getString("cantidad"), mensajes.getString("codigo"), mensajes.getString("paciente"), mensajes.getString("medico"), mensajes.getString("fecha"), mensajes.getString("total")};
+        modelo.setColumnIdentifiers(columnas);
     }
 
     /**
@@ -138,7 +162,7 @@ public class VentanaAnularFactura extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblMenuEliminarF;
+    public static javax.swing.JLabel lblMenuEliminarF;
     public static javax.swing.JLabel lblcodigo;
     public static javax.swing.JLabel lbleliminar;
     private javax.swing.JTable tblCitas;
