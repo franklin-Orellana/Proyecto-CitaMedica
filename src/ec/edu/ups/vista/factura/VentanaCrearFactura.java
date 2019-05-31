@@ -9,6 +9,10 @@ import java.awt.event.KeyEvent;
 import ec.edu.ups.controladores.ControladorCitaMedica;
 import ec.edu.ups.controladores.ControladorFacturaDetallada;
 import ec.edu.ups.controladores.ControladorFactura;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author tians
@@ -21,11 +25,28 @@ public class VentanaCrearFactura extends javax.swing.JInternalFrame {
     private ControladorCitaMedica controladorCitaMedica;
     private ControladorFactura controladorFactura;
     private ControladorFacturaDetallada controladorFacturaDetallada;
+    private Locale localizacion;
+    private static ResourceBundle mensajes;
+    public static DefaultTableModel modelo;
+
     public VentanaCrearFactura(ControladorCitaMedica controladorCitaMedica, ControladorFactura controladorFactura, ControladorFacturaDetallada controladorFacturaDetallada) {
         initComponents();
         this.controladorCitaMedica = controladorCitaMedica;
         this.controladorFactura = controladorFactura;
         this.controladorFacturaDetallada = controladorFacturaDetallada;
+        modelo = new DefaultTableModel();
+    }
+
+    public static void cambiarIdioma(Locale localizacion) {
+        mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
+        lblMenuCrearF.setText(mensajes.getString("encabezado.actualizar.paciente"));
+        lblcodigo.setText(mensajes.getString("codigo"));
+        lblfecha.setText(mensajes.getString("cedula"));
+        lblsubtotal.setText(mensajes.getString("subtotal"));
+        lbliva.setText(mensajes.getString("iva"));
+        lbltotal.setText(mensajes.getString("total"));
+        Object[] columnas = {mensajes.getString("cantidad"),mensajes.getString("codigo"), mensajes.getString("menu.paciente"), mensajes.getString("menu.medico")};
+        modelo.setColumnIdentifiers(columnas);
     }
 
     /**
@@ -44,11 +65,11 @@ public class VentanaCrearFactura extends javax.swing.JInternalFrame {
         txtCodigoF = new javax.swing.JTextField();
         lblfecha = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lblsubtotal = new javax.swing.JLabel();
         txtSubtotal = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        lbliva = new javax.swing.JLabel();
         txtIVA = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        lbltotal = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCitas = new javax.swing.JTable();
@@ -87,11 +108,11 @@ public class VentanaCrearFactura extends javax.swing.JInternalFrame {
         txtFecha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtFecha.setEnabled(false);
 
-        jLabel1.setText("Subtotal:");
+        lblsubtotal.setText("Subtotal:");
 
-        jLabel11.setText("IVA 12%: ");
+        lbliva.setText("IVA 12%: ");
 
-        jLabel12.setText("TOTAL:");
+        lbltotal.setText("TOTAL:");
 
         tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -119,16 +140,16 @@ public class VentanaCrearFactura extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(7, 7, 7)
-                                .addComponent(jLabel1)
+                                .addComponent(lblsubtotal)
                                 .addGap(12, 12, 12)
                                 .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
+                                .addComponent(lbliva)
                                 .addGap(12, 12, 12)
                                 .addComponent(txtIVA, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
-                                .addComponent(jLabel12)
+                                .addComponent(lbltotal)
                                 .addGap(12, 12, 12)
                                 .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
@@ -169,19 +190,19 @@ public class VentanaCrearFactura extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(jLabel1))
+                        .addComponent(lblsubtotal))
                     .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(jLabel11))
+                        .addComponent(lbliva))
                     .addComponent(txtIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(jLabel12))
+                        .addComponent(lbltotal))
                     .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -191,21 +212,21 @@ public class VentanaCrearFactura extends javax.swing.JInternalFrame {
 
     private void tblCitasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblCitasKeyReleased
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            int codigoCita=Integer.parseInt(String.valueOf(tblCitas.getValueAt(0,1)));
+            int codigoCita = Integer.parseInt(String.valueOf(tblCitas.getValueAt(0, 1)));
             System.out.println(codigoCita);
         }
     }//GEN-LAST:event_tblCitasKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblMenuCrearF;
+    public static javax.swing.JLabel lblMenuCrearF;
     public static javax.swing.JLabel lblcodigo;
     public static javax.swing.JLabel lblcodigo1;
     public static javax.swing.JLabel lblfecha;
+    public static javax.swing.JLabel lbliva;
+    public static javax.swing.JLabel lblsubtotal;
+    public static javax.swing.JLabel lbltotal;
     private javax.swing.JTable tblCitas;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigoF;
