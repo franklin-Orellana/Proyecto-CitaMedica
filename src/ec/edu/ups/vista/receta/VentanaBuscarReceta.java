@@ -7,111 +7,43 @@ package ec.edu.ups.vista.receta;
  */
 
 
-import ec.edu.ups.controladores.ControladorCitaMedica;
-import ec.edu.ups.controladores.ControladorCitaMedicaDetallada;
 import ec.edu.ups.controladores.ControladorMedicina;
 import ec.edu.ups.controladores.ControladorPaciente;
 import ec.edu.ups.controladores.ControladorReceta;
-import ec.edu.ups.modelo.CitaMedica;
-import ec.edu.ups.modelo.CitaMedicaDetallada;
-import ec.edu.ups.modelo.Medicina;
 import ec.edu.ups.modelo.Paciente;
 import ec.edu.ups.modelo.Receta;
-import static ec.edu.ups.vista.citaMedica.VentanaBuscarCitaMedica.modelo;
 import static ec.edu.ups.vista.medicina.VentanaActualizarMedicina.txtNombre;
-import ec.edu.ups.vista.paciente.VentanaCrearPaciente;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author 59398
  */
-public class VentanaCrearReceta extends javax.swing.JInternalFrame {
-    private ControladorReceta controladorReceta;
-    private Paciente paciente;
-    private CitaMedica citaMedica;
-    private ControladorMedicina controladorMedicina;
+public class VentanaBuscarReceta extends javax.swing.JInternalFrame {
+     private ControladorReceta controladorReceta;
+    
     private ControladorPaciente controladorPaciente;
-    private Set<Paciente> listaPacientes;
-    private Set<Medicina> listaMedicina;
-    private CitaMedicaDetallada detalle;
-    private VentanaCrearPaciente ventanaCrearPaciente;
-    private VentanaCrearReceta ventanaCrearReceta;
+    private ControladorMedicina controladorMedicina;
+    private Set<Paciente> citaMedicaDetalladas;
     Receta receta;
-    Paciente paciente1;
- 
+    private Object txtcedula;
+
     /**
-     * Creates new form VentanaCrearReceta
+     * Creates new form VentanaBuscarReceta
      */
-    public VentanaCrearReceta(ControladorReceta controladorReceta, ControladorPaciente controladorPaciente, ControladorMedicina controladorMedicina) {
+    public VentanaBuscarReceta(ControladorReceta controladorReceta, ControladorPaciente controladorPaciente, ControladorMedicina controladorMedicina) {
         initComponents();
-        this.controladorReceta = controladorReceta;
-        this.controladorPaciente =  controladorPaciente;
         this.controladorMedicina = controladorMedicina;
-        txtCodigo.setText(String.valueOf(this.controladorReceta.getCodigo()));
-        //receta = new HashSet<>(); 
-        txtFecha.setText(fechaActual());
-        listaPacientes= controladorPaciente.getLista();
-         for (Paciente paciente : listaPacientes) {
-            cbxPaciente.addItem(paciente.getNombre());            
-        }
-        listaMedicina= controladorMedicina.getLista();
-        for (Medicina medicina : listaMedicina) {
-            cbxMedicina.addItem(medicina.getNombre());            
-        }
-        pacienteBuscado();
-        medicinaBuscada();
-    }
-    
-     public static String fechaActual() {
-        Date fecha1 = new Date();
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-
-        return formato.format(fecha1);
+        this.controladorPaciente = controladorPaciente;
+        this.controladorReceta = controladorReceta;
+       
     }
 
-     public void pacienteBuscado(){
-        Paciente paciente = buscarPaciente();
-        txtCedula.setText(paciente.getCedula());
-        txtDireccion.setText(paciente.getDireccion());
-        txtTelefono.setText(paciente.getTelefono());
-        txtSintomas.setText(paciente.getSintomas());
+    public VentanaBuscarReceta(ControladorReceta controladorReceta) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-      public Paciente buscarPaciente() {
-        Paciente p = new Paciente();
-        for (Paciente paciente : listaPacientes) {
-            if (cbxPaciente.getSelectedItem().toString().equalsIgnoreCase(paciente.getNombre())) {
-                p = paciente;
-            }
-        }
-        return p;
-    }
-       public void medicinaBuscada(){
-        Medicina medicina = buscarMedicina();
-        txtMarca.setText(medicina.getMarca());
-        txtDescripcion.setText(medicina.getDescripcion());
-        txtPrecio.setText(String.valueOf(medicina.getPrecio()));
-    }
-    
-      public Medicina buscarMedicina() {
-        Medicina m = new Medicina();
-        for (Medicina medicina : listaMedicina) {
-            if (cbxMedicina.getSelectedItem().toString().equalsIgnoreCase(medicina.getNombre())) {
-                m = medicina;
-            }
-        }
-        return m;
-    }
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -143,19 +75,15 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
         txtDescripcion = new javax.swing.JTextField();
         txtMarca = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
-        cbxPaciente = new javax.swing.JComboBox();
-        cbxMedicina = new javax.swing.JComboBox();
         lblcodigo1 = new javax.swing.JLabel();
         lblIndicaciones = new javax.swing.JLabel();
         txtIndicaciones = new javax.swing.JTextField();
         btncancelar = new javax.swing.JButton();
         lblcancelar = new javax.swing.JLabel();
-        lblguardar = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-
-        setClosable(true);
-        setIconifiable(true);
-        setMaximizable(true);
+        btnBuscar = new javax.swing.JButton();
+        txtMedicina = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        cbxMedicina = new javax.swing.JComboBox();
 
         lblMenuCrearP.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lblMenuCrearP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -184,6 +112,7 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
         lblCedula.setText("CEDULA");
         lblCedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        txtCedula.setEditable(false);
         txtCedula.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtCedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
@@ -192,14 +121,19 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
         lblDireccion.setText("DIRECCION");
         lblDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        txtTelefono.setEditable(false);
         txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTelefono.setToolTipText("");
+
+        txtDireccion.setEditable(false);
 
         lblPrecio1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPrecio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPrecio1.setText("SINTOMAS");
         lblPrecio1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtSintomas.setEditable(false);
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -228,17 +162,11 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
         lblPrecio.setText("PRECIO");
         lblPrecio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        cbxPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxPacienteActionPerformed(evt);
-            }
-        });
+        txtDescripcion.setEditable(false);
 
-        cbxMedicina.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxMedicinaActionPerformed(evt);
-            }
-        });
+        txtMarca.setEditable(false);
+
+        txtPrecio.setEditable(false);
 
         lblcodigo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblcodigo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -250,6 +178,7 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
         lblIndicaciones.setText("INDICACIONES");
         lblIndicaciones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        txtIndicaciones.setEditable(false);
         txtIndicaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIndicacionesActionPerformed(evt);
@@ -269,17 +198,16 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
         lblcancelar.setText("CANCELAR");
         lblcancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        lblguardar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblguardar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblguardar.setText("GUARDAR");
-        lblguardar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/guardar.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
+
+        txtMedicina.setEditable(false);
+
+        txtNombre.setEditable(false);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -299,10 +227,10 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
                                     .addComponent(lblPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                                     .addComponent(txtCedula)
-                                    .addComponent(cbxPaciente, 0, 177, Short.MAX_VALUE)
                                     .addComponent(txtDireccion))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -319,14 +247,14 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtDescripcion)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addComponent(lblMedicina, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cbxMedicina, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtMedicina)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -340,6 +268,8 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
                         .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnBuscar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -348,52 +278,48 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
                         .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(lblguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblcancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btncancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(55, 55, 55))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblcodigo1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblcodigo1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lblPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lblPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                                        .addComponent(cbxPaciente))
-                                    .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblCedula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                                    .addComponent(txtDireccion)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(lblCedula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblPrecio1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lblDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                        .addComponent(txtDireccion)))
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtSintomas, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMedicina, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cbxMedicina, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtMarca)
+                            .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lblMedicina, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtMedicina))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
@@ -409,134 +335,96 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblIndicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtIndicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btncancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblcancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        cbxMedicina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxMedicinaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(295, 295, 295)
-                .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(155, 155, 155))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(295, 295, 295)
+                        .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxMedicina, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxMedicina, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(242, 242, 242))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_btncancelarActionPerformed
-
-    private void cbxPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPacienteActionPerformed
-        //Selecciona el producto dependiendo la opcion escojida en el jcomboBox
-        pacienteBuscado();
-    }//GEN-LAST:event_cbxPacienteActionPerformed
-
     private void cbxMedicinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMedicinaActionPerformed
         //Selecciona el producto dependiendo la opcion escojida en el jcomboBox
-        medicinaBuscada();
+
     }//GEN-LAST:event_cbxMedicinaActionPerformed
 
     private void txtIndicacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIndicacionesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIndicacionesActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
-        Receta citaMedica=new Receta();
-        Paciente paciente = buscarPaciente();
-        Medicina medicina = buscarMedicina();
-        citaMedica.setPrecio(Double.parseDouble(txtPrecio.getText()));
-        String fecha1 = txtFecha.getText(); // Entrada recogida como sea (scanner)
-        DateFormat format = new SimpleDateFormat("DD/MM/YYYY"); // Creamos un formato de fecha
-        Date fecha=null;
-        try {
-            fecha = format.parse(fecha1);
-        } catch (ParseException ex) {
-            Logger.getLogger(VentanaCrearReceta.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        citaMedica.setFecha(fecha);
-        citaMedica.setMedicina(medicina);
-        citaMedica.setPaciente(paciente);        
+        this.dispose();
+    }//GEN-LAST:event_btncancelarActionPerformed
 
-        controladorReceta.cread(citaMedica);
-        JOptionPane.showMessageDialog(this, "LA CITA MEDICA SE A CREADO");
-        txtCodigo.setText(String.valueOf(this.controladorReceta.getCodigo()));
-        txtPrecio.setText(" ");
-         
-        /*
-        Receta receta  = new Receta();
-        Paciente paciente = buscarPaciente();
-        Medicina medicina = buscarMedicina();
-        receta.setCedula(txtCedula.getText());
-        receta.setNombre(txtNombre.getText());
-        receta.setSintomas(txtSintomas.getText());
-        receta.setDireccion(txtDireccion.getText());
-        receta.setTelefono(txtTelefono.getText());
-        receta.setIndicaciones(txtIndicaciones.getText());
-        receta.setPrecio(Double.parseDouble(txtPrecio.getText()));
-        receta.setDescripcion(txtDescripcion.getText());
-        receta.setMarca(txtMarca.getText());
-        String fecha1 = txtFecha.getText();
-        DateFormat format = new SimpleDateFormat("DD/MM/YYYY"); 
-        Date fecha=null;
-        receta.setFecha(fecha);
-        receta.setMedicina(medicina);
-        receta.setPaciente(paciente); 
-        controladorReceta.cread(receta);
-        JOptionPane.showMessageDialog(this, "LA RECETA SE A CREADO");
-        txtCodigo.setText(String.valueOf(this.controladorReceta.getCodigo()));
-        txtCedula.setText("");
-        txtNombre.setText("");
-        txtSintomas.setText("");
-        txtTelefono.setText("");
-        txtDireccion.setText("");
-        txtMarca.setText("");
-        txtDescripcion.setText("");
-        txtPrecio.setText("");
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+         int codigo = Integer.parseInt(txtCodigo.getText());
+        receta=controladorReceta.read(codigo);
+    
+        txtNombre.setText(receta.getPaciente().getNombre());
+        txtCedula.setText(receta.getPaciente().getCedula());
+        txtDireccion.setText(receta.getPaciente().getDireccion());
+        txtTelefono.setText(receta.getPaciente().getTelefono());
+        txtSintomas.setText(receta.getPaciente().getSintomas());
+        txtMedicina.setText(receta.getMedicina().getNombre());
+        txtPrecio.setText(String.valueOf(receta.getMedicina().getPrecio()));
+        txtDescripcion.setText(receta.getMedicina().getDescripcion());
+        txtMarca.setText(receta.getMedicina().getMarca());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fecha = sdf.format(receta.getFecha());
+        txtFecha.setText(fecha);
         txtIndicaciones.setText("");
-                */
-    }//GEN-LAST:event_jButton1ActionPerformed
+       JOptionPane.showMessageDialog(this, "CITA MEDICA ENCONTRADA");
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btncancelar;
     private javax.swing.JComboBox cbxMedicina;
-    private javax.swing.JComboBox cbxPaciente;
-    private javax.swing.JButton jButton1;
     public static javax.swing.JPanel jPanel3;
     public static javax.swing.JLabel lblCedula;
     public static javax.swing.JLabel lblDescripcion;
@@ -552,7 +440,6 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
     public static javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblcancelar;
     public static javax.swing.JLabel lblcodigo1;
-    private javax.swing.JLabel lblguardar;
     public static javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtDescripcion;
@@ -560,6 +447,8 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtIndicaciones;
     private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtMedicina;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtSintomas;
     private javax.swing.JTextField txtTelefono;

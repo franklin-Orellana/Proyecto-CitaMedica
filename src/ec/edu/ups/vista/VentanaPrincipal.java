@@ -126,7 +126,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         listarMedico.setText(mensajes.getString("menu.listar"));
         listarMedicina.setText(mensajes.getString("menu.listar"));
         listarCitaMedica.setText(mensajes.getString("menu.listar"));
-        listarReceta.setText(mensajes.getString("menu.listar"));
         //cambia el idioma del eliminar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         eliminarPaciente.setText(mensajes.getString("menu.eliminar"));
         eliminarMedico.setText(mensajes.getString("menu.eliminar"));
@@ -184,7 +183,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         crearReceta = new javax.swing.JMenuItem();
         buscarReceta = new javax.swing.JMenuItem();
         actualizarReceta = new javax.swing.JMenuItem();
-        listarReceta = new javax.swing.JMenuItem();
         eliminarReceta = new javax.swing.JMenuItem();
         menuMedicina1 = new javax.swing.JMenu();
         crearMedicina1 = new javax.swing.JMenuItem();
@@ -471,16 +469,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
         menuReceta.add(actualizarReceta);
-
-        listarReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        listarReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
-        listarReceta.setText("LISTAR");
-        listarReceta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listarRecetaActionPerformed(evt);
-            }
-        });
-        menuReceta.add(listarReceta);
 
         eliminarReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         eliminarReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuEliminar.png"))); // NOI18N
@@ -770,7 +758,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void crearRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearRecetaActionPerformed
         if (ventanaCrearReceta == null || !ventanaCrearReceta.isVisible()) {
-            ventanaCrearReceta = new VentanaCrearReceta(controladorReceta, controladorCitaMedica, controladorPaciente);
+            ventanaCrearReceta = new VentanaCrearReceta(controladorReceta, controladorPaciente, controladorMedicina);
             ventanaCrearReceta.setVisible(true);
             desktopPane.add(ventanaCrearReceta);
             //VentanaCrearReceta.
@@ -785,10 +773,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void eliminarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarRecetaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_eliminarRecetaActionPerformed
-
-    private void listarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarRecetaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listarRecetaActionPerformed
 
     private void actualizarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarRecetaActionPerformed
         // TODO add your handling code here:
@@ -975,7 +959,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem listarMedicina1;
     private javax.swing.JMenuItem listarMedico;
     private javax.swing.JMenuItem listarPaciente;
-    private javax.swing.JMenuItem listarReceta;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCitamedica;
     private javax.swing.JMenu menuIdioma;
