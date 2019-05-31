@@ -101,7 +101,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         controladorMedicina = new ControladorMedicina();
         controladorReceta = new ControladorReceta();
         controladorFactura = new ControladorFactura();
-        
+
         localizacion = new Locale("es", "EC");
         Locale.setDefault(localizacion);
         cambiarIdioma();
@@ -153,7 +153,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         eliminarReceta.setText(mensajes.getString("menu.eliminar"));
         eliminarFactura.setText(mensajes.getString("anular.factura"));
         //cambiar idioma menu factura
-        
+
         espanol.setText(mensajes.getString("menu.idioma.español"));
         ingles.setText(mensajes.getString("menu.idioma.ingles"));
     }
@@ -639,6 +639,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaCrearMedico = new VentanaCrearMedico(controladorMedico);
             ventanaCrearMedico.setVisible(true);
             desktopPane.add(ventanaCrearMedico);
+            VentanaCrearMedico.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_crearMedicoActionPerformed
 
@@ -792,7 +793,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void buscarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarRecetaActionPerformed
         // TODO add your handling code here:
-         if (ventanaBuscarReceta == null || !ventanaBuscarReceta.isVisible()) {
+        if (ventanaBuscarReceta == null || !ventanaBuscarReceta.isVisible()) {
             ventanaBuscarReceta = new VentanaBuscarReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
             ventanaBuscarReceta.setVisible(true);
             desktopPane.add(ventanaBuscarReceta);
@@ -802,7 +803,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void eliminarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarRecetaActionPerformed
         // TODO add your handling code here:
-          if (ventanaEliminarReceta == null || !ventanaEliminarReceta.isVisible()) {
+        if (ventanaEliminarReceta == null || !ventanaEliminarReceta.isVisible()) {
             ventanaEliminarReceta = new VentanaEliminarReceta(controladorReceta);
             ventanaEliminarReceta.setVisible(true);
             desktopPane.add(ventanaEliminarReceta);
@@ -837,11 +838,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void crearFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearFacturaActionPerformed
         // TODO add your handling code here:
-         if (ventanaCrearFactura == null || !ventanaCrearFactura.isVisible()) {
+        if (ventanaCrearFactura == null || !ventanaCrearFactura.isVisible()) {
             ventanaCrearFactura = new VentanaCrearFactura(controladorCitaMedica, controladorFactura, controladorFacturaDetallada);
             ventanaCrearFactura.setVisible(true);
             desktopPane.add(ventanaCrearFactura);
-            ventanaCrearFactura.cambiarIdioma(localizacion);
+            VentanaCrearFactura.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_crearFacturaActionPerformed
 
@@ -851,8 +852,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaBuscarFactura = new VentanaBuscarFactura(controladorCitaMedica, controladorFactura, controladorFacturaDetallada);
             ventanaBuscarFactura.setVisible(true);
             desktopPane.add(ventanaBuscarFactura);
-            ventanaBuscarFactura.cambiarIdioma(localizacion);
-        }        
+            VentanaBuscarFactura.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_buscarFacturaActionPerformed
 
     private void listarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarFacturaActionPerformed
@@ -865,17 +866,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaAnularFactura = new VentanaAnularFactura(controladorCitaMedica, controladorFactura, controladorFacturaDetallada);
             ventanaAnularFactura.setVisible(true);
             desktopPane.add(ventanaAnularFactura);
-            ventanaAnularFactura.cambiarIdioma(localizacion);
-        }      
+            VentanaAnularFactura.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_eliminarFacturaActionPerformed
 
     private void actualizarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarRecetaActionPerformed
-       if (ventanaActualizarReceta == null || !ventanaActualizarReceta.isVisible()) {
-            ventanaActualizarReceta= new VentanaActualizarReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
+        if (ventanaActualizarReceta == null || !ventanaActualizarReceta.isVisible()) {
+            ventanaActualizarReceta = new VentanaActualizarReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
             ventanaActualizarReceta.setVisible(true);
             desktopPane.add(ventanaActualizarReceta);
-            ventanaActualizarReceta.cambiarIdioma(localizacion);
-        } 
+            VentanaActualizarReceta.cambiarIdioma(localizacion);
+        }
     }//GEN-LAST:event_actualizarRecetaActionPerformed
 
     private void idiomaVentanas() {
