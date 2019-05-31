@@ -796,7 +796,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaBuscarReceta = new VentanaBuscarReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
             ventanaBuscarReceta.setVisible(true);
             desktopPane.add(ventanaBuscarReceta);
-            VentanaCrearReceta.cambiarIdioma(localizacion);
+            VentanaBuscarReceta.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_buscarRecetaActionPerformed
 
@@ -874,7 +874,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaActualizarReceta= new VentanaActualizarReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
             ventanaActualizarReceta.setVisible(true);
             desktopPane.add(ventanaActualizarReceta);
-            ventanaAnularFactura.cambiarIdioma(localizacion);
+            ventanaActualizarReceta.cambiarIdioma(localizacion);
         } 
     }//GEN-LAST:event_actualizarRecetaActionPerformed
 
