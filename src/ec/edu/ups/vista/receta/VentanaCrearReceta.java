@@ -104,7 +104,7 @@ public class VentanaCrearReceta extends javax.swing.JInternalFrame {
         lblguardar.setText(mensajes.getString("guardar"));
         lblcancelar.setText(mensajes.getString("cancelar"));
         Object[] columnas = {mensajes.getString("codigo"), mensajes.getString("diagnostico")};
-        modelo.setColumnIdentifiers(columnas);
+        //modelo.setColumnIdentifiers(columnas);
     }
     
      public static String fechaActual() {

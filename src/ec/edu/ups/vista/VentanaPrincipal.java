@@ -785,7 +785,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaCrearReceta = new VentanaCrearReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
             ventanaCrearReceta.setVisible(true);
             desktopPane.add(ventanaCrearReceta);
-            //VentanaCrearReceta.
+            VentanaCrearReceta.cambiarIdioma(localizacion);
         }
 
     }//GEN-LAST:event_crearRecetaActionPerformed
@@ -796,7 +796,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaBuscarReceta = new VentanaBuscarReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
             ventanaBuscarReceta.setVisible(true);
             desktopPane.add(ventanaBuscarReceta);
-            //VentanaCrearReceta.
+            VentanaCrearReceta.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_buscarRecetaActionPerformed
 
@@ -806,7 +806,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaEliminarReceta = new VentanaEliminarReceta(controladorReceta);
             ventanaEliminarReceta.setVisible(true);
             desktopPane.add(ventanaEliminarReceta);
-            
+            VentanaEliminarReceta.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_eliminarRecetaActionPerformed
 
@@ -815,7 +815,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaListarReceta = new VentanaListarRecetas(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
             ventanaListarReceta.setVisible(true);
             desktopPane.add(ventanaListarReceta);
-            
+            VentanaListarRecetas.cambiarIdioma(localizacion);
         }
     }//GEN-LAST:event_listarRecetaActionPerformed
 
@@ -874,6 +874,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             ventanaActualizarReceta= new VentanaActualizarReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
             ventanaActualizarReceta.setVisible(true);
             desktopPane.add(ventanaActualizarReceta);
+            ventanaAnularFactura.cambiarIdioma(localizacion);
         } 
     }//GEN-LAST:event_actualizarRecetaActionPerformed
 
@@ -948,6 +949,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
         if (ventanaAnularFactura != null && ventanaAnularFactura.isVisible()) {
             ventanaAnularFactura.cambiarIdioma(localizacion);
+        }
+        //ventanas receta
+        if (ventanaCrearReceta != null && ventanaCrearReceta.isVisible()) {
+            ventanaCrearReceta.cambiarIdioma(localizacion);
+        }
+        if (ventanaActualizarReceta != null && ventanaActualizarReceta.isVisible()) {
+            ventanaActualizarReceta.cambiarIdioma(localizacion);
+        }
+        if (ventanaBuscarReceta != null && ventanaBuscarReceta.isVisible()) {
+            ventanaBuscarReceta.cambiarIdioma(localizacion);
+        }
+        if (ventanaEliminarReceta != null && ventanaEliminarReceta.isVisible()) {
+            ventanaEliminarReceta.cambiarIdioma(localizacion);
+        }
+        if (ventanaListarReceta != null && ventanaListarReceta.isVisible()) {
+            ventanaListarReceta.cambiarIdioma(localizacion);
         }
     }
 
