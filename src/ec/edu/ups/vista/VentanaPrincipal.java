@@ -37,6 +37,7 @@ import ec.edu.ups.vista.factura.VentanaBuscarFactura;
 import ec.edu.ups.vista.factura.VentanaAnularFactura;
 import ec.edu.ups.vista.factura.VentanaListarFactura;
 import ec.edu.ups.controladores.ControladorFactura;
+import ec.edu.ups.vista.receta.VentanaBuscarReceta;
 import java.util.ResourceBundle;
 import java.util.Locale;
 
@@ -72,6 +73,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private ControladorMedicina controladorMedicina;
     private ControladorReceta controladorReceta;
     private VentanaCrearReceta ventanaCrearReceta;
+    private VentanaBuscarReceta ventanaBuscarReceta;
     private VentanaCrearFactura ventanaCrearFactura;
     private VentanaBuscarFactura ventanaBuscarFactura;
     private VentanaAnularFactura ventanaAnularFactura;
@@ -768,6 +770,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void buscarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarRecetaActionPerformed
         // TODO add your handling code here:
+         if (ventanaBuscarReceta == null || !ventanaBuscarReceta.isVisible()) {
+            ventanaBuscarReceta = new VentanaBuscarReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
+            ventanaBuscarReceta.setVisible(true);
+            desktopPane.add(ventanaBuscarReceta);
+            //VentanaCrearReceta.
+        }
     }//GEN-LAST:event_buscarRecetaActionPerformed
 
     private void eliminarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarRecetaActionPerformed
