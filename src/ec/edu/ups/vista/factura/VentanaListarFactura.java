@@ -5,17 +5,40 @@
  */
 package ec.edu.ups.vista.factura;
 
+import ec.edu.ups.controladores.ControladorFactura;
+import ec.edu.ups.modelo.Factura;
+import ec.edu.ups.modelo.FacturaDetallada;
+import java.util.Set;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author tians
  */
 public class VentanaListarFactura extends javax.swing.JInternalFrame {
 
+    private ControladorFactura controladorFactura;
+
     /**
      * Creates new form VentanaListarFactura
      */
-    public VentanaListarFactura() {
+    public VentanaListarFactura(ControladorFactura controladorFactura) {
+        this.controladorFactura = controladorFactura;
         initComponents();
+
+    }
+
+    public void llenarDatos() {
+        for (Factura factura : controladorFactura.getFacturas()) {
+            DefaultTableModel modelo = (DefaultTableModel) tblCitas.getModel();
+            Object[] datos = {factura.isAnulada(),
+                factura.getCodigo(),
+                factura.getFecha(),
+                factura.getTotal()
+            };
+            modelo.addRow(datos);
+        }
     }
 
     /**
@@ -44,15 +67,18 @@ public class VentanaListarFactura extends javax.swing.JInternalFrame {
 
         tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Cantidad", "Codigo", "Paciente", "Medico", "Fecha", "Precio", "Subtotal", "Total"
+                "Anulada", "Codigo", "Fecha", "Total"
             }
-        ));
-        tblCitas.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                tblCitasKeyReleased(evt);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tblCitas);
@@ -108,10 +134,6 @@ public class VentanaListarFactura extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tblCitasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblCitasKeyReleased
-
-    }//GEN-LAST:event_tblCitasKeyReleased
 
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:

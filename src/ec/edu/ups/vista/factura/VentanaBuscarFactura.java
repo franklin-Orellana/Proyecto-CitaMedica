@@ -5,12 +5,15 @@
  */
 package ec.edu.ups.vista.factura;
 
-import java.awt.event.KeyEvent;
+import java.util.Set;
 import ec.edu.ups.controladores.ControladorFactura;
 import ec.edu.ups.controladores.ControladorFacturaDetallada;
 import ec.edu.ups.controladores.ControladorCitaMedica;
+import ec.edu.ups.modelo.Factura;
+import ec.edu.ups.modelo.FacturaDetallada;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -35,6 +38,7 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
         this.controladorFactura = controladorFactura;
         this.controladorFacturaDetallada = controladorFacturaDetallada;
         modelo = new DefaultTableModel();
+        txtCodigoF.setEnabled(true);
     }
 
     public static void cambiarIdioma(Locale localizacion) {
@@ -62,6 +66,7 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
         lblcodigo = new javax.swing.JLabel();
         btncancelar = new javax.swing.JButton();
         lblcancelar = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -78,12 +83,20 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
 
         tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Cantidad", "Codigo", "Paciente", "Medico", "Fecha", "Total"
+                "Anulada", "Codigo", "Paciente", "Medico", "Fecha", "Total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblCitas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tblCitasKeyReleased(evt);
@@ -109,6 +122,14 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
         lblcancelar.setText("CANCELAR");
         lblcancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/buscar1.png"))); // NOI18N
+        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,7 +145,9 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
                                 .addContainerGap()
                                 .addComponent(lblcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCodigoF, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCodigoF, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(242, 242, 242)
                                 .addComponent(lblMenuBuscarF, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -142,9 +165,11 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(lblMenuBuscarF, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(txtCodigoF, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                        .addComponent(txtCodigoF, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -157,17 +182,42 @@ public class VentanaBuscarFactura extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tblCitasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblCitasKeyReleased
-
-    }//GEN-LAST:event_tblCitasKeyReleased
-
     private void btncancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelarActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btncancelarActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        //Busca la cita medica a traves del codigo
+        int codigoFactura = Integer.parseInt(txtCodigoF.getText());
+        Factura factura=controladorFactura.read(codigoFactura);
+        if (factura != null){
+            Set<FacturaDetallada> detalles=factura.getDetalles();
+            DefaultTableModel modelo = (DefaultTableModel) tblCitas.getModel();
+            for (FacturaDetallada facturas : detalles){
+                Object[] datos= {factura.isAnulada(),
+                    factura.getCodigo(),
+                    facturas.getCitaMedica().getPaciente().getNombre(),
+                    facturas.getCitaMedica().getMedico().getNombre(),
+                    factura.getFecha(),
+                    facturas.getCitaMedica().getPrecio()
+                };
+                modelo.addRow(datos);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "La factura no existe");
+        }
+        
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void tblCitasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblCitasKeyReleased
+
+    }//GEN-LAST:event_tblCitasKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btncancelar;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblMenuBuscarF;

@@ -6,6 +6,8 @@
 package ec.edu.ups.modelo;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -13,15 +15,35 @@ import java.util.Date;
  */
 public class Factura {
     private int codigo;
-    private CitaMedica citaMedica;
+    private boolean anulada;
     private Date Fecha;
     private double subtotal;
     private double iva;
     private double total;
+    private Set<FacturaDetallada> detalles;
 
     public Factura() {
+        detalles=new HashSet<>();
     }
 
+    public boolean isAnulada() {
+        return anulada;
+    }
+
+    public void setAnulada(boolean anulada) {
+        this.anulada = anulada;
+    }
+
+    
+    public Set<FacturaDetallada> getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(Set<FacturaDetallada> detalles) {
+        this.detalles = detalles;
+    }
+
+    
     public int getCodigo() {
         return codigo;
     }
@@ -30,14 +52,6 @@ public class Factura {
         this.codigo = codigo;
     }
 
-    
-    public CitaMedica getCitaMedica() {
-        return citaMedica;
-    }
-
-    public void setCitaMedica(CitaMedica citaMedica) {
-        this.citaMedica = citaMedica;
-    }
 
     public Date getFecha() {
         return Fecha;

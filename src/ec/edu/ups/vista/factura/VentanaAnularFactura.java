@@ -8,8 +8,12 @@ import java.awt.event.KeyEvent;
 import ec.edu.ups.controladores.ControladorFactura;
 import ec.edu.ups.controladores.ControladorFacturaDetallada;
 import ec.edu.ups.controladores.ControladorCitaMedica;
+import ec.edu.ups.modelo.Factura;
+import ec.edu.ups.modelo.FacturaDetallada;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.Set;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -32,6 +36,7 @@ private ControladorCitaMedica controladorCitaMedica;
         this.controladorFactura = controladorFactura;
         this.controladorFacturaDetallada = controladorFacturaDetallada;
         modelo = new DefaultTableModel();
+        txtCodigoF.setEnabled(true);
     }
     public static void cambiarIdioma(Locale localizacion) {
         mensajes = ResourceBundle.getBundle("ec.edu.ups.idiomas.mensajes", Locale.getDefault());
@@ -56,8 +61,9 @@ private ControladorCitaMedica controladorCitaMedica;
         tblCitas = new javax.swing.JTable();
         txtCodigoF = new javax.swing.JTextField();
         lblcodigo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAnular = new javax.swing.JButton();
         lbleliminar = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -70,10 +76,10 @@ private ControladorCitaMedica controladorCitaMedica;
 
         tblCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Cantidad", "Codigo", "Paciente", "Medico", "Fecha", "Total"
+                "Anulada", "Codigo", "Paciente", "Medico", "Fecha", "Total"
             }
         ));
         tblCitas.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -92,11 +98,11 @@ private ControladorCitaMedica controladorCitaMedica;
         lblcodigo.setText("CÓDIGO");
         lblcodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminar.png"))); // NOI18N
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/eliminar.png"))); // NOI18N
+        btnAnular.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAnularActionPerformed(evt);
             }
         });
 
@@ -104,6 +110,14 @@ private ControladorCitaMedica controladorCitaMedica;
         lbleliminar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbleliminar.setText("ANULAR");
         lbleliminar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/buscar1.png"))); // NOI18N
+        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,7 +134,9 @@ private ControladorCitaMedica controladorCitaMedica;
                                 .addContainerGap()
                                 .addComponent(lblcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtCodigoF, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCodigoF, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(242, 242, 242)
                                 .addComponent(lblMenuEliminarF, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -130,7 +146,7 @@ private ControladorCitaMedica controladorCitaMedica;
                 .addGap(324, 324, 324)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbleliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -139,13 +155,15 @@ private ControladorCitaMedica controladorCitaMedica;
                 .addContainerGap()
                 .addComponent(lblMenuEliminarF, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(lblcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(txtCodigoF, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblcodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                        .addComponent(txtCodigoF, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lbleliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -158,13 +176,43 @@ private ControladorCitaMedica controladorCitaMedica;
 
     }//GEN-LAST:event_tblCitasKeyReleased
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnularActionPerformed
+        int codigoFactura = Integer.parseInt(txtCodigoF.getText());
+        Factura factura=controladorFactura.read(codigoFactura);
+        if (factura != null){
+            factura.setAnulada(true);
+            JOptionPane.showMessageDialog(null, "Factura Anulada");
+        }else{
+            JOptionPane.showMessageDialog(null, "La factura no existe");
+        }
+    }//GEN-LAST:event_btnAnularActionPerformed
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        //Busca la cita medica a traves del codigo
+        int codigoFactura = Integer.parseInt(txtCodigoF.getText());
+        Factura factura=controladorFactura.read(codigoFactura);
+        if (factura != null){
+            Set<FacturaDetallada> detalles=factura.getDetalles();
+            DefaultTableModel modelo = (DefaultTableModel) tblCitas.getModel();
+            for (FacturaDetallada facturas : detalles){
+                Object[] datos= {factura.isAnulada(),
+                    factura.getCodigo(),
+                    facturas.getCitaMedica().getPaciente().getNombre(),
+                    facturas.getCitaMedica().getMedico().getNombre(),
+                    factura.getFecha(),
+                    facturas.getCitaMedica().getPrecio()
+                };
+                modelo.addRow(datos);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "La factura no existe");
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAnular;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JLabel lblMenuEliminarF;
     public static javax.swing.JLabel lblcodigo;
