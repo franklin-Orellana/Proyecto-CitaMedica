@@ -44,7 +44,7 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
     private ControladorMedico controladorMedico;
     private Set<Paciente> listaPacientes;
     private Set<Medico> listaMedicos;
-    public static DefaultTableModel modelo;
+    public static NuevoModelo modelo;
     private CitaMedicaDetallada detalle;
     private Set<CitaMedicaDetallada> citaMedicaDetalladas;
     private VentanaCrearPaciente ventanaCrearPaciente;
@@ -64,7 +64,7 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
         this.controladorMedico = controladorMedico;
         txtcodigo.setText(String.valueOf(this.controladorCitaMedica.getCodigo()));
         citaMedicaDetalladas = new HashSet<>();
-        modelo = new DefaultTableModel();
+        modelo = new NuevoModelo();
         txtFecha.setText(fechaActual());
         listaPacientes = controladorPaciente.getLista();
 
@@ -84,7 +84,7 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
         codDet = controladorCitaMedicaDetallada.getCodigo();
         Object[] vacio = {codDet, ""};
         imin = codDet;
-        System.out.println(imin);
+        //System.out.println(imin);
         modelo.addRow(vacio);
         tblDetalle.setModel(modelo);
         
@@ -173,7 +173,21 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
         }
         return m;
     }
+     /**
+    *Metodo que hereda los datos del DefaulTableModel sirva para poder hacer editables o no las columnas
+    */
+    public class NuevoModelo extends DefaultTableModel{
+    /**
+     * Define la posibilidad de editar las columnas
+     */    
+    public final boolean [] TblColums= {false,false};
 
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return this.TblColums[column];
+        }
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -384,7 +398,6 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
                 "CÓDIGO", "DIAGNOSTICO"
             }
         ));
-        tblDetalle.setEnabled(false);
         tblDetalle.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tblDetalleKeyReleased(evt);
@@ -619,11 +632,13 @@ public class VentanaCrearCitaMedica extends javax.swing.JInternalFrame {
                         };
                 //modelo.removeRow(fila
                 //modelo.setValueAt("",aux, 1);
+                /*
                 System.out.println("Ingresa");
                 System.out.println(detalle.getCodigo());
                 System.out.println(diagnostico);
                 System.out.println("Imprime");
                 System.out.println(detalle.toString());
+                */
                 modelo.addRow(datos);
                 if (diagnostico == null) {
                     controladorCitaMedicaDetallada.delete(codigo);
