@@ -127,7 +127,7 @@ public class VentanaEliminarReceta extends javax.swing.JInternalFrame {
         // Ingresa el codigo y elimina el objeto Cita Medica
         int codigo = Integer.parseInt(txtcodigo.getText());
         controladorReceta.delete(codigo);
-        JOptionPane.showMessageDialog(this, "La receta se ha eliminado");
+        JOptionPane.showMessageDialog(this, "La receta con codigo "+codigo+" se ha eliminado");
         //vaciar txt
         txtcodigo.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed

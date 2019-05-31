@@ -107,7 +107,7 @@ public class VentanaListarCitaMedica extends javax.swing.JInternalFrame {
     /**
      * Define la posibilidad de editar las columnas
      */    
-    public final boolean [] TblColums= {false,false,false,false,false,false,false,false,true,false,false};
+    public final boolean [] TblColums= {false,false,false,false,false,false,false,false,false,false};
 
         @Override
         public boolean isCellEditable(int row, int column) {
