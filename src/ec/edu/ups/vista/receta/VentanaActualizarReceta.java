@@ -44,6 +44,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
     private CitaMedicaDetallada detalle;
     public static NuevoModelo modelo;
     String nombrePaciente;
+    int codigo;
     /**
      * Creates new form VentanaActualizarReceta
      */
@@ -260,7 +261,6 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
 
         txtMedico.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtMedico.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtMedico.setEnabled(false);
 
         lblDireccion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblDireccion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -270,16 +270,11 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTelefono.setToolTipText("");
-        txtTelefono.setEnabled(false);
-
-        txtDireccion.setEnabled(false);
 
         lblPrecio1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPrecio1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPrecio1.setText("SINTOMAS");
         lblPrecio1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        txtSintomas.setEnabled(false);
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -287,7 +282,6 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         lblFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtFecha.setEditable(false);
-        txtFecha.setEnabled(false);
 
         lblcodigo1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblcodigo1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -311,7 +305,6 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
 
         txtEspecialidad.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtEspecialidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtEspecialidad.setEnabled(false);
 
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/buscar1.png"))); // NOI18N
         btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -328,7 +321,6 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
 
         txtCedula.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         txtCedula.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCedula.setEnabled(false);
 
         cbxCitaMedica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -472,10 +464,6 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(tblDetalle2);
 
-        txtPrecio.setEnabled(false);
-
-        txtMarca.setEnabled(false);
-
         lblMarca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblMarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblMarca.setText("MARCA");
@@ -486,7 +474,6 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         lblPrecio.setText("PRECIO");
         lblPrecio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        txtIndicaciones.setEnabled(false);
         txtIndicaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIndicacionesActionPerformed(evt);
@@ -520,8 +507,6 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         lblcancelar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblcancelar.setText("CANCELAR");
         lblcancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        txtDescripcion.setEnabled(false);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/actualizar.png"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -622,16 +607,24 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(294, 294, 294)
+                                .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(294, 294, 294)
-                .addComponent(lblMenuCrearP, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -642,9 +635,9 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -652,7 +645,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         //Busca la cita medica a traves del codigo
-        int codigo = Integer.parseInt(txtCodigo.getText());
+        codigo = Integer.parseInt(txtCodigo.getText());
         receta = controladorReceta.read(codigo);
         citaMedicaDetalladas = receta.getCitaMedica().getListaDetallada();
         Object[] columnas = {"Codigo ", "Diagnostico"};
@@ -696,7 +689,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         Receta receta=new Receta();
+        Receta receta=new Receta();
         Paciente paciente = buscarPaciente();
         Medicina medicina = buscarMedicina();
         CitaMedica citaMedica=buscarCitaMedica();
@@ -705,7 +698,7 @@ public class VentanaActualizarReceta extends javax.swing.JInternalFrame {
         receta.setMedicina(medicina);
         receta.setCitaMedica(citaMedica);
         controladorReceta.update(receta);
-        JOptionPane.showMessageDialog(this, "LA CITA MEDICA SE A CREADO");
+        JOptionPane.showMessageDialog(this, "LA CITA MEDICA CON CODIGO "+codigo+" SE HA MODIFICADO");
         txtCodigo.setText(String.valueOf(this.controladorReceta.getCodigo()));
         txtIndicaciones.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed

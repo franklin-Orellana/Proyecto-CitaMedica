@@ -137,20 +137,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         actualizarPaciente.setText(mensajes.getString("menu.actualizar"));
         actualizarMedico.setText(mensajes.getString("menu.actualizar"));
         actualizarMedicina.setText(mensajes.getString("menu.actualizar"));
-        listarReceta.setText(mensajes.getString("menu.actualizar"));
+        actualizarReceta.setText(mensajes.getString("menu.actualizar"));
         //cambia el idioma del listar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         listarPaciente.setText(mensajes.getString("menu.listar"));
         listarMedico.setText(mensajes.getString("menu.listar"));
         listarMedicina.setText(mensajes.getString("menu.listar"));
         listarCitaMedica.setText(mensajes.getString("menu.listar"));
         listarFactura.setText(mensajes.getString("menu.listar"));
+        listarReceta.setText(mensajes.getString("menu.listar"));
         //cambia el idioma del eliminar Paciente,Medico,Medicina,CitaMedica,Receta,Idioma
         eliminarPaciente.setText(mensajes.getString("menu.eliminar"));
         eliminarMedico.setText(mensajes.getString("menu.eliminar"));
         eliminarMedicina.setText(mensajes.getString("menu.eliminar"));
         eliminarCitaMedica.setText(mensajes.getString("menu.eliminar"));
         eliminarReceta.setText(mensajes.getString("menu.eliminar"));
-        eliminarReceta.setText(mensajes.getString("anular.factura"));
+        eliminarFactura.setText(mensajes.getString("anular.factura"));
         //cambiar idioma menu factura
         
         espanol.setText(mensajes.getString("menu.idioma.español"));
@@ -202,7 +203,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuReceta = new javax.swing.JMenu();
         crearReceta = new javax.swing.JMenuItem();
         buscarReceta = new javax.swing.JMenuItem();
-        ActualizarReceta = new javax.swing.JMenuItem();
+        actualizarReceta = new javax.swing.JMenuItem();
         listarReceta = new javax.swing.JMenuItem();
         eliminarReceta = new javax.swing.JMenuItem();
         menuFactura = new javax.swing.JMenu();
@@ -483,15 +484,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         menuReceta.add(buscarReceta);
 
-        ActualizarReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
-        ActualizarReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
-        ActualizarReceta.setText("ACTUALIZAR");
-        ActualizarReceta.addActionListener(new java.awt.event.ActionListener() {
+        actualizarReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        actualizarReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuActualizar.png"))); // NOI18N
+        actualizarReceta.setText("ACTUALIZAR");
+        actualizarReceta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarRecetaActionPerformed(evt);
+                actualizarRecetaActionPerformed(evt);
             }
         });
-        menuReceta.add(ActualizarReceta);
+        menuReceta.add(actualizarReceta);
 
         listarReceta.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         listarReceta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/BotonMenuListar.png"))); // NOI18N
@@ -868,13 +869,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }      
     }//GEN-LAST:event_eliminarFacturaActionPerformed
 
-    private void ActualizarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarRecetaActionPerformed
+    private void actualizarRecetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarRecetaActionPerformed
        if (ventanaActualizarReceta == null || !ventanaActualizarReceta.isVisible()) {
             ventanaActualizarReceta= new VentanaActualizarReceta(controladorReceta, controladorPaciente, controladorMedicina, controladorCitaMedica, controladorCitaMedicaDetallada);
             ventanaActualizarReceta.setVisible(true);
             desktopPane.add(ventanaActualizarReceta);
         } 
-    }//GEN-LAST:event_ActualizarRecetaActionPerformed
+    }//GEN-LAST:event_actualizarRecetaActionPerformed
 
     private void idiomaVentanas() {
         //ventanaPaciente
@@ -986,10 +987,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ActualizarReceta;
     private javax.swing.JMenuItem actualizarMedicina;
     private javax.swing.JMenuItem actualizarMedico;
     private javax.swing.JMenuItem actualizarPaciente;
+    private javax.swing.JMenuItem actualizarReceta;
     private javax.swing.JMenuItem buscarCitaMedica;
     private javax.swing.JMenuItem buscarFactura;
     private javax.swing.JMenuItem buscarMedicina;
