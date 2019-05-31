@@ -68,6 +68,10 @@ public class VentanaEliminarMedicina extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         lbleliminar = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         lblMenuCrearP.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N

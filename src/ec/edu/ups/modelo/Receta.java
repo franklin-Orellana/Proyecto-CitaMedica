@@ -17,17 +17,19 @@ public class Receta {
    private Paciente paciente;
    private CitaMedica citaMedica;
    private Medicina medicina;
+   private String indicaciones;
 
    //creacion de constructores
    public Receta(){
        
    }
 
-    public Receta(int codigo, Paciente paciente, CitaMedica citaMedica, Medicina medicina) {
+    public Receta(int codigo, Paciente paciente, CitaMedica citaMedica, Medicina medicina, String indicaciones) {
         this.codigo = codigo;
         this.paciente = paciente;
         this.citaMedica = citaMedica;
         this.medicina = medicina;
+        this.indicaciones = indicaciones;
     }
 
     public int getCodigo() {
@@ -37,10 +39,7 @@ public class Receta {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-   
-   
 
-    //creacion de getters y setters 
     public Paciente getPaciente() {
         return paciente;
     }
@@ -64,47 +63,20 @@ public class Receta {
     public void setMedicina(Medicina medicina) {
         this.medicina = medicina;
     }
-    //devuelve el toString
+
+    public String getIndicaciones() {
+        return indicaciones;
+    }
+
+    public void setIndicaciones(String indicaciones) {
+        this.indicaciones = indicaciones;
+    }
 
     @Override
     public String toString() {
-        return "Receta{" + "codigo=" + codigo + ", paciente=" + paciente + ", citaMedica=" + citaMedica + ", medicina=" + medicina + '}';
+        return "Receta{" + "codigo=" + codigo + ", paciente=" + paciente + ", citaMedica=" + citaMedica + ", medicina=" + medicina + ", indicaciones=" + indicaciones + '}';
     }
 
-    public void setPrecio(double parseDouble) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setFecha(Date fecha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setCedula(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setNombre(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setSintomas(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setDireccion(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setTelefono(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setIndicaciones(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Object getFecha() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
    
 }
